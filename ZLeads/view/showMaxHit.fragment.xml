@@ -1,0 +1,23 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core" title="{i18n>SHOW_SETTING}" contentWidth="420px" contentHeight="180px" class="showdialog">
+
+    <content>
+    
+        <Text text="{i18n>SHOW_INST}"></Text>
+        <Input id="showInput" value="{showJson>/RetrieveMaxHit/MaxHitNumber}" ></Input>
+        <Text text="{i18n>SHOW_INS_NOTES}" class="showLabel"></Text>
+    </content>
+    <beginButton>
+        <Button text="{i18n>OK}" press="saveMaxHit">
+        </Button>
+    </beginButton>
+    <endButton>
+        <Button text="{i18n>CANCEL} " press="closeShow">
+        </Button>
+    </endButton>
+
+</Dialog>

@@ -1,0 +1,38 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SearchField id="sfe" xmlns="sap.m" search="onEmployeeSearch"
+	    placeholder="{i18n>view.Appointment.searchfieldplaceholder}"
+		liveChange="onEmployeeLiveChange">
+	</SearchField>
+	<List xmlns="sap.m" id="lse"
+		
+		growing="true" growingThreshold="20"
+		growingScrollToLoad="true" 
+		updateStarted="onEmployeeListUpdateStart"
+		updateFinished="onEmployeeListUpdateFinished"
+		noDataText="{i18n>view.Appointment.nointattendees}"
+		mode="SingleSelectMaster" 
+		selectionChange="onSelectEmployee">
+
+		<ObjectListItem xmlns="sap.m" id="lsei"
+			title="{parts:[{path:'sm>firstName'},{path:'sm>lastName'}], formatter: '.formatEmployeeName'}">
+			<attributes>
+				<ObjectAttribute text="{sm>Company/name1}">
+				</ObjectAttribute>
+				<ObjectAttribute text="{sm>WorkAddress/function}">
+				</ObjectAttribute>
+			</attributes>
+			<customData>
+				<core:CustomData key="empid" value="{sm>employeeID}"></core:CustomData>
+				<core:CustomData key="func" value="{sm>WorkAddress/function}"></core:CustomData>
+				<core:CustomData key="compid" value="{sm>Company/accountID}"></core:CustomData>
+			</customData>
+		</ObjectListItem>
+
+	</List>
+</core:FragmentDefinition>

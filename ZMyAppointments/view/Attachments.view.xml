@@ -1,0 +1,49 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View controllerName="cus.crm.mycalendar.view.Attachments"
+		   xmlns="sap.m"
+		   xmlns:me="sap.me"
+		   xmlns:form="sap.ui.layout.form"
+       	   xmlns:dlg="sap.m.dialog"
+       	   xmlns:layout="sap.ui.layout"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 	    
+		   xmlns:caui="sap.ca.ui" 
+           xmlns:html="http://www.w3.org/1999/xhtml">
+           
+           <form:Form id="attTitle">
+				<form:layout>
+					<form:ResponsiveGridLayout id="responsiveGrid_Attachments"></form:ResponsiveGridLayout>
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="attConti">
+	  					<form:formElements>
+							<form:FormElement id="attachmentsContainer">
+           
+					           <caui:FileUpload id="attachments"  
+  	        					 	items="/AppointmentToAttachment" 
+		              				uploadUrl="name"
+		              				fileName="name"
+		              				size="size"
+		              				url="url"
+		              				uploadedDate="uploadedDate"
+		              				uploadEnabled="false"
+			               			contributor="contributor"
+			               			fileExtension="fileExtension"
+			               			fileId="fileId"
+			               			editMode="false"
+			               			showAttachmentsLabel="false"
+			              		  > 
+		  					   </caui:FileUpload >
+		   
+		   					</form:FormElement>
+						</form:formElements>  
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+           
+           
+</core:View>

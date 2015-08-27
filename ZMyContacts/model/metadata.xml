@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+           xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+           xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="CRM_BUPA_ODATA" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Contact" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="contactID"/>
+                    <PropertyRef Name="accountID"/>
+                </Key>
+                <Property Name="contactID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BusinessPartner"/>
+                <Property Name="accountID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BusinessPartner"/>
+                <Property Name="firstName" Type="Edm.String" MaxLength="40" sap:label="First name"/>
+                <Property Name="lastName" Type="Edm.String" MaxLength="40" sap:label="Last name"/>
+                <Property Name="fullName" Type="Edm.String" MaxLength="50" sap:label="Description"/>
+                <Property Name="birthDate" Type="Edm.DateTime" Precision="0" sap:label="Date of Birth"/>
+                <Property Name="company" Type="Edm.String" MaxLength="50" sap:label="Description"/>
+                <Property Name="function" Type="Edm.String" MaxLength="40" sap:label="Function"/>
+                <Property Name="department" Type="Edm.String" MaxLength="40" sap:label="Company dept."/>
+                <Property Name="titleID" Type="Edm.String" MaxLength="4" sap:label="Title"/>
+                <Property Name="title" Type="Edm.String" MaxLength="30" sap:label="Title"/>
+                <Property Name="academicTitleID" Type="Edm.String" MaxLength="4" sap:label="Academic Title"/>
+                <Property Name="academicTitle" Type="Edm.String" MaxLength="20" sap:label="Academic Title"/>
+                <Property Name="isMyContact" Type="Edm.Boolean" sap:label="TRUE"/>
+                <Property Name="isMainContact" Type="Edm.Boolean" sap:label="TRUE"/>
+                <NavigationProperty Name="Notes" Relationship="CRM_BUPA_ODATA.Contact_To_M_Note" FromRole="FromRole_Contact_To_M_Note" ToRole="ToRole_Contact_To_M_Note"/>
+                <NavigationProperty Name="Attachments" Relationship="CRM_BUPA_ODATA.Contact_To_M_Attachment" FromRole="FromRole_Contact_To_M_Attachment" ToRole="ToRole_Contact_To_M_Attachment"/>
+            </EntityType>
+            <EntityType Name="Note" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="tdname"/>
+                    <PropertyRef Name="tdid"/>
+                    <PropertyRef Name="tdspras"/>
+                </Key>
+                <Property Name="contactID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BusinessPartner"/>
+                <Property Name="accountID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BusinessPartner"/>
+                <Property Name="tdname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Text Name"/>
+                <Property Name="tdid" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Text ID"/>
+                <Property Name="tdspras" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language"/>
+                <Property Name="content" Type="Edm.String" sap:label="Text Lines"/>
+                <Property Name="createdAt" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp"/>
+                <Property Name="creator" Type="Edm.String" MaxLength="50" sap:label="Description"/>
+            </EntityType>
+            <EntityType Name="Attachment" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="documentID"/>
+                    <PropertyRef Name="documentClass"/>
+                    <PropertyRef Name="businessPartnerID"/>
+                </Key>
+                <Property Name="documentID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Object ID"/>
+                <Property Name="documentClass" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="DocuClass"/>
+                <Property Name="businessPartnerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BusinessPartner"/>
+                <Property Name="name" Type="Edm.String" MaxLength="40" sap:label="Name"/>
+                <Property Name="description" Type="Edm.String" MaxLength="64" sap:label="Description"/>
+                <Property Name="createdAt" Type="Edm.DateTime" Precision="0" sap:label="Time Stamp"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="40" sap:label="Empl./appl.name"/>
+                <Property Name="fileSize" Type="Edm.String" MaxLength="12" sap:label="File Size"/>
+                <Property Name="mimeType" Type="Edm.String" MaxLength="128" sap:label="MIME type"/>
+            </EntityType>
+            <Association Name="Contact_To_M_Note" sap:content-version="1">
+                <End Type="CRM_BUPA_ODATA.Contact" Multiplicity="1" Role="FromRole_Contact_To_M_Note"/>
+                <End Type="CRM_BUPA_ODATA.Note" Multiplicity="*" Role="ToRole_Contact_To_M_Note"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Contact_To_M_Note">
+                        <PropertyRef Name="contactID"/>
+                        <PropertyRef Name="accountID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Contact_To_M_Note">
+                        <PropertyRef Name="contactID"/>
+                        <PropertyRef Name="accountID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Contact_To_M_Attachment" sap:content-version="1">
+                <End Type="CRM_BUPA_ODATA.Contact" Multiplicity="1" Role="FromRole_Contact_To_M_Attachment"/>
+                <End Type="CRM_BUPA_ODATA.Attachment" Multiplicity="*" Role="ToRole_Contact_To_M_Attachment"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Contact_To_M_Attachment">
+                        <PropertyRef Name="contactID"/>
+                        <PropertyRef Name="accountID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Contact_To_M_Attachment">
+                        <PropertyRef Name="contactID"/>
+                        <PropertyRef Name="accountID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+
+            <EntityContainer Name="CRM_BUPA_ODATA" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="AttachmentCollection" EntityType="CRM_BUPA_ODATA.Attachment" sap:content-version="1"/>
+                <EntitySet Name="ContactCollection" EntityType="CRM_BUPA_ODATA.Contact" sap:content-version="1"/>
+                <EntitySet Name="NoteCollection" EntityType="CRM_BUPA_ODATA.Note" sap:content-version="1"/>
+                <AssociationSet Name="Contact_To_M_Note_AssocSet" Association="CRM_BUPA_ODATA.Contact_To_M_Note"
+                                sap:creatable="false" sap:updatable="false" sap:deletable="false"
+                                sap:content-version="1">
+                    <End EntitySet="ContactCollection" Role="FromRole_Contact_To_M_Note"/>
+                    <End EntitySet="NoteCollection" Role="ToRole_Contact_To_M_Note"/>
+                </AssociationSet>
+                <AssociationSet Name="Contact_To_M_Attachment_AssocSet" Association="CRM_BUPA_ODATA.Contact_To_M_Attachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ContactCollection" Role="FromRole_Contact_To_M_Attachment"/>
+                    <End EntitySet="AttachmentCollection" Role="ToRole_Contact_To_M_Attachment"/>
+                </AssociationSet>
+
+            </EntityContainer>
+            <atom:link rel="self" href="http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_BUPA_ODATA/$metadata"
+                       xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version"
+                       href="http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_BUPA_ODATA/$metadata"
+                       xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

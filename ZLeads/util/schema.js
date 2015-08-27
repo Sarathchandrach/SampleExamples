@@ -1,0 +1,4 @@
+/*
+ * Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+ */
+jQuery.sap.declare("cus.crm.lead.util.schema");cus.crm.lead.util.schema={_getEntityAnnotation:function(m,a,e){var M=m.getServiceMetadata();if((M!=null)&&(M.dataServices!=null)&&(M.dataServices.schema!=null)&&(M.dataServices.schema.length>0)&&(M.dataServices.schema[0].entityType!=null)){var b=M.dataServices.schema[0].entityType;for(var i=0;i<b.length;i++){if(e===b[i].name&&b[i].extensions!=null)for(var j=0;j<b[i].extensions.length;j++){if(b[i].extensions[j].name===a)return b[i].extensions[j].value}}}return null},_getServiceSchemaVersion:function(m,e){var v=this._getEntityAnnotation(m,"service-schema-version",e);return(v!=null)?v:"1"},_getServiceVersion:function(m,e){var v=this._getEntityAnnotation(m,"service-version",e);return(v!=null)?parseInt(v):1},};

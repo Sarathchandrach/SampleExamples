@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="CRM_NOTES" xml:lang="de"
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="NoteHeader" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="NoteGuid" />
+				</Key>
+				<Property Name="NoteGuid" Type="Edm.String" Nullable="false"
+					MaxLength="32" />
+				<Property Name="ChangedAt" Type="Edm.DateTime" Nullable="false" />
+				<Property Name="TeaserType" Type="Edm.String" Nullable="false"
+					MaxLength="1" />
+				<Property Name="TeaserText" Type="Edm.String" Nullable="false"
+					MaxLength="60" />
+				<Property Name="IsFavorite" Type="Edm.Boolean" Nullable="false" />
+				<NavigationProperty Name="navNoteSection"
+					Relationship="CRM_NOTES.NoteHeaderNoteSection" FromRole="FromRole_NoteHeaderNoteSection"
+					ToRole="ToRole_NoteHeaderNoteSection" />
+			</EntityType>
+			<EntityType Name="NoteSection" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="SectionGuid" />
+				</Key>
+				<Property Name="SectionGuid" Type="Edm.String" Nullable="false"
+					MaxLength="22" />
+				<Property Name="NoteGuid" Type="Edm.String" Nullable="false"
+					MaxLength="32" />
+				<Property Name="SequenceNumber" Type="Edm.String" Nullable="false"
+					MaxLength="4" />
+				<Property Name="ContentType" Type="Edm.String" Nullable="false"
+					MaxLength="1" />
+				<Property Name="ContentText" Type="Edm.String" Nullable="false" />
+				<Property Name="IsSelected" Type="Edm.Boolean" Nullable="false" />
+				<NavigationProperty Name="navNoteLog"
+					Relationship="CRM_NOTES.NoteSectionNoteLog" FromRole="FromRole_NoteSectionNoteLog"
+					ToRole="ToRole_NoteSectionNoteLog" />
+			</EntityType>
+			<EntityType Name="NoteLog" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="LogGuid" />
+				</Key>
+				<Property Name="ActionText" Type="Edm.String" Nullable="false" />
+				<Property Name="CreatedAt" Type="Edm.Decimal" Nullable="false"
+					Precision="8" Scale="0" />
+				<Property Name="SectionGuid" Type="Edm.String" Nullable="false"
+					MaxLength="22" />
+				<Property Name="LogGuid" Type="Edm.String" Nullable="false"
+					MaxLength="32" />
+			</EntityType>
+			<Association Name="NoteSectionNoteLog"
+				sap:content-version="1">
+				<End Type="CRM_NOTES.NoteSection" Multiplicity="1"
+					Role="FromRole_NoteSectionNoteLog" />
+				<End Type="CRM_NOTES.NoteLog" Multiplicity="*"
+					Role="ToRole_NoteSectionNoteLog" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NoteSectionNoteLog">
+						<PropertyRef Name="SectionGuid" />
+					</Principal>
+					<Dependent Role="ToRole_NoteSectionNoteLog">
+						<PropertyRef Name="SectionGuid" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="NoteHeaderNoteSection"
+				sap:content-version="1">
+				<End Type="CRM_NOTES.NoteHeader" Multiplicity="1"
+					Role="FromRole_NoteHeaderNoteSection" />
+				<End Type="CRM_NOTES.NoteSection" Multiplicity="*"
+					Role="ToRole_NoteHeaderNoteSection" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_NoteHeaderNoteSection">
+						<PropertyRef Name="NoteGuid" />
+					</Principal>
+					<Dependent Role="ToRole_NoteHeaderNoteSection">
+						<PropertyRef Name="NoteGuid" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="CRM_NOTES"
+				m:IsDefaultEntityContainer="true">
+				<EntitySet Name="NoteSections" EntityType="CRM_NOTES.NoteSection"
+					sap:content-version="1" />
+				<EntitySet Name="NoteLogs" EntityType="CRM_NOTES.NoteLog"
+					sap:content-version="1" />
+				<EntitySet Name="NoteHeaders" EntityType="CRM_NOTES.NoteHeader"
+					sap:content-version="1" />
+				<AssociationSet Name="NoteSectionNoteLogSet"
+					Association="CRM_NOTES.NoteSectionNoteLog" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="NoteSections" Role="FromRole_NoteSectionNoteLog" />
+					<End EntitySet="NoteLogs" Role="ToRole_NoteSectionNoteLog" />
+				</AssociationSet>
+				<AssociationSet Name="NoteHeaderNoteSectionSet"
+					Association="CRM_NOTES.NoteHeaderNoteSection" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="NoteHeaders" Role="FromRole_NoteHeaderNoteSection" />
+					<End EntitySet="NoteSections" Role="ToRole_NoteHeaderNoteSection" />
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link rel="self"
+				href="https://ldciag3.wdf.sap.corp:44354/sap/opu/odata/sap/CRM_NOTES/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+			<atom:link rel="latest-version"
+				href="https://ldciag3.wdf.sap.corp:44354/sap/opu/odata/sap/CRM_NOTES/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

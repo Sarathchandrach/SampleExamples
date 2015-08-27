@@ -1,0 +1,41 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog id="dialogEmployeeF4"  xmlns="sap.m"  title="{i18n>SELECT_EMPLOYEE}" contentWidth="480px" contentHeight="720px">
+          <subHeader>
+            <Bar>
+               <contentLeft>
+           <SearchField placeholder="{i18n>SEARCH_EMPLOYEE}" search="searchEmployee" liveChange="searchEmployee"></SearchField>
+              </contentLeft>
+           </Bar>
+           </subHeader>
+           <content>
+              <List id="employeeList" noDataText="{i18n>NO_EMPLOYEE}" mode="SingleSelectMaster"  items="{json>/EmployeeCollection}"  selectionChange="setEmployee" growing="true" >
+                  <items>
+                    <ObjectListItem
+					title="{path:'json>fullName'}">
+					<attributes>
+						<ObjectAttribute text="{json>employeeID}">
+						</ObjectAttribute>
+					</attributes>
+				</ObjectListItem>          
+		          </items>
+                    <infoToolbar>
+                    <Toolbar id="employeeF4Toolbar" active="false">
+          <content>
+                   <Label id="filterByLabel"  text=""></Label>
+                   <ToolbarSpacer ></ToolbarSpacer>
+                   <Button id="XButton" type="Transparent"  icon="sap-icon://sys-cancel-2" press="closeEmpToolbar"></Button>
+              
+          </content>
+        </Toolbar>
+                  </infoToolbar>  
+              </List>
+          </content>
+          <beginButton>
+              <Button text="{i18n>CANCEL}" press="closeEmployeeF4" >
+              </Button>
+           </beginButton>
+        </Dialog>

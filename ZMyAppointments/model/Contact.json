@@ -1,0 +1,679 @@
+[
+
+{
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421488',accountID='421111')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421488',accountID='421111')",
+            "type": "CRM_APPOINTMENT_SRV.Contact"
+        },
+        "contactID": "421488",
+        "accountID": "421111",
+        "firstName": "Nina",
+        "lastName": "New",
+        "fullName": "Dr. Nina New",
+        "birthDate": "/Date(1381968000000)/",
+        "company": "Sunflowers Ltd",
+        "function": "New Contact",
+        "department": "Fiori Flowers",
+        "titleID": "0001",
+        "title": "Ms.",
+        "academicTitleID": "0001",
+        "academicTitle": "Dr",
+        "isMyContact": false,
+        "isMainContact": false,
+        "WorkAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41064',accountID='421111',personID='421488')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41064',accountID='421111',personID='421488')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "41064",
+            "accountID": "421111",
+            "personID": "421488",
+            "mobilePhone": "+33 (0033) 7788994455",
+            "phone": "+33-12345678",
+            "email": "nina.new@sunflowers.com",
+            "address": "99 cité des Fleurs\r\nF-75017 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        },
+        "MainAddress": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421488',accountID='421111')/MainAddress"
+            }
+        },
+        "Photo": null,
+        "Notes": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421488',accountID='421111')/Notes"
+            }
+        },
+        "Attachments": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421488',accountID='421111')/Attachments"
+            }
+        },
+        "Account": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')",
+                "type": "CRM_APPOINTMENT_SRV.Account"
+            },
+            "accountID": "421111",
+            "name1": "Sunflowers Ltd",
+            "isMyAccount": false,         
+            "MainAddress": {
+                "__metadata": {
+                    "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41059',accountID='421111',personID='')",
+                    "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41059',accountID='421111',personID='')",
+                    "type": "CRM_APPOINTMENT_SRV.Address"
+                },
+                "addressNumber": "41059",
+                "accountID": "421111",
+                "personID": "",
+                "mobilePhone": "",
+                "phone": "",
+                "email": "",
+                "address": "12 Hyde Cres\r\nLONDON\r\nNW9 7HA\r\nUNITED KINGDOM",
+                "city": "London",
+                "country": "United Kingdom",
+                "department": "",
+                "function": ""
+            }
+          
+  }
+}, {
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420958',accountID='420956')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420958',accountID='420956')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"
+    },
+    "contactID": "420958",
+    "accountID": "420956",
+    "firstName": "Cathy",
+    "lastName": "Smith",
+    "fullName": "Cathy Smith",
+    "birthDate": null,
+    "company": "Multiple Contacts Ltd.",
+    "function": "Sales Manager",
+    "department": "Sales",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420958')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420958')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "40100",
+        "accountID": "420956",
+        "personID": "420958",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "cathy@multiple.com",
+        "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420958',accountID='420956')/MainAddress"
+        }
+    },
+    "Photo": null,
+    "Notes": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420958',accountID='420956')/Notes"
+        }
+    },
+    "Attachments": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420958',accountID='420956')/Attachments"
+        }
+    },
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        },
+        "accountID": "420956",
+        "name1": "Multiple Contacts Ltd.",
+        "isMyAccount": false,       
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "40100",
+            "accountID": "420956",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        }
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420960',accountID='420956')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420960',accountID='420956')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"
+       
+    },
+    "contactID": "420960",
+    "accountID": "420956",
+    "firstName": "Max",
+    "lastName": "Meyer",
+    "fullName": "Max Meyer",
+    "birthDate": null,
+    "company": "Multiple Contacts Ltd.",
+    "function": "Ministre",
+    "department": "",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420960')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420960')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "40100",
+        "accountID": "420956",
+        "personID": "420960",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "max@multiple.com",
+        "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420960',accountID='420956')/MainAddress"
+        }
+    },
+    "Photo": null,
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        },
+        "accountID": "420956",
+        "name1": "Multiple Contacts Ltd.",
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "40100",
+            "accountID": "420956",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        }      
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420957',accountID='420956')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420957',accountID='420956')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"
+    },
+    "contactID": "420957",
+    "accountID": "420956",
+    "firstName": "Léon",
+    "lastName": "Dujardin",
+    "fullName": "Léon Dujardin",
+    "birthDate": null,
+    "company": "Multiple Contacts Ltd.",
+    "function": "Jardinier",
+    "department": "",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420957')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420957')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "40100",
+        "accountID": "420956",
+        "personID": "420957",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "leon.dujardin@multiple.com",
+        "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420957',accountID='420956')/MainAddress"
+        }
+    },
+    "Photo": null,
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        },
+        "accountID": "420956",
+        "name1": "Multiple Contacts Ltd.",
+        "isMyAccount": false,    
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "40100",
+            "accountID": "420956",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        }
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420959',accountID='420956')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420959',accountID='420956')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"      
+    },
+    "contactID": "420959",
+    "accountID": "420956",
+    "firstName": "Sonia",
+    "lastName": "Sommer",
+    "fullName": "Sonia Sommer",
+    "birthDate": null,
+    "company": "Multiple Contacts Ltd.",
+    "function": "Developer",
+    "department": "CRM",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420959')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420959')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "40100",
+        "accountID": "420956",
+        "personID": "420959",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "sonia@multiple.com",
+        "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "Photo":null,
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        },
+        "accountID": "420956",
+        "name1": "Multiple Contacts Ltd.",
+        "isMyAccount": false,
+        "MainContact": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')/MainContact"
+            }
+        },
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "40100",
+            "accountID": "420956",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        }
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420961',accountID='420956')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420961',accountID='420956')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"
+    },
+    "contactID": "420961",
+    "accountID": "420956",
+    "firstName": "Valery",
+    "lastName": "Winter",
+    "fullName": "Valery Winter",
+    "birthDate": null,
+    "company": "Multiple Contacts Ltd.",
+    "function": "Developer",
+    "department": "CRM",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420961')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='420961')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "40100",
+        "accountID": "420956",
+        "personID": "420961",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "valery@multiple.com",
+        "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='420961',accountID='420956')/MainAddress"
+        }
+    },
+    "Photo": null,  
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('420956')",
+            "type": "CRM_APPOINTMENT_SRV.Account"           
+        },
+        "accountID": "420956",
+        "name1": "Multiple Contacts Ltd.",
+        "isMyAccount": false,     
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='40100',accountID='420956',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "40100",
+            "accountID": "420956",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+            "city": "Paris",
+            "country": "France",
+            "department": "",
+            "function": ""
+        }
+      
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421114',accountID='421111')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421114',accountID='421111')",
+        "type": "CRM_APPOINTMENT_SRV.Contact"      
+    },
+    "contactID": "421114",
+    "accountID": "421111",
+    "firstName": "Rose",
+    "lastName": "Dujardin",
+    "fullName": "Rose Dujardin",
+    "birthDate": null,
+    "company": "Sunflowers Ltd",
+    "function": "Manager",
+    "department": "Vente",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41064',accountID='421111',personID='421114')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41064',accountID='421111',personID='421114')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "41064",
+        "accountID": "421111",
+        "personID": "421114",
+        "mobilePhone": "",
+        "phone": "+33 (7517) 1101",
+        "email": "rose@sunflowers.fr",
+        "address": "99 cité des Fleurs\r\nF-75017 PARIS",
+        "city": "Paris",
+        "country": "France",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421114',accountID='421111')/MainAddress"
+        }
+    },
+    "Photo": null,   
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        },
+        "accountID": "421111",
+        "name1": "Sunflowers Ltd",
+        "isMyAccount": false,
+        "MainContact": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')/MainContact"
+            }
+        },
+        "Contacts": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')/Contacts"
+            }
+        },
+        "Logo": {
+            "__deferred": {
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('421111')/Logo"
+            }
+        },
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41059',accountID='421111',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='41059',accountID='421111',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "41059",
+            "accountID": "421111",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "12 Hyde Cres\r\nLONDON\r\nNW9 7HA\r\nUNITED KINGDOM",
+            "city": "London",
+            "country": "United Kingdom",
+            "department": "",
+            "function": ""
+        }
+    
+    }
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')",
+        "type": "CRM_APPOINTMENT_SRV.Contact",
+        "properties": {
+            "WorkAddress": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/WorkAddress"
+            },
+            "MainAddress": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/MainAddress"
+            },
+            "Photo": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/Photo"
+            },
+            "Notes": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/Notes"
+            },
+            "Attachments": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/Attachments"
+            },
+            "Account": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/$links/Account"
+            }
+        }
+    },
+    "contactID": "421371",
+    "accountID": "417820",
+    "firstName": "Thomas",
+    "lastName": "Schörner",
+    "fullName": "Thomas Schörner",
+    "birthDate": null,
+    "company": "SAP AG",
+    "function": "User Experience Designer",
+    "department": "Business Suite UX",
+    "titleID": "0002",
+    "title": "Mr.",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "isMyContact": false,
+    "isMainContact": false,
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='29132',accountID='417820',personID='421371')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='29132',accountID='417820',personID='421371')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "29132",
+        "accountID": "417820",
+        "personID": "421371",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "thomas.schoerner@sap.com",
+        "address": "SAP AG\r\nDietmar-Hopp-Allee 16\r\nD-69190 WALLDORF",
+        "city": "Walldorf",
+        "country": "Germany",
+        "department": "",
+        "function": ""
+    },
+    "MainAddress": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/MainAddress"
+        }
+    },
+    "Photo": null,
+    "Notes": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/Notes"
+        }
+    },
+    "Attachments": {
+        "__deferred": {
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/ContactCollection(contactID='421371',accountID='417820')/Attachments"
+        }
+    },
+    "Account": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('417820')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('417820')",
+            "type": "CRM_APPOINTMENT_SRV.Account"          
+        },
+        "accountID": "417820",
+        "name1": "SAP AG",
+        "isMyAccount": false,
+       
+        "MainAddress": {
+            "__metadata": {
+                "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='29132',accountID='417820',personID='')",
+                "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='29132',accountID='417820',personID='')",
+                "type": "CRM_APPOINTMENT_SRV.Address"
+            },
+            "addressNumber": "29132",
+            "accountID": "417820",
+            "personID": "",
+            "mobilePhone": "",
+            "phone": "",
+            "email": "",
+            "address": "SAP AG\r\nDietmar-Hopp-Allee 16\r\nD-69190 WALLDORF",
+            "city": "Walldorf",
+            "country": "Germany",
+            "department": "",
+            "function": ""
+        }
+    
+    }
+
+}
+
+]

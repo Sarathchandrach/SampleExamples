@@ -1,0 +1,18 @@
+[
+ {
+  "SectionGuid" : "10163EA720001ED3808381E2B2E7AAAA",
+  "NoteGuid" : "00163EA720001ED3808381E2B2E7D108",
+  "SequenceNumber" : "1",
+  "ContentType" : "T",
+  "ContentText" : "The first section",
+  "IsSelected" : "true"
+ },
+ {
+  "SectionGuid" : "10163EA720001ED3808381E2B2E7AAAB",
+  "NoteGuid" : "00163EA720001ED3808381E2B2E7D110",
+  "SequenceNumber" : "1",
+  "ContentType" : "T",
+  "ContentText" : "The second section",
+  "IsSelected" : "true"
+ }
+]

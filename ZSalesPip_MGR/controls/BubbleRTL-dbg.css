@@ -1,0 +1,289 @@
+/* START of S1.view.xml */
+.showMiddle {
+	padding-top: 0rem;
+}
+
+.showMiddleProgressIndicator {
+	padding-top: 1.4rem;
+	right: 79%;
+	position: absolute;
+	width: 20%;
+}
+
+.selectionLayout {
+	display: block !important;
+	margin-bottom: 5%;
+}
+
+.facetLayout>.sapUiHLayoutChildWrapper {
+	width: 100%;
+}
+
+.dropdown {
+	margin-right: 1em;
+}
+
+.alignLeft {
+	float: right;
+}
+
+.alignRight {
+	float: left !important;
+	display: inline;
+}
+
+.alignRightIE9 {
+	float: left !important;
+}
+
+.alignRightIE9>.sapUiHLayoutChildWrapper>.sapMBtn>.sapMBtnEmphasized>.sapMBtnContent
+	{
+	display: block !important;
+}
+
+.boldText {
+	font-weight: bold;
+	color: @sapUiLightText;
+	font-size: 0.875rem;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/* END of S1.view.xml */
+/* START of BubbleChart.js */
+.bubble {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.cusCrmSalesPipelineSimAS.sapMPopover {
+	min-width: 3.125rem;
+}
+/* END of BubbleChart.js */
+/* START of MDualSlider.js */
+.sapcrmMsliCont {
+	display: inline-block;
+	vertical-align: top;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	height: 3rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.sapcrmMSliCont: not (.sapcrmMSliContDisabled) {
+	cursor: pointer;
+}
+
+.sapcrmMSliContDisabled {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.sapcrmMsli {
+	height: 2rem;
+	background-color: @sapUiListBorderColor;
+	width: 100%;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+.sapcrmMSliDisabled {
+	background: none;
+}
+
+.sapcrmMsliProgress {
+	background-color: @sapUiSliderProgressBG;
+	position: absolute;
+	cursor: pointer;
+	height: 2rem;
+	opacity: 0.25;
+}
+
+.sapcrmMsliHandle {
+	margin-right: -1rem;
+	height: 1.75rem;
+	width: 1.75rem;
+	border-radius: 1rem;
+	/* @sapUiSegmentedBtnBorderFooter to be used in SAP UI5 1.18.9 & lower*/
+	border: 0.125rem solid@sapUiExtraDarkBorder;
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	top: 0 !important;
+	background-color: rgba(153, 153, 153, 0.9) !important;
+}
+
+.sapcrmMsliHandleInner {
+	position: absolute;
+	pointer-events: none;
+	cursor: pointer;
+}
+
+.sliderText {
+	display: inline-flex;
+	font-size: 0.875rem;
+	position: relative;
+}
+/* END of MDualSlider.js */
+/* START of Opportunity.fragment.xml */
+.inputControl1 {
+	margin-top: 0.25rem;
+}
+
+.inputControl {
+	margin-top: 0.25rem;
+	margin-bottom: 0.75rem;
+}
+
+.switchLbl {
+	margin-top: 1rem;
+	margin-left: 1rem;
+}
+/* END of Opportunity.fragment.xml */
+/* START of salesPeriodSettings.fragment.xml */
+.settingPad {
+	padding: 1rem !important;
+}
+/* END of salesPeriodSettings.fragment.xml */
+/* START of MISC */
+.cusCrmSalesPipelineSim svg {
+	background-color: @sapShell_Background;
+	opacity: 0.8;
+	border-color: @sapUiLightBorder;
+	border-width: 0.0625rem;
+	border-style: solid;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	overflow: hidden;
+}
+
+.grid .tick {
+	stroke: @sapUiLightLine;
+	opacity: 0.8;
+}
+
+.grid path {
+	stroke: lightgrey;
+	fill: none;
+	shape-rendering: crispEdges;
+}
+
+.grid text {
+	font-size: 0.75rem;
+	font-family: sans-serif;
+}
+
+.axis path {
+	fill: none;
+	stroke: lightgrey;
+	shape-rendering: crispEdges;
+}
+
+.axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-size: 0.75rem;
+	font-family: sans-serif;
+}
+
+.cusCrmSalesPipelineSim circle {
+	-webkit-transition: fill-opacity 250ms linear;
+}
+
+.selecting circle {
+	fill-opacity: 0.2;
+}
+
+.bubbles {
+	opacity: 0.8;
+}
+
+#revenueLbl {
+	font-size: 0.8125rem;
+	color: white;
+	word-wrap: break-word;
+	padding: 0.125rem;
+}
+
+#valueLbl {
+	font-size: 0.8125rem;
+	color: white;
+	word-wrap: break-word;
+}
+
+#detailBtn {
+	position: absolute;
+	margin-top: 1.875rem;
+	left: 0.9375rem;
+}
+
+.circleText {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 0.75rem;
+	/*position: inherit !important;*/
+}
+
+.hcenter {
+	width: 100%;
+}
+
+.cusCrmSalesPipelineSim.sapMOH {
+	margin: 0rem !important;
+	padding: 0rem !important;
+}
+/* END of MISC */
+/* 
+.tabelCell {
+	position: relative !important;
+	margin-top: 10% !important;
+	white-space: normal !important;
+	word-break: break-word !important;
+}
+
+.headerTitle2 {
+	margin-left: 1.5rem;
+}
+
+.progressBarText {
+	font-weight: bold;
+	color: @sapUiLightText;
+	font-size: 0.875rem;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.displayBySizeButton : hover {
+	background-color: @sapShell_Background;
+	height: 2.5rem;
+}
+
+.displayBySizeButton {
+	background-color: @sapUiWhite;
+	height: 2.5rem;
+	color: @sapUiLightText;
+	margin-top: 0.3em;
+	margin-right: 1em;
+}
+
+.displayBySizeButton>.sapMBtnContent>.sapUiIcon {
+	line-height: 2.175rem;
+	font-size: 1.0rem;
+}
+
+.displayBySizeButton>.sapMBtnContent {
+	line-height: 2.0rem;
+}
+.sapMBtnDesktop:hover:not(.sapMBtnDisabled) {
+    background-color: @sapUiWhite;
+    border-color: @sapUiBlue;
+}
+.displayBySizeButton :hover {
+	height: 2.1rem;
+} */

@@ -1,0 +1,8 @@
+{ "application" : "cus.crm.notes",
+  "version" : "1.5.3",
+  "buildNumber" : "35",
+  "buildId" : "2014-12-03_12-26-56",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

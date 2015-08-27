@@ -1,0 +1,339 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:ui="sap.ui.layout" controllerName="cus.crm.opportunity.view.S4"  xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	xmlns:ca="sap.ca.ui"  xmlns:html="http://www.w3.org/1999/xhtml" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="editPage" title="{i18n>EDIT_TITLE}" class="sapUiFioriObjectPage"
+		enableScrolling="true">
+		<content>
+		 <!-- Extension point to add additional opportunity edit Content at the top-->
+		<core:ExtensionPoint name="opportunityEditContentTopExtension"></core:ExtensionPoint>
+			<ui:form.SimpleForm id="form1" minWidth="1024"	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"	columnsL="1" columnsM="1" class="editableForm" 
+				visible="{path : 'versioning>/BackendSchemaVersion',formatter : 'cus.crm.opportunity.util.Formatter.formatEmployeeRespField'}" >
+				<ui:content>
+					<Label id="descriptionLabel_S4" text="{i18n>NAME}*">
+					</Label>
+					<Input id="description" maxLength="40"   
+						placeholder="{i18n>MAX_CHARS}" liveChange="descriptionChanged"></Input>
+						
+                    <!-- TYPE and OPPORTUNITY ID Fields reordered -->
+				    <Label id="opportunityType_labelS4" text="{i18n>TYPE}"></Label>
+				    <Text id="opportunityType" ></Text>
+				  
+				    <Label id="oppIdLabel_S4" text="{i18n>OPPOR_ID} "></Label>
+				    <Text id="id" ></Text>
+
+					<Label id="accountLabel_S4" text="{i18n>ACCOUNT}">
+					</Label>
+					<Text id="account" ></Text>
+					
+
+					<Label id="mainContactLabel_S4" text="{i18n>MAIN_CONTACT}">
+					</Label>
+					<Input id="inputMainContact"
+						value="{contact}" 
+					liveChange="onContactInputFieldChanged" 
+					suggestionItemSelected="onContactSuggestItemSelected" 
+					valueHelpRequest="showContactF4" 
+					valueHelpOnly="false" 
+					showValueHelp="true">
+					
+					</Input>
+						
+					<Label id="empResponsibleLabel_S4" text="{i18n>S4.FORM.EMPLOYEE_RESPONSIBLE}" visible="{path : 'versioning>/BackendSchemaVersion',
+					    formatter : 'cus.crm.opportunity.util.Formatter.formatEmployeeRespField'}">
+					</Label>
+					
+					<Input id="inputEmpResponsible"
+					 value="{employee}"
+					 visible="{path : 'versioning>/BackendSchemaVersion',formatter : 'cus.crm.opportunity.util.Formatter.formatEmployeeRespField'}" 
+					 liveChange="onEmployeeInputFieldChanged" 
+					 suggestionItemSelected="onEmployeeSuggestItemSelected" 
+					 valueHelpRequest="showEmployeeF4" 
+					 valueHelpOnly="false" 
+					 showValueHelp="true" >
+	   			 	</Input>
+						
+						
+					<Label id="expSalesVolumeLabel_S4" text="{i18n>UNWEIGHTED_VOLUME}"></Label>
+					<Input id="expectedSalesVolume" maxLength="13"
+						liveChange="volumeChanged"></Input>
+					<Input id="currency" value="curr" placeholder="{i18n>CURRENCY}"
+						showValueHelp="true" 
+						showSuggestion="true"
+						valueHelpRequest="showCurrencyF4"
+						liveChange="onCurrencyInputFieldChanged"
+						suggestionItemSelected="onCurrencySuggestItemSelected"
+						valueHelpOnly="false"
+						suggestionItems="{json>/Currencies}">
+						<suggestionItems>
+						 <core:Item text="{json>CurrencyKey}"></core:Item>
+						</suggestionItems> </Input>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<!--  Commented to make these fields appear after the Name field. Purpose: To change the order of fields in edit opportunity page.
+			<ui:form.SimpleForm id="formType" minWidth="1024"
+				maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+				<Label id="opportunityType_labelS4" text="{i18n>TYPE}"></Label>
+				<Text id="opportunityType" ></Text>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form5" minWidth="1024"
+				maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+				<Label id="oppIdLabel_S4" text="{i18n>OPPOR_ID} "></Label>
+				<Text id="id" ></Text>
+				</ui:content>
+			</ui:form.SimpleForm>
+			-->
+			<ui:form.SimpleForm id="form99" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="startDateLabel_S4" text="{i18n>START_DATE}">
+					</Label>
+					<ca:DatePicker id="datePickerStartDate"
+						></ca:DatePicker>
+
+					<Label id="endDateLabel_S4" text="{i18n>CLOSE_DATE}*">
+					</Label>
+					<ca:DatePicker id="datePickerEndDate"
+						></ca:DatePicker>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form7" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="statusLabel_S4" text="{i18n>STATUS}">
+					</Label>
+					<Select id="userStatus" items="{json>/UserStatuses}" class="pos_input">
+						<items>
+							<core:Item key="{json>UserStatusCode}" text="{json>UserStatusText}">
+							</core:Item>
+						</items>
+					</Select>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form8" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="stagesLabel_S4" text="{i18n>STAGE}">
+					</Label>
+					<Select id="stages" items="{json>/SalesStages}" class="pos_input">
+						<items>
+							<core:Item key="{json>SalesStageCode}" text="{json>SalesStageDescription}">
+							</core:Item>
+						</items>
+					</Select>
+
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form81" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="chanceOfSuccessLabel_S4" text="{i18n>CHANCE_OF_SUCCESS}(%)">
+					</Label>
+					<Input id="chanceOfSuccess" liveChange="chanceOfSuccessChanged"
+						value="{path:'ChanceOfSuccess' , formatter: 'cus.crm.opportunity.util.Formatter.texttonumber'}"></Input>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form9" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="priorityLabel_S4" text="{i18n>PRIORITY}"></Label>
+					<Select id="priority" items="{json>/Priorities}" class="pos_input">
+						<items>
+							<core:Item key="{json>PriorityCode}" text="{json>PriorityText}">
+							</core:Item>
+						</items>
+					</Select>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form10" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="wtVolLabel_S4" text="{i18n>WEIGHTED_VOLUME}"></Label>
+					<Text id="wtVol" class="CosPadding"></Text>
+					<Label id="opportunityTotalNetValue_Label_S4" text="{i18n>VOLUME}"></Label>
+					<Text id="opportunityTotalNetValue_Text_S4" 
+					 text = "{parts:[{path:'json>TotalExpectedNetValue'}, {path:'json>CurrencyCode'}], formatter:'cus.crm.opportunity.util.Formatter.totalexpectednetValue'}"></Text>
+				</ui:content>
+			</ui:form.SimpleForm>
+			<ui:form.SimpleForm id="form11" minWidth="1024"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+				columnsL="1" columnsM="1" class="editableForm">
+				<ui:content>
+					<Label id="forecastLabel_S4" text="{i18n>FORECAST}"></Label>
+					<Switch id="switch"></Switch>
+				</ui:content>
+			</ui:form.SimpleForm>
+
+<!-- Removal of salesarea details in edit -->
+    			<!-- <form:Form id="tit1" class="sapUiFormEdit sapUiFormEdit-CTX" title="{i18n>SALES_AREA}">
+  				<form:layout>
+					<core:Fragment fragmentName="cus.crm.opportunity.view.EditLayout"
+						type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="descContainer1">
+						<form:formElements>
+						
+							<form:FormElement id="salesorganization_id">
+								<form:label>
+									<Label id="salesorganization_label" text="{i18n>SALES_ORGANIZATION}">
+									</Label>
+								</form:label>
+								<form:fields>
+								<Text id="salesorganization_Text"></Text>
+								<Button id="salesareaIcon" icon="sap-icon://edit" type="Transparent"
+									press="showSalesAreaF4">
+									<layoutData>
+										<layout:GridData span="L1 M1 S12">
+										</layout:GridData>
+									</layoutData>
+								</Button>
+								</form:fields>
+							</form:FormElement>
+
+							<form:FormElement id="distributionchannel_id">
+								<form:label>
+									<Label id="distributionchannel_label" text="{i18n>DISTRIBUTION_CHANNEL}">
+									</Label>
+								</form:label>
+								<form:fields>
+									<Text id="distributionchannel_Text"></Text>
+								</form:fields>
+							</form:FormElement>
+
+							<form:FormElement id="division_id">
+								<form:label>
+									<Label id="division_label" text="{i18n>DIVISION_ID}">
+									</Label>
+								</form:label>
+								<form:fields>
+									<Text id="division_Text"></Text>
+								</form:fields>
+							</form:FormElement>
+
+						</form:formElements>
+
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+ -->			<!-- Extension point to add additional opportunity edit Content at the top-->
+			<core:ExtensionPoint name="opportunityEditContentBottomExtension"></core:ExtensionPoint>
+			<Table id="productBasketEdit" headerText="{i18n>PRODUCT_BASKET}"
+				noDataText="{i18n>EMPTY_PROD}" headerDesign="Standard" items="{json>/Products}"
+				class="table_resize divisionPadding">
+				<headerToolbar>
+					<Toolbar id="productBasketToolbar_S4">
+						<Label id="productLabel_S4" text="{i18n>PRODUCT_BASKET}">
+						</Label>
+						<ToolbarSpacer id="productSpacer_S4" >
+						</ToolbarSpacer>
+						<Button id="ProductButton" icon="sap-icon://add" text="{path : 'i18n>ADD_PROD', formatter : 'cus.crm.opportunity.util.Formatter.formatAddMoreProductsText'}"
+							press="onAddProduct">
+						</Button>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+				<!-- Extension point to add additional opportunity edit product table column-->
+				<core:ExtensionPoint name="opportunityEditProductTabColoumExtension"></core:ExtensionPoint>
+					<Column id="basketColumn1_S4" vAlign="Middle" width="35%">
+						<header>
+							<Label id="productBasketLabel_S4" text="{i18n>PRODUCT_OR_CATEGORY}" design="Bold"></Label>
+						</header>
+					</Column>
+
+					<Column id="basketColumn2_S4" vAlign="Middle" width="20%" hAlign="Right">
+						<header>
+							<Label id="quantityLabel_S4" text="{i18n>QUANTITY}" design="Bold"></Label>
+						</header>
+					</Column>
+
+					<Column id="basketColumn3_S4" vAlign="Middle" width="15%" minScreenWidth="Tablet"
+						demandPopin="true" hAlign="Right">
+						<header>
+							<Label id="unitPriceLabel_S4" text="{i18n>UNIT_PRICE}" design="Bold"></Label>
+						</header>
+					</Column>
+
+					<Column id="basketColumn4_S4" vAlign="Middle" width="20%" hAlign="Right"
+						minScreenWidth="Tablet" demandPopin="true">
+						<header>
+							<Label id="vol_S4" text="{i18n>VOLUME}" design="Bold"></Label>
+						</header>
+					</Column>
+
+					<Column  id="basketColumn5_S4" vAlign="Middle" width="10%" minScreenWidth="Tablet"
+						hAlign="Right" demandPopin="true">
+						<header>
+						</header>
+					</Column>
+					<!-- Extension point to add additional opportunity edit product table column at the end-->
+				<core:ExtensionPoint name="opportunityEditProductTabColoumendExtension"></core:ExtensionPoint>	
+				</columns>
+				<items>
+					<ColumnListItem id="productBasketTemplate_S4">
+						<cells>
+						<!-- Extension point to add additional opportunity edit product table cells -->
+						<core:ExtensionPoint name="opportunityEditProductTabCellsExtension"></core:ExtensionPoint>
+							<ui:VerticalLayout id="productBasketVLayout_S4" hAlign="Left">
+								<ui:content>
+									<Label id="productLabelValue_S4" design="Bold"
+										text="{path : 'json>ProductGuid', formatter : 'cus.crm.opportunity.util.Formatter.formatProductName'}"></Label>
+									<Label id="productClassificationValue_S4"
+										text="{path: 'json>ProductGuid',formatter : 'cus.crm.opportunity.util.Formatter.formatProdClassification'}"></Label>
+								</ui:content>
+							</ui:VerticalLayout>
+							<ui:HorizontalLayout id="productBasketHLayout_S4" width="150px" custom:field="QUANTITY">
+								<ui:content>
+									<Input width="75px" id="quantityValue_S4" 
+										value="{parts:[{path:'json>Quantity'}, {path:'json>Unit'}], formatter:'cus.crm.opportunity.util.Formatter.formatQuantityEdit'}"
+										editable="{path : 'json>ProductGuid', formatter : 'cus.crm.opportunity.util.Formatter.formatQuantityField'}"
+										liveChange="quantityChanged" class="numberRTL">
+										</Input>
+									<Text id="unit" text="{json>Unit}" class="UnitPadding"></Text>
+								</ui:content>
+							</ui:HorizontalLayout>
+							<ObjectNumber custom:field="NETVALUE" id="netValue_S4" number="{json>NetValue}" numberUnit="{json>CurrencyCode}" />
+							<Input width="75px" id="expectedNetValue_S4" 
+										value="{json>TotalExpectedNetValue}"
+										editable="true" liveChange="volumeChanged" class="numberRTL">
+										</Input>
+							<ui:VerticalLayout>
+								<Button id="productDeleteButton_S4" icon="sap-icon://sys-cancel-2"
+									visible="{path : 'json>ProductGuid',formatter : 'cus.crm.opportunity.util.Formatter.formatDeleteButton'}"
+									type="Transparent" press="deleteProduct"></Button>
+							</ui:VerticalLayout>
+							<!-- Extension point to add additional opportunity edit product table cells at the end -->
+							<core:ExtensionPoint name="opportunityEditProductTabCellsEndExtension"></core:ExtensionPoint>	
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+	</Page>
+</core:View>

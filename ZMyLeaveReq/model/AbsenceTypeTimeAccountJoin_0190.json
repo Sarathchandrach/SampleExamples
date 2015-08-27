@@ -1,0 +1,30 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='03')",
+				"type": "LEAVEREQUEST.TimeAccount"
+			},
+			"EmployeeID": "12000002",
+			"FilterStartDate": null,
+			"FilterEndDate": null,
+			"FilterAbsenceTypeCode": "",
+			"ProcessingStartDate": "\/Date(1356998400000)\/",
+			"ProcessingEndDate": "\/Date(1388448000000)\/",
+			"TimeAccountTypeCode": "03",
+			"TimeAccountTypeName": "Educational Leave (Days)",
+			"DeductionStartDate": "\/Date(1356998400000)\/",
+			"DeductionEndDate": "\/Date(1396224000000)\/",
+			"TimeUnitCode": "010",
+			"TimeUnitName": "Days",
+			"BalanceEntitlementQuantity": "20.00000",
+			"BalanceUsedQuantity": "13.00000",
+			"BalanceApprovedQuantity": "0.00000",
+			"BalanceRequestedQuantity": "1.00000",
+			"BalancePlannedQuantity": "1.00000",
+			"BalanceAvailableQuantity": "19.00000",
+			"SequenceID": 0,
+			"RemainingVacationDays": "19.00"
+		}]
+	}
+}

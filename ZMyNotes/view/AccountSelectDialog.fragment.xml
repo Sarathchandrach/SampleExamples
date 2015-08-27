@@ -1,0 +1,21 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<SelectDialog
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        id="AccountSelectDialog"
+        title="{i18n>SELECT_ACCOUNT_DIALOG_TITLE}"
+        noDataText="{i18n>ACCOUNT_SEARCH_PLACEHOLDER}"
+        multiSelect=""
+        items="{path : '/AccountCollection',  parameters: {expand: 'MainAddress'}}"
+        confirm="selectAccount"
+        search="doSearchAccount">
+    <StandardListItem title="{name1}" description="{parts : [{path : 'MainAddress/city'}, {	path : 'MainAddress/country'}]}">
+        <customData>
+            <core:CustomData key="id" value="{accountID}"/>
+        </customData>
+    </StandardListItem>
+</SelectDialog>

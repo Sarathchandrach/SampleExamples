@@ -1,0 +1,276 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:ui="sap.ca.ui" xmlns:suite="sap.suite.ui.commons" xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns="sap.m" controllerName="cus.crm.myaccounts.view.S360">
+
+
+	<Page id="page" title="{i18n>DETAIL_TITLE}" showNavButton="true">
+		<content>
+			<layout:Grid class ="sapSuiteUtiHeaderGrid sapSuiteUti sapCRMmyAccountsHeader" defaultSpan="L6 M6 S12" vSpacing="0" >
+				<layout:content>
+					<HBox>
+						<Image src="{parts:[{path:'Logo/__metadata/media_src'},{path: 'category'}], formatter:'cus.crm.myaccounts.util.formatter.logoUrlFormatter'}" 
+							height="5rem" 
+							width="5rem"
+							visible="{path:'Logo/__metadata/media_src', formatter:'cus.crm.myaccounts.util.formatter.logoVisibilityFormatter'}" >
+						</Image>
+						<ObjectHeader title="{parts:[{path: 'fullName'},{path: 'name1'}], formatter: 'cus.crm.myaccounts.util.formatter.AccountNameFormatter'}"
+							class="sapSuiteUtiHeader">
+							<attributes>
+								<ObjectAttribute text="{accountID}"></ObjectAttribute>
+							</attributes>
+						</ObjectHeader>
+					</HBox>
+					
+					<core:ExtensionPoint name="extKpiBox">
+						<HBox class="sapSuiteUtiKpiBox">
+							<suite:KpiTile 
+								value="{parts:[{path:'AccountFactsheet/revenueCurrentYear/amount'},{path:'AccountFactsheet/revenueCurrentYear/currency'}],formatter:'cus.crm.myaccounts.util.formatter.formatShortNumber'}"
+								valueUnit="{parts:[{path:'AccountFactsheet/revenueCurrentYear/currency'}]}"
+								description="{i18n>REVENUE_CURRENT}"
+								doubleFontSize="true"
+								>
+							</suite:KpiTile>
+							<suite:KpiTile 
+								value="{parts:[{path:'AccountFactsheet/revenueLastYear/amount'},{path:'AccountFactsheet/revenueLastYear/currency'}],formatter:'cus.crm.myaccounts.util.formatter.formatShortNumber'}"
+								valueUnit="{parts:[{path:'AccountFactsheet/revenueLastYear/currency'}]}"
+								description="{i18n>REVENUE_LAST}"
+								doubleFontSize="true"
+								>
+							</suite:KpiTile>
+							<core:ExtensionPoint name="extKpiTile"/>
+						</HBox>
+					</core:ExtensionPoint>
+				</layout:content>
+			</layout:Grid>
+			<layout:Grid defaultSpan="L6 M12 S12">
+				<layout:content>
+					<core:ExtensionPoint name="extGeneralInfo">
+						<suite:FacetOverview
+							title="{i18n>GENERAL_DATA}" width="100%" height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S6" hSpacing="0">
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{i18n>ADDRESS}"></Label>
+												<Text text="{MainAddress/address}"></Text>
+												<Text></Text>
+												<Label text="{i18n>UNWEIGHTED_OPPORTUNITIES}"></Label>
+												<Text text="{parts:[{path:'AccountFactsheet/opportunityVolume/amount'}, {path:'AccountFactsheet/opportunityVolume/currency'}],formatter:'cus.crm.myaccounts.util.formatter.formatShortAmounts'}"></Text>
+												<core:ExtensionPoint name="extGeneralInfoLeft"/>
+											</items>
+										</VBox>
+										<VBox>
+											<items>
+												<Label text="{i18n>RATING}"></Label>
+												<Text text="{Classification/ratingText}"></Text>
+												<Text></Text>
+												<Label text="{parts:[{path:'EmployeeResponsible/WorkAddress/function'}], formatter:'cus.crm.myaccounts.util.formatter.formatEmployeeResponsible'}"></Label>
+												<Text text="{EmployeeResponsible/fullName}"></Text>
+												<core:ExtensionPoint name="extGeneralInfoRight"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extContacts">
+						<suite:FacetOverview
+							title="{i18n>CONTACTS}"
+							width="100%"
+							press="navToContact"
+							quantity="{path:'AccountFactsheet/contactsCount'}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0" 
+											content="{path:'AccountFactsheet/Contacts'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{function}"></Label>
+												<Text text="{fullName}"></Text>
+												<Text text="{WorkAddress/mobilePhone}"></Text>
+												<Text text="{WorkAddress/email}"></Text>
+												<core:ExtensionPoint name="extContactsInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extOpportunities">
+						<suite:FacetOverview
+							title="{i18n>OPPORTUNITIES}"
+							press="navToOpportunity"
+							width="100%"
+							quantity="{path:'AccountFactsheet/opportunitiesCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0"
+											content="{path:'AccountFactsheet/Opportunities'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{parts:[{path:'closingDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatCloseDate' }"></Label>
+												<Text text="{description}"></Text>
+												<Text text="{parts:[{path : 'expRevenue'},{path : 'currency'}], formatter:'cus.crm.myaccounts.util.formatter.formatAmounts'}"></Text>
+												<Text text="{currPhaseText}"></Text>
+												<core:ExtensionPoint name="extOpportunityInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extAppointments">
+						<suite:FacetOverview
+							title="{i18n>APPOINTMENTS}"
+							press="navToAppointments"
+							width="100%"
+							quantity="{path:'AccountFactsheet/futureActivitiesCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12" hSpacing="0">
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{i18n>NEXT_APPOINTMENT}"></Label>
+												<Text text="{parts:[{path:'AccountFactsheet/nextContact/fromDate'}, {path:'AccountFactsheet/nextContact/toDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumTimeInterval' }"></Text>
+												<Text text="{AccountFactsheet/nextContact/description}"></Text>
+												<core:ExtensionPoint name="extAppointmentLeft"/>
+											</items>
+										</VBox>
+										<VBox>
+											<items>
+												<Label text="{i18n>LAST_APPOINTMENT}"></Label>
+												<Text text="{parts:[{path:'AccountFactsheet/lastContact/fromDate'}, {path:'AccountFactsheet/lastContact/toDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumTimeInterval' }"></Text>
+												<Text text="{AccountFactsheet/lastContact/description}"></Text>
+												<core:ExtensionPoint name="extAppointmentRight"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extLeads">
+						<suite:FacetOverview
+							title="{i18n>LEADS}"
+							press="navToLead"
+							width="100%"
+							quantity="{path:'AccountFactsheet/leadsCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0"
+											content="{path:'AccountFactsheet/Leads'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{parts:[{path:'validFrom'}],formatter:'cus.crm.myaccounts.util.formatter.formatStartDate' }"></Label>
+												<Text text="{description}"></Text>
+												<Text text="{qualificationLevel}"></Text>
+												<Text text="{statusText}"></Text>
+												<Text text="{importanceText}"></Text>
+												<core:ExtensionPoint name="extLeadInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extTasks">
+						<suite:FacetOverview
+							title="{i18n>TASKS}"
+							press="navToTask"
+							width="100%"
+							quantity="{path:'AccountFactsheet/tasksCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0"
+											content="{path:'AccountFactsheet/Tasks'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{parts:[{path:'dueDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatDueDate' }"></Label>
+												<Text text="{description}"></Text>
+												<core:ExtensionPoint name="extTaskInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extNotes">
+						<suite:FacetOverview
+							title="{i18n>NOTES}"
+							press="navToNote"
+							width="100%"
+							quantity="{path:'AccountFactsheet/notesCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0"
+											content="{path:'AccountFactsheet/Notes'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{parts:[{path:'createdAt'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumDate' }"></Label>
+												<Text text="{content}"></Text>
+												<core:ExtensionPoint name="extNoteInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extAttachments">
+						<suite:FacetOverview
+							title="{i18n>ATTACHMENTS}"
+							press="navToAttachment"
+							width="100%"
+							quantity="{path:'AccountFactsheet/attachmentsCount', parameters:{expand:'AccountFactsheet'}}"
+							height="200px">
+							<suite:content>
+								<layout:Grid defaultSpan="L6 M6 S12"
+											hSpacing="0"
+											content="{path:'AccountFactsheet/Attachments'}" >
+									<layout:content>
+										<VBox height="200px">
+											<items>
+												<Label text="{parts:[{path:'createdAt'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumDate' }"></Label>
+												<Text text="{name}"></Text>
+												<core:ExtensionPoint name="extAttachmentInfo"/>
+											</items>
+										</VBox>
+									</layout:content>
+								</layout:Grid>
+							</suite:content>
+						</suite:FacetOverview>
+					</core:ExtensionPoint>
+					<core:ExtensionPoint name="extFacetOverview"/>
+				</layout:content>
+			</layout:Grid>
+		</content>
+				<footer>
+            <Bar id="detailFooter">
+                <contentRight>
+                    <Button icon="sap-icon://action" press="handleAction" />
+                </contentRight>
+            </Bar>
+        </footer>
+	</Page>
+</core:View>

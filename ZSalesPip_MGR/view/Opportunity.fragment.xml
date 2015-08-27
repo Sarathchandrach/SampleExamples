@@ -1,0 +1,120 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Popover xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	id="po" contentHeight="500px" contentWidth="300px" showHeader="true"
+	placement="Auto">
+	<customHeader>
+		<Bar id="poBar">
+			<contentRight>
+				<Button id="upBtn" icon="sap-icon://up" press="moveUp"
+					visible="false" />
+				<Button id="downBtn" icon="sap-icon://down" press="moveDown"
+					visible="false" />
+			</contentRight>
+			<contentMiddle>
+				<Label id="oppDetails" text="{i18n>LBL_OPPORT_DETAILS}" />
+			</contentMiddle>
+		</Bar>
+	</customHeader>
+
+	<content>
+		<Page id="poPage" showHeader="false">
+			<content>
+				<!-- Add fields to the start of the Opportunity popover -->
+				<core:ExtensionPoint name="extOpportunityPopover"></core:ExtensionPoint>
+
+				<layout:VerticalLayout id="popoverVBox">
+					<layout:content>
+						<!-- Opportunity ID -->
+						<Label id="OppId" design="Bold" />
+						<!-- Opportunity Description - Link -->
+						<Link id="OppDescription" wrapping="true" press="toOppApp" />
+
+						<!-- Account Name -->
+						<!-- <Text id="accountName"></Text> -->
+
+						<!-- Prospect/Account -->
+						<Label text="{i18n>LBL_OD_ACCPROSPECT}" design="Bold" />
+						<Link id="accName" wrapping="true" press="toAccountApp" />
+						<!-- Main Contact of Account -->
+						<layout:VerticalLayout id="mainContact"
+							visible="false" class="inputControl1">
+							<layout:content>
+								<Label text="{i18n>LBL_OD_MAINCONTACT}" design="Bold" />
+								<Link id="mainContactName" wrapping="true" press="toContactApp" />
+								<Link id="mcEmail" visible="false" press="pressLinkToEmailOrCall" />
+								<Link id="mcPhone" visible="false" press="pressLinkToEmailOrCall" />
+							</layout:content>
+						</layout:VerticalLayout>
+
+						<!-- Employee Responsible of Opportunity -->
+						<layout:VerticalLayout id="empResp" visible="false"
+							class="inputControl1">
+							<layout:content>
+								<Label text="{i18n>LBL_OD_EMPLRESP}" design="Bold" />
+								<Text id="empRespName" />
+								<Link id="empRespEmail" visible="false" press="pressLinkToEmailOrCall" />
+								<Link id="empRespPhone" visible="false" press="pressLinkToEmailOrCall" />
+							</layout:content>
+						</layout:VerticalLayout>
+
+						<!-- Start Date & Closing Date -->
+						<Label text="{i18n>LBL_OD_STARTDATE}" design="Bold" class="inputControl1" />
+						<Input id="d1" width="250px" enabled="false" class="inputControl"
+							change="checkChange" />
+						<Label text="{i18n>LBL_OD_ENDDATE}" design="Bold" />
+						<Input id="d2" width="250px" enabled="false" class="inputControl"
+							change="checkChange2" />
+
+
+						<!-- Expected Revenue & Weighted Revenue -->
+						<Label id="lbRevHeader" class="inputControl1"
+							text="{i18n>LBL_OD_EXPECTEDREVENUEHEADER}" design="Bold" />
+						<Label id="lblExpRev" text="{i18n>LBL_OD_EXPECTEDREVENUE}"
+							labelFor="currText" />
+						<Input id="expRevId" change="lookForChange" width="250px"
+							enabled="false" class="inputControl" />
+
+						<Label id="lblWgtRev" text="{i18n>LBL_OD_WEIGHTEDREVENUE}" />
+						<Input id="wgtRevId" width="250px" enabled="false" class="inputControl" />
+
+						<!-- Forecast Relevance -->
+						<layout:HorizontalLayout>
+							<layout:content>
+								<Label text="{i18n>LBL_OD_FORECASTRELEVANCE}" class="switchLbl"
+									design="Bold" />
+								<Switch enabled="false" id="forecastId" />
+							</layout:content>
+						</layout:HorizontalLayout>
+
+						<!-- Chance of Success -->
+						<Label text="{i18n>LBL_OD_CHANCEOFSUCCESS}" design="Bold" />
+						<Input id="chanceOfSucc" enabled="false" width="250px"
+							class="inputControl" />
+
+						<!-- Sales Stage DDLB -->
+						<Label text="{i18n>LBL_OD_SALESSTAGE}" design="Bold" />
+						<Input id="salesStage" enabled="false" width="250px" />
+
+						<!-- Status DDLB -->
+						<Label text="{i18n>LBL_OD_STATUS}" design="Bold" />
+						<Input id="status" enabled="false" width="250px" />
+					</layout:content>
+				</layout:VerticalLayout>
+				<!-- Add fields to the end of the Opportunity popover -->
+				<core:ExtensionPoint name="extOpportunityPopoverEnd"></core:ExtensionPoint>
+			</content>
+		</Page>
+	</content>
+
+	<footer>
+		<Bar>
+			<contentRight>
+				<Button text="{i18n>BTN_CL_CLOSE}" press="closePopover" />
+			</contentRight>
+		</Bar>
+	</footer>
+</Popover>

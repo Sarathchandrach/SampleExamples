@@ -1,0 +1,30 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog title="{i18n>DELETE_NOTE_TITLE}"
+	xmlns="sap.m"
+	xmlns:ui="sap.ca.ui"
+	xmlns:layout="sap.ui.layout"
+	rightButton="cancelDeleteSection"
+	class="sapUiPopupWithPadding customDialog"
+	contentWidth="400px"
+	horizontalScrolling="false"
+	stretch="{model>/isFullScreen}"
+	>
+	<content>
+		<layout:VerticalLayout width="100%">
+			<layout:content>
+		       <Text text="" />	
+		    </layout:content>
+		</layout:VerticalLayout>		    
+	</content>
+	
+	<beginButton>
+		<Button id="NoteDeleteOkButton" text="{i18n>DELETE_NOTE_BUTTON_OK}" press="handleDeleteSection" />
+	</beginButton>
+	<endButton>
+		<Button id="NoteDeleteCancelButton" text="{i18n>DELETE_NOTE_BUTTON_CANCEL}" press="cancelDeleteSection" />
+	</endButton>
+</Dialog>

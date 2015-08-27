@@ -1,0 +1,317 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:me="sap.me" xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" xmlns:caui="sap.ca.ui"
+	controllerName="cus.crm.mycalendar.view.NewAppointment" xmlns:html="http://www.w3.org/1999/xhtml">
+ 
+	<Page id="p" showNavButton="true" navButtonPress="onBack">
+		<content>
+
+			<!-- description of appointment -->
+
+			<form:Form id="tit" class="sapUiFormEdit sapUiFormEdit-CTX">
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout"
+						type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="descContainer">
+						<form:formElements>
+							<form:FormElement id="TypecFormElement">
+								<form:label>
+									<Label id="ProcessTypeLabel" text="{i18n>view.Appointment.TransactionType}" >
+									</Label>
+									
+								</form:label>
+								<form:fields>
+									<Text id="ProcessTypeText" type="Text" value="{vm>/TransactionType}" class="TypePad"></Text>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="descFormElement">
+								<form:label>
+									<Label id="apptLabel" text="{i18n>view.Appointment.subject}" required="true">
+									</Label>
+								</form:label>
+								<form:fields>
+									<Input id="desc" type="Text" value="{vm>/Description}"
+										liveChange="descriptionChanged"></Input>
+								</form:fields>
+							</form:FormElement>
+							<!-- Extension point to add additional edit header -->
+							<core:ExtensionPoint name="extensionEditHeader" />
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+
+
+			<!-- General form -->
+			<form:Form id="general" title="{i18n>view.Appointment.generalData}"
+				class="sapUiFormEdit sapUiFormEdit-CTX">
+
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout"
+						type="XML" />
+				</form:layout>
+
+			
+				<form:formContainers>
+				
+					<form:FormContainer id="statusContainer">
+						<form:formElements>
+							<!-- status label + drop down -->
+							<form:FormElement id="status">
+								<form:label>
+									<Label id="statusLabel" text="{i18n>view.Appointment.activeStatus}"
+										required="true">
+									</Label>
+								</form:label>
+								<form:fields>
+									<Select  width="100%" id="st" items="{statusmodel>/results}"
+										selectedKey="{vm>/Status}">
+										<core:Item text="{statusmodel>StatusTxt}" key="{statusmodel>StatusID}" />
+									</Select>
+								</form:fields>
+							</form:FormElement>
+							
+							<form:FormElement id="priority">
+								<form:label>
+									<Label id="priorityLabel" text="{i18n>view.Appointment.priority}"
+										required="true">
+									</Label>
+								</form:label>
+								<form:fields>
+									<Select  width="100%" id="pr" items="{priomodel>/results}"
+										selectedKey="{vm>/Priority}">
+										<core:Item text="{priomodel>TxtLong}" key="{priomodel>Priority}" />
+									</Select>
+								</form:fields>
+							</form:FormElement>
+
+							<!-- private -->
+							<form:FormElement id="privateLabel" label="{i18n>view.Appointment.private}">
+								<Switch id="pf" enabled="true" state="{vm>/PrivatFlag}" change="onPrivateChanged">
+								</Switch>
+							</form:FormElement>
+
+							<!-- start date time fields -->
+							<form:FormElement id="startDateFormElement">
+								<form:label>
+									<Label id="startDateLabel" text="{i18n>view.Appointment.startdatetime}"
+										required="true">
+									</Label>
+								</form:label>
+								<form:fields>
+									<caui:DatePicker id="fd"
+										value="{path: 'vm>/FromDate',  type:'sap.ui.model.type.Date', formatOptions: { style: 'long'}}"
+										change="onFromDateChanged"></caui:DatePicker>
+									<DateTimeInput id="ft" type="Time"
+										value="{path: 'vmh>/FromDateTime',  type:'sap.ui.model.type.Time', formatOptions: {style: 'short'}}"
+										change="onTimeFromChanged">
+
+									</DateTimeInput>
+								</form:fields>
+							</form:FormElement>
+
+							<!-- end date time fields -->
+							<form:FormElement id="endDateFormElement">
+								<form:label>
+									<Label id="endDateLabel" text="{i18n>view.Appointment.enddatetime}"
+										required="true">
+									</Label>
+								</form:label>
+								<form:fields>
+									<caui:DatePicker id="td"
+										value="{path: 'vm>/ToDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'long'}}"
+										change="onToDateChanged"></caui:DatePicker>
+									<DateTimeInput id="tt" type="Time"
+										value="{path: 'vmh>/ToDateTime',  type:'sap.ui.model.type.Time', formatOptions: {style: 'short'}}"
+										change="onTimeToChanged">
+									</DateTimeInput>
+
+								</form:fields>
+							</form:FormElement>
+
+
+							<!-- all day -->
+							<form:FormElement id="allDayFormElement" label="{i18n>view.Appointment.alldayevent}">
+								<form:fields>
+									<Switch id="ad" enabled="true" state="{vm>/AllDay}" change="onAllDayChanged">
+									</Switch>
+								</form:fields>
+							</form:FormElement>
+
+							<!-- location -->
+							<form:FormElement id="locationFormElement" label="{i18n>view.Appointment.location}">
+								<form:fields>
+									<Input id="loc" type="Text" value="{vm>/Location}"></Input>
+								</form:fields>
+							</form:FormElement>
+<!-- Extension point to add additional edit content -->
+							<core:ExtensionPoint name="extensionEdit1" />
+
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+			<!-- end General form -->
+
+
+			<!-- account, contact and employee responsible -->
+			<form:Form id="cont" title="{i18n>view.Appointment.contact}"
+				class="sapUiFormEdit sapUiFormEdit-CTX cusFormlabelPadding">
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout"
+						type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="accountFormContainer">
+						<form:formElements>
+							<form:FormElement id="accountLabel" label="{i18n>view.Appointment.account}">
+								<form:fields>
+									
+									<Input
+										value="{parts : [{path :'vm>/AccountTxt'},{path : 'vm>/Account'}],formatter : 'cus.crm.mycalendar.util.Conversions.formatAccountText'}"
+
+										id="ia" showValueHelp="true" valueHelpOnly="false"
+										valueHelpRequest="onF4Account" liveChange="onAccountInputFieldChanged"
+										suggestionItemSelected="onAccountSuggestItemSelected">
+
+									</Input>
+
+									<Input id="accountIDInput" value="{vm>/Account}" type="Text"
+										visible="false">
+										<layoutData>
+											<layout:GridData span="L5 M6 S10" />
+										</layoutData>
+									</Input>
+								</form:fields>
+							</form:FormElement>
+
+							<form:FormElement id="contactLabel" label="{i18n>view.Appointment.contact}">
+								<form:fields>
+									
+									<Input id="ic" type="Text" showValueHelp="true"
+										valueHelpOnly="false" valueHelpRequest="onF4Contact" value="{vm>/ContactTxt}"
+										liveChange="onContactInputFieldChanged"
+										suggestionItemSelected="onContactSuggestItemSelected">
+
+									</Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="responsible"
+								label="{i18n>view.Appointment.employeeResponsible}">
+								<form:fields>
+									<Input id="responsibleText" value="{vm>/ResponsibleTxt}"
+										showValueHelp="true" valueHelpOnly="false"
+										liveChange="onEmployeeInputFieldChanged"
+										suggestionItemSelected="onEmployeeSuggestItemSelected"
+										valueHelpRequest="onF4Employee">
+									</Input>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+
+			<!-- end account, contact and employee responsible -->
+
+   <!-- Extension point to add additional edit content -->
+			<core:ExtensionPoint name="extensionEdit2" />
+
+			<!-- attendees / title change dynamically in view -->
+			<form:Form id="atttit" title=""
+				class="sapUiFormEdit sapUiFormEdit-CTX cusFormlabelPadding">
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout"
+						type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="externalFormContainer">
+						<form:formElements>
+							<form:FormElement id="externalFormElement" label="{i18n>view.Appointment.external}">
+								<form:fields>
+
+									<Text id="atex">
+
+									</Text>
+									<Button id="editAttendeesIcon" icon="sap-icon://edit" type="Transparent"
+										press="onEditExternalAttendees">
+										<layoutData>
+											<layout:GridData span="L1 M1 S12">
+											</layout:GridData>
+										</layoutData>
+
+									</Button>
+								</form:fields>
+							</form:FormElement>
+
+							<form:FormElement id="internalFormElement" label="{i18n>view.Appointment.internal}">
+
+								<form:fields>
+									<Text id="atin">
+
+									</Text>
+									<Button id="editInternalIcon" icon="sap-icon://edit" type="Transparent" press="onEditEmployees">
+										<layoutData>
+											<layout:GridData span="L1 M1 S12">
+											</layout:GridData>
+										</layoutData>
+									</Button>
+
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+			<!-- end attendees -->
+
+<!-- Extension point to add additional edit content -->
+			<core:ExtensionPoint name="extensionEdit3" />
+
+			<!-- notes -->
+			<form:Form id="notes" title="{i18n>view.Appointment.notes}"
+				class="sapUiFormEdit sapUiFormEdit-CTX">
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout"
+						type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="noteFormContainer">
+						<form:formElements>
+							<form:FormElement id="noteFormElement">
+								<form:fields>
+									<TextArea  id="noteTextArea" value="{vm>/Note}" rows="4"></TextArea>
+								</form:fields>
+							</form:FormElement>
+
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+			<!-- end notes -->
+
+			<!-- attachments view contains own form -->
+			<mvc:XMLView id="attachmentsView_chg1" viewName="cus.crm.mycalendar.view.Attachments_chg"></mvc:XMLView>
+
+		</content>
+
+		<footer>
+			<Bar  id="editBar" translucent="false">
+				<contentRight>
+					<Button id="bs" press="onSave" text="{i18n>view.Appointment.save}"
+						type="Emphasized" />
+					<Button id="bc" press="onCancel" text="{i18n>view.Appointment.cancel}" />
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+
+</core:View>

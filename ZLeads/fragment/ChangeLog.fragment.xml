@@ -1,0 +1,27 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns:ca="sap.ca.ui" xmlns="sap.m" title="{i18n>CHANGE_LOGS}" id="logchange" placement="Top" contentWidth="30em" contentHeight="640px">
+
+		<content>
+			<List id="ChangeLog" noDataText="{i18n>NO_LOG}" items="{/LeadChangeDocs}">
+
+				<items>
+					<ca:ExpansibleFeedListItem id="dproduct1" showIcon="false" sender="{PartnerName}" 
+									text="{parts:[{path:'OldValue'}, {path:'NewValue'},
+									 {path:'UpdateFieldText'}], formatter:'cus.crm.lead.util.formatter.formatChangeLog'}"
+									   
+									 timestamp="{path: 'UpdateDate', formatter:'cus.crm.lead.util.formatter.formatDate'}">
+						
+					</ca:ExpansibleFeedListItem>
+				</items>
+			</List>
+		</content>
+
+		<beginButton>
+			<Button text="{i18n>OK}" press="onCancelLogChange"></Button>
+		</beginButton>
+
+	</Dialog>

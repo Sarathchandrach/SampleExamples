@@ -1,0 +1,20 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:me="sap.me"
+	controllerName="hcm.emp.mytimesheet.view.S2">
+	<Page id="page" title="{i18n>TIMESHEET_TITLE}">
+		<content>
+			<me:Calendar id="calendar" monthsPerRow="1"
+				swipeToNavigate="true" design="Approval" tapOnDate="onWeeklyEntry"
+				changeCurrentDate="onCalendarMonthChange">
+			</me:Calendar>
+			<me:CalendarLegend id="LEGEND" design="Approval"
+				legendfortype01="{i18n>FILLED_DAY}" legendfortype07="{i18n>MISSING_DAY}"
+				legendfortype06="{i18n>MISSING_DAY}" legendfortype04="{i18n>REJECTED}">
+			</me:CalendarLegend>
+		</content>
+	</Page>
+</core:View>

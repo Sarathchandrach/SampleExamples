@@ -1,0 +1,30 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/ConfigurationCollection(EmployeeID='14000002',StartDate=datetime'2013-04-09T00%3A00%3A00')",
+				"type": "LEAVEREQUEST.Configuration"
+			},
+			"EmployeeID": "14000002",
+			"StartDate": "\/Date(1365465600000)\/",
+			"EmployeeName": "George Jones",
+			"DefaultStartDate": "\/Date(1365552000000)\/",
+			"DefaultStartTime": "PT00H00M00S",
+			"DefaultEndDate": "\/Date(1365552000000)\/",
+			"DefaultEndTime": "PT00H00M00S",
+			"DefaultAbsenceTypeCode": "0100",
+			"DefaultFilterStartDate": "\/Date(1356998400000)\/",
+			"DefaultApproverEmployeeID": "14000002",
+			"DefaultApproverEmployeeName": "George Jones",
+			"RecordInClockHoursAllowedInd": true,
+			"RecordInClockTimesAllowedInd": false,
+			"GetApproverCollectionInd": false,
+			"GetTeamCalendarCollectionInd": true,
+			"configFieldselection": {
+				"__deferred": {
+					"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/ConfigurationCollection(EmployeeID='14000002',StartDate=datetime'2013-04-09T00%3A00%3A00')/configFieldselection"
+				}
+			}
+		}]
+	}
+}

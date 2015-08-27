@@ -1,0 +1,58 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:me="sap.me"
+	controllerName="hcm.emp.mybenefits.view.S8">
+	<Page
+		title="{i18n>MB_APP_DETAIL_TITLE}"
+		id="MB_PAGE_UNENROLLED">
+		<content>
+			<ObjectHeader
+				id="MB_UE_HEADER"
+				number="{i18n>MB_LIST_HEADER_UNENROLLED}">
+				<attributes>
+					<ObjectAttribute
+						id="MB_PLAN_SUB_TYPE_TEXT"/>
+					<ObjectAttribute
+						id="MB_PLAN_OPTION_TEXT"/>
+				</attributes>
+				 <!-- extension point for additional fields in header -->
+                <core:ExtensionPoint name="extS8Header"></core:ExtensionPoint>
+			</ObjectHeader>
+			<IconTabBar
+				expandable="true"
+				id="TabContainer">
+				<items>
+					<IconTabFilter
+						icon="sap-icon://attachment"
+						iconColor="Default"
+						key="Attachments"
+						id="Attachment">
+						<content>
+							<List
+								id="MB_LABEL_DOCUMENT"
+								showSeparators="Inner"
+								noDataText="{i18n>MB_NO_DATA}"
+								items="{attachmentsModel>/0}">
+								<StandardListItem
+									type="Active"
+									icon="sap-icon://chain-link"
+									title="{attachmentsModel>UrlPlanText}"
+									press="onSenderPress"></StandardListItem>
+							</List>
+						</content>		
+					</IconTabFilter>
+				    <!-- extension added to add icon tab filter --> 
+                <core:ExtensionPoint name="extS8IconTabFilter"></core:ExtensionPoint>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</core:View>

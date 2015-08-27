@@ -1,0 +1,26 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	title="{i18n>S4_MESSAGES_TITLE}" stretch="{device>isPhone}">
+	<content>
+		<!-- <List items="{TaskLogs>/list}"> <items> <StandardListItem icon="{TaskLogs>Icon}" 
+			title="{TaskLogs>LogMessage}" /> </items> </List> -->
+		<l:VerticalLayout width="100%" content="{TaskLogs>/list}">
+			<l:content>
+				<l:HorizontalLayout>
+					<l:content>
+						<core:Icon size="1.375rem" width="3rem" height="3rem"
+							color="{TaskLogs>IconColor}" src="{TaskLogs>Icon}" allowWrapping="true" />
+						<Text class="TaskErrorMsg" textAlign="Left" text="{TaskLogs>LogMessage}" />
+					</l:content>
+				</l:HorizontalLayout>
+			</l:content>
+		</l:VerticalLayout>
+	</content>
+	<endButton>
+		<Button text="{i18n>OK}" press="closeErrorMsg" />
+	</endButton>
+</Dialog>

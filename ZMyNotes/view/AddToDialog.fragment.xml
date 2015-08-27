@@ -1,0 +1,62 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:ui="sap.ca.ui" xmlns:layout="sap.ui.layout" 
+	showHeader="false" contentHeight="500em" 
+	leftButton="okAddToDialogButton"
+	rightButton="cancelAddToDialogButton">
+	<content>
+		<NavContainer initialPage="page1" afterNavigate="triggerOkButtonVisibility">
+			<pages>
+				<Page id="page1" title="{i18n>TITLE_ADDTO}">
+					<content >
+						<Label text="{i18n>ADDTO_NOTE_LABEL}:" class="sapMLabelBold sapMBtnPaddingLeft customPaddingTop sapMBtnPaddingRight" />
+						<TextArea width="100%" height="10em" row="5" editable="true" value="{model>/text}" class="sapMBtnPaddingLeft sapMBtnPaddingRight"/>
+						<layout:VerticalLayout width="93%" class="sapMBtnPaddingLeft sapMBtnPaddingRight">
+							<core:ExtensionPoint name="addToOpportunityExtension">
+								<StandardListItem title='{i18n>TITLE_OPPORTUNITY_OPTION}' type="Active" icon="sap-icon://opportunity" iconInset="false" info=">" 
+									press="navigateToOpportunities" />
+							</core:ExtensionPoint>
+							<core:ExtensionPoint name="addToItemExtension" />
+						</layout:VerticalLayout>
+					</content>
+				</Page>
+				<Page id="page2" title="{i18n>TITLE_SELECT_OPPORTUNITY}" showNavButton="true" navButtonPress="navigateFromOpportunities">
+					<content>
+						<SearchField placeholder="{i18n>OPPORTUNITY_SEARCH_PLACEHOLDER}" showUnread="true"
+							growingThreshold="5" growing="true" width="100%" 
+							search="doSearchOpportunity" />
+						<core:ExtensionPoint name="addToOpportunityListExtension">
+							<List id="opportunityList" items="{/Opportunities}"
+								select="_handleOpportunitySelect" showUnread="true"
+								growingThreshold="5" growing="true">
+	
+								<core:ExtensionPoint name="addToOpportunityItemExtension">
+									<ObjectListItem press="handleOpportunityPress"
+										type="Active" title="{Description}"
+										number="{parts:[{path:'ExpectedSalesVolume'}], formatter:'util.Formatter.weightedvolume'}"
+										numberUnit="{CurrencyCode}">
+										<attributes>
+											<ObjectAttribute text="{ProspectName}" />
+											<ObjectAttribute text="{path:'ClosingDate' , formatter: 'util.Formatter.Date'}" />
+										</attributes>
+										<firstStatus>
+											<ObjectStatus text="{UserStatusText}">
+											</ObjectStatus>
+										</firstStatus>
+									</ObjectListItem>
+								</core:ExtensionPoint>
+							</List>
+						</core:ExtensionPoint>
+					</content>
+				</Page>
+				<core:ExtensionPoint name="addToPageExtension" />
+			</pages>
+		</NavContainer>
+	</content>
+	<endButton>
+        <Button id="cancelAddToDialogButton" text="{i18n>ADD_TO_CANCEL}" press="cancelAddToDialog" />
+    </endButton>
+</Dialog>

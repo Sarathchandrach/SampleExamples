@@ -1,0 +1,62 @@
+[
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253A0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253A0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253A0E3E",
+            "PartnerNo":"420957",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Dujardin",
+            "NameFirst":"Léon",
+            "FullNameAdr":"Léon Dujardin",
+            "AccountNo":"420956",
+            "Function":"Jardinier",
+            "FullName":"Léon Dujardin"
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253C0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253C0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253C0E3E",
+            "PartnerNo":"420959",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Sommer",
+            "NameFirst":"Sonia",
+            "FullNameAdr":"Sonia Sommer",
+            "AccountNo":"420956",
+            "Function":"Developer",
+            "FullName":"Sonia Sommer"
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253E0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253E0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253E0E3E",
+            "PartnerNo":"420961",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Winter",
+            "NameFirst":"Valery",
+            "FullNameAdr":"Valery Winter",
+            "AccountNo":"420956",
+            "Function":"Developer",
+            "FullName":"Valery Winter"
+         }
+      ]

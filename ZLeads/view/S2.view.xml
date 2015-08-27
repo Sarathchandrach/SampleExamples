@@ -1,0 +1,41 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View id="masterListView" xmlns:core="sap.ui.core"
+	xmlns="sap.m" controllerName="cus.crm.lead.view.S2">
+	<Page id="masterListPage"  title="{i18n>MASTER_TITLE}">
+		<content>
+		 	<List id="list" selectionChange="_handleSelect" mode="{device>/listMode}" growing="true" growingScrollToLoad="true" noDataText="{i18n>LOADING}"
+		 	>
+		 	<!-- extension to define a custom lead list item -->
+		 	<core:ExtensionPoint name="leadItemExtension"></core:ExtensionPoint>
+				<ObjectListItem id="MAIN_LIST_ITEM" press="_handleItemPress" type="{device>/listItemType}" title="{Description}">
+					<attributes>
+						<ObjectAttribute id="objAttribute2" text="{QualificationText}" />
+						<ObjectAttribute text="{path:'EndDate', formatter: 'cus.crm.lead.util.formatter.formatDate'}" />
+						<!-- extension to add new attribute -->
+						<core:ExtensionPoint name="leadItemAttributeExtension"></core:ExtensionPoint>
+					</attributes>
+					<firstStatus>
+					     <!-- extension to add new Status -->
+						<core:ExtensionPoint name="leadItemStatusExtension"></core:ExtensionPoint>
+					</firstStatus>	
+					<secondStatus>
+							<ObjectStatus id="objstatus" text="{UserStatusText}" >
+							</ObjectStatus> 
+					</secondStatus>
+				</ObjectListItem>
+				<infoToolbar id="listToolbar">
+                    <Toolbar id="toolbarAccountInfo" visible="false">
+                        <Label id="labelAccountInfo" text=""/>
+                        <ToolbarSpacer id="listSpacer" />
+                        <core:Icon id="crossIcon" src="sap-icon://sys-cancel" press="closeToolbar"/>
+                    </Toolbar>
+            </infoToolbar>
+			</List>
+		</content>
+	 	</Page>
+	
+</core:View>

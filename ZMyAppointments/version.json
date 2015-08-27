@@ -1,0 +1,8 @@
+{ "application" : "cus.crm.mycalendar",
+  "version" : "1.5.9",
+  "buildNumber" : "71",
+  "buildId" : "2014-12-05_11-43-02",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

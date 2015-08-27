@@ -1,0 +1,14 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- fragment for layout used in edit forms -->
+<form:ResponsiveGridLayout xmlns:form="sap.ui.layout.form"
+	labelSpanL="3" 
+	labelSpanM="3" 
+	emptySpanL="4" 
+	emptySpanM="4" 
+	columnsL="1"
+	columnsM="1">
+</form:ResponsiveGridLayout>

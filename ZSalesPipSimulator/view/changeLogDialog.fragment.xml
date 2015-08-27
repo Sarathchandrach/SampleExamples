@@ -1,0 +1,71 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- Change Log Dialog -->
+<Dialog xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:ui="sap.ca.ui"
+	title="{i18n>CHANGELOG_TITLE}" class="dialogBox" id="changeLogDialog"
+	contentHeight="28.125rem">
+	<content>
+		<Page showHeader="false">
+			<content>
+				<!-- headerDesign="Plain" -->
+				<Table id="changeLogHeader" mode="None" showSeparators="None">
+					<columns>
+						<Column></Column>
+						<Column></Column>
+						<Column></Column>
+						<Column></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<CheckBox select="onDiscardAllChecked" id="cbAllChanges"></CheckBox>
+							<Label text="{i18n>LBL_CL_CHANGES}" design="Bold" class="tabelCell"></Label>
+							<Label text="{i18n>LBL_CL_OLDVALUE}" design="Bold" class="tabelCell"></Label>
+							<Label text="{i18n>LBL_CL_NEWVALUE}" design="Bold" class="tabelCell"></Label>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+				<l:VerticalLayout content="{changeModel1>/opportunity}"
+					width="100%">
+					<l:content>
+						<!-- headerDesign="Plain" -->
+						<Table mode="None" headerText="{changeModel1>Name}" items="{changeModel1>items}">
+							<columns>
+								<Column></Column>
+								<Column></Column>
+								<Column></Column>
+								<Column></Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<CheckBox select="onDiscardChecked" selected="{changeModel1>checked}"></CheckBox>
+									<Label text="{changeModel1>propertyText}" class="tabelCell"></Label>
+									<Label text="{changeModel1>OldValue}" class="tabelCell"></Label>
+									<Label text="{changeModel1>NewValue}" class="tabelCell"></Label>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</l:content>
+				</l:VerticalLayout>
+			</content>
+			<footer>
+				<Bar>
+					<contentLeft>
+						<Button id="saveBtn" text="{i18n>BTN_SAVE_OPPORT}" type="Accept"
+							press="changeLogSave" width="33.33%"></Button>
+						<Button id="discardBtn" text="{i18n>BTN_CL_DISCARD}" type="Reject"
+							press="onDiscard" width="33.33%"></Button>
+						<Button text="{i18n>BTN_CL_CLOSE}" press="onClose" width="33.34%"></Button>
+					</contentLeft>
+					<!-- <contentMiddle> <Button id="discardBtn" text="{i18n>BTN_CL_DISCARD}" 
+						type="Reject" press="onDiscard" width="33.33%"></Button> </contentMiddle> 
+						<contentRight> <Button text="{i18n>BTN_CL_CLOSE}" press="onClose" width="33.34%"></Button> 
+						</contentRight> -->
+				</Bar>
+			</footer>
+		</Page>
+	</content>
+</Dialog>

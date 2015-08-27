@@ -1,0 +1,12 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/ApproverCollection('12000001')",
+				"type": "LEAVEREQUEST.Approver"
+			},
+			"ApproverEmployeeID": "12000001",
+			"ApproverEmployeeName": "Karen Black"
+		}]
+	}
+}

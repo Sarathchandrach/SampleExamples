@@ -1,0 +1,24 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<SelectDialog
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        
+        title="{i18n>view.Appointment.process_type}"
+       
+        multiSelect=""
+        items="{json>/TransactionTypeSet}"
+       	search="searchProcess"
+        confirm="selectProcess"
+        cancel="cancelProcess">
+    <StandardListItem title="{json>Description}" description="{json>ProcessTypeCode}">
+        <customData>
+            <core:CustomData key="ProcessTypeCode" value="{json>ProcessTypeCode}"/>
+            <core:CustomData key="ProcessTypeDescription" value="{json>Description}" />
+            <core:CustomData key="PrivateFlag" value="{json>PrivateFlag}" />
+        </customData>
+    </StandardListItem>
+</SelectDialog>

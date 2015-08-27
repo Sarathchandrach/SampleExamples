@@ -1,0 +1,32 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<SelectDialog
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        
+        title="{i18n>SELECT_CONTACT_DIALOG_TITLE}"
+        noDataText="{i18n>CONTACT_SEARCH_PLACEHOLDER}"
+        multiSelect=""
+        items="{path : '/ContactCollection',  parameters: {expand: 'Photo'}}"
+        confirm="selectContact"
+        search="doSearchContact">	
+	<ObjectListItem press="selectContact" 
+					type="Active"
+					title="{fullName}"
+					description="{company}"
+					icon="{path:'Photo/__metadata/media_src', formatter:'cus.crm.notes.util.Formatter.pictureUrlFormatter'}">
+		<attributes>
+			<ObjectAttribute text="{company}" />
+			<ObjectAttribute text="{function}" />
+			<ObjectAttribute text="{department}"/>
+		</attributes>
+		<customData>
+	    	<core:CustomData key="id" value="{contactID}" />
+	    	<core:CustomData key="accountId" value="{accountID}" />
+	    	<core:CustomData key="accountName" value="{company}" />
+	    </customData>
+	</ObjectListItem>
+</SelectDialog>

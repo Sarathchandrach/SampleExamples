@@ -1,0 +1,43 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core"
+	xmlns="sap.m" controllerName="cus.crm.notes.view.S2">
+	<Page id="page" title="{i18n>MASTER_TITLE}">
+		<content>
+			<List id="list" 
+				items="{path: '/NoteHeaders', sorter: {path: 'ChangedAt', descending: true}}"
+				selectionChange="_handleSelect" 
+				mode="{device>/listMode}" 
+                growingScrollToLoad="true"
+				showUnread="true" 
+				growingThreshold="20"
+				growing="true">
+				<!-- Extension Point to add additional note Item -->
+				<core:ExtensionPoint name="noteItemExtension">
+					<ObjectListItem id="MAIN_LIST_ITEM"
+	                                press="_handleItemPress"
+	                                type="{device>/listItemType}"
+						title="{path:'TeaserText', formatter:'cus.crm.notes.util.Formatter.teaserText'}">
+						<attributes>
+							<ObjectAttribute
+								text="{
+										path:'ChangedAt',
+										 type:'sap.ca.ui.model.type.Date', 
+										 formatOptions : { style:'daysAgo'}
+									}" />
+								<!-- Extension Point to add additional note attributes -->	
+							<core:ExtensionPoint name="noteAttributeExtension" />
+						</attributes>
+					</ObjectListItem>
+				</core:ExtensionPoint>
+			</List>
+		</content>
+		<footer>
+			<Bar id="footer">
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

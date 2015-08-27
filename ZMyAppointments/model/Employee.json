@@ -1,0 +1,92 @@
+[
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('415595')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('415595')",
+        "type": "CRM_APPOINTMENT_SRV.Employee",
+        "properties": {
+            "WorkAddress": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('415595')/$links/WorkAddress"
+            },
+            "Company": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('415595')/$links/Company"
+            },
+            "Photo": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('415595')/$links/Photo"
+            }
+        }
+    },
+    "employeeID": "415595",
+    "firstName": "Mary",
+    "lastName": "Morris",
+    "titleID": "",
+    "title": "",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "fullName": "Mary Morris",
+    "WorkAddress": null,
+    "Company": null,
+    "Photo": null
+
+},
+{
+
+    "__metadata": {
+        "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('I800810')",
+        "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('I800810')",
+        "type": "CRM_APPOINTMENT_SRV.Employee",
+        "properties": {
+            "WorkAddress": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('I800810')/$links/WorkAddress"
+            },
+            "Company": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('I800810')/$links/Company"
+            },
+            "Photo": {
+                "associationuri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/EmployeeCollection('I800810')/$links/Photo"
+            }
+        }
+    },
+    "employeeID": "I800810",
+    "firstName": "John",
+    "lastName": "Burton",
+    "titleID": "0002",
+    "title": "Mr.",
+    "academicTitleID": "",
+    "academicTitle": "",
+    "fullName": "John Burton",
+    "WorkAddress": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='15461',accountID='415189',personID='I800810')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AddressCollection(addressNumber='15461',accountID='415189',personID='I800810')",
+            "type": "CRM_APPOINTMENT_SRV.Address"
+        },
+        "addressNumber": "15461",
+        "accountID": "415189",
+        "personID": "I800810",
+        "mobilePhone": "",
+        "phone": "",
+        "email": "",
+        "address": "D- HAMBURG",
+        "city": "Hamburg",
+        "country": "Germany",
+        "department": "",
+        "function": ""
+    },
+    "Company": {
+        "__metadata": {
+            "id": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('415189')",
+            "uri": "http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AccountCollection('415189')",
+            "type": "CRM_APPOINTMENT_SRV.Account"
+        
+        },
+        "accountID": "415189",
+        "name1": "Backoffice",
+        "isMyAccount": false
+       
+    },
+    "Photo": null
+
+}
+]

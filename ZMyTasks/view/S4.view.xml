@@ -1,0 +1,118 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:caui="sap.ca.ui" controllerName="cus.crm.mytasks.view.S4"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="taskOverview" title="{Description}">
+		<content>
+			<!-- Provision to modify the task header information entirely -->
+			<core:ExtensionPoint name="extTaskOverview">
+				<ObjectHeader id="ohdetail" title="{Description}"
+					titleActive="false" icon="sap-icon://activity-2"
+					numberState="{parts:['DueDate', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showDueDateStatus'}"
+					number="{parts:['DueDate', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showDueDateInDays'}">
+					<statuses>
+						<ObjectStatus id="osPrio"
+							text="{path:'Priority', formatter:'cus.crm.mytasks.util.Formatter.showCurrentPriority'}"
+							state="{parts:['Priority', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showPriorityStatus'}" />
+						<ObjectStatus id="osStatus" text="{UserStatustext}"
+							state="{parts:['DueDate', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showDueDateStatus'}" />
+						<ObjectStatus id="osPrivate"
+							icon="{path:'Private', formatter: 'cus.crm.mytasks.util.Formatter.showPrivacyFlag'}" />
+					</statuses>
+					<attributes>
+						<ObjectAttribute id="oaTaskType" active="false"
+							text="{parts:['i18n>S4_TASK_TYPE', 'ProcessTypeDescription'], formatter: 'cus.crm.mytasks.util.Formatter.formatOverviewField'}" />
+						<ObjectAttribute id="oaDueDate" active="false"
+							text="{parts:['i18n>S4_TASK_DUEDATE', 'DueDate'], formatter: 'cus.crm.mytasks.util.Formatter.formatOverviewField'}" />
+						<ObjectAttribute id="oaAccount" active="true"
+							text="{parts:['i18n>S4_TASK_ACCOUNT', 'AccountName', 'AccountId'], formatter: 'cus.crm.mytasks.util.Formatter.formatOverviewField'}"
+							press="showAccountOverview" />
+						<ObjectAttribute id="oaContact" active="true"
+							text="{parts:['i18n>S4_TASK_CONTACT', 'ContactName', 'ContactId'], formatter: 'cus.crm.mytasks.util.Formatter.formatOverviewField'}"
+							press="showContactOverview" />
+					</attributes>
+				</ObjectHeader>
+				<Panel id="notesData" expandable="false" headerText="{i18n>S4_TASK_NOTES}">
+					<content>
+						<TextArea id="notesS4" rows="4" editable="false" value="{Note}"
+							width="100%" />
+					</content>
+				</Panel>
+			</core:ExtensionPoint>
+			<!-- Show additional info of task before the Attachments Panel -->
+			<core:ExtensionPoint name="extBeforeAttachments" />
+			<Panel id="attachmentData" expandable="true" expanded="false"
+				headerText="{i18n>S4_TASK_ATTACHMENTS}">
+				<content>
+					<caui:FileUpload id="attachmentOverview" items="/Attachments"
+						uploadUrl="" fileName="name" size="size" url="url" uploadedDate="uploadedDate"
+						contributor="contributor" mimeType="mimeType" uploadEnabled="false"
+						fileId="fileId" useMultipart="false" acceptRequestHeader="application/json"
+						renameEnabled="false" showNoData="true" useEditControls="false">
+					</caui:FileUpload>
+				</content>
+			</Panel>
+			<!-- Show additional info of task before the Document History Panel -->
+			<core:ExtensionPoint name="extBeforeDocHistory" />
+			<Panel id="transactionHistoryData" expandable="true" expanded="false"
+				headerText="{i18n>S4_TASK_DOCHISTORY}">
+				<content>
+					<!-- Add user specific transaction history view for a given task -->
+					<core:ExtensionPoint name="extDHExtraView" />
+					<Table id="tabDocHistory" inset="false" items="{docHistory>/transactions}"
+						noDataText="{i18n>S4_NO_DOCHISTORY}" fixedLayout="false" growing="true"
+						growingThreshold="10" growingScrollToLoad="false">
+						<columns>
+							<!-- Additional column labels to be displayed when the user view the 
+								transaction history of a task -->
+							<core:ExtensionPoint name="extDHLabelsStart" />
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text id="transColID" text="{i18n>S4_DOCHISTORY_ID}" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text id="transColType" text="{i18n>S4_DOCHISTORY_TTYPE}" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text id="transColDescription" text="{i18n>S4_DOCHISTORY_DESC}" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text id="transColCreatedOn" text="{i18n>S4_DOCHISTORY_CREATEDDATE}" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text id="transColRelationship" text="{i18n>S4_DOCHISTORY_RELTYPE}" />
+							</Column>
+							<!-- Additional column labels to be displayed when the user view the 
+								transaction history of a task -->
+							<core:ExtensionPoint name="extDHLabelsEnd" />
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<!-- Additional column cells to be displayed when the user view 
+										the transaction history of a task -->
+									<core:ExtensionPoint name="extDHValuesStart" />
+									<Link id="transID" text="{docHistory>ObjectId}" press="navToRelatedDocument"
+										enabled="{docHistory>enableLink}" />
+									<Text id="transType" text="{docHistory>ProcessTypeDescription}" />
+									<Text id="transDescription" text="{docHistory>Description}" />
+									<Text id="transCreatedOn"
+										text="{path: 'docHistory>CreatedAt', type:'sap.ca.ui.model.type.Date', formatOptions:{style:'medium'}}" />
+									<Text id="transRelationship" text="{docHistory>RelType}" />
+									<!-- Additional column cells to be displayed when the user view 
+										the transaction history of a task -->
+									<core:ExtensionPoint name="extDHValuesEnd" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+			<!-- Show additional info of task at the bottom of the page -->
+			<core:ExtensionPoint name="extTaskOverviewEnd" />
+		</content>
+	</Page>
+</core:View>

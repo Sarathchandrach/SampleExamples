@@ -1,0 +1,46 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core"
+           xmlns="sap.m" controllerName="cus.crm.mycontacts.view.S2">
+    <Page id="page">
+        <content>
+            <List id="list"
+                  selectionChange="_handleSelect"
+                  noDataText="{i18n>LOADING_TEXT}"
+                  growing="true"
+                  growingThreshold="20"
+                  growingScrollToLoad="true"
+                  mode="{device>/listMode}">
+                <items>
+                	<!-- Extends the master list by a list item -->
+                	<core:ExtensionPoint name="extListItem">
+                    	<ObjectListItem id="MAIN_LIST_ITEM" type="{device>/listItemType}" press="_handleItemPress"
+                        	            icon="{path:'Photo', formatter: 'cus.crm.mycontacts.formatter.ReleaseFormatter.pictureUrlFormatter'}"
+                            	        title="{fullName}">
+                        	<attributes>
+                            	<ObjectAttribute id="company" text="{company}"></ObjectAttribute>
+                            	<!-- Extends the attributes of a list item -->
+                            	<core:ExtensionPoint name="extListItemInfo" />
+                        	</attributes>
+                        	<firstStatus>
+                            	<ObjectStatus
+                                	    text="{parts: [{path : 'isMainContact' }], formatter: 'cus.crm.mycontacts.formatter.ReleaseFormatter.isMainContact'}">
+                            	</ObjectStatus>
+                        	</firstStatus>
+                    	</ObjectListItem>
+                    </core:ExtensionPoint>
+                </items>
+                <infoToolbar>
+                    <Toolbar id="toolbarInfo" visible="false">
+                        <Label id="labelInfo" text=""/>
+                        <ToolbarSpacer/>
+                        <core:Icon src="sap-icon://sys-cancel" press="_handleToolBar"/>
+                    </Toolbar>
+                </infoToolbar>
+            </List>
+        </content>
+    </Page>
+</core:View>

@@ -1,0 +1,57 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	controllerName="cus.crm.opportunity.view.S2">
+	<Page id="page" title="{i18n>MASTER_TITLE}"> 
+  
+		<!-- sorter : { path : 'ProspectName', descending : true, group : true} -->
+		<content>
+			<List id="list" selectionChange="_handleSelect" mode="{device>/listMode}"
+				growing="true" noDataText="{i18n>LOADING_TEXT}" growingScrollToLoad="true">
+				 
+				  <!-- Extension point to add additional opportunity Items-->
+				<core:ExtensionPoint name="opportunityItemExtension"></core:ExtensionPoint>
+					
+					<ObjectListItem id="MAIN_LIST_ITEM" press="_handleItemPress"
+						type="{device>/listItemType}" title="{Description}"
+						number="{parts:[{path:'ExpectedSalesVolume'}, {path:'CurrencyCode'}] , formatter: 'cus.crm.opportunity.util.Formatter.truncateVolume'}"
+						numberUnit="{CurrencyCode}">
+						<attributes>
+							<ObjectAttribute id="objAttribute1" text="{parts:[{path:'ProspectName'}, {path:'ProspectNumber'}], formatter:'cus.crm.opportunity.util.Formatter.formatProspect'}" />
+							<ObjectAttribute id="objAttribute2"
+								text="{path:'ClosingDate' , formatter: 'cus.crm.opportunity.util.Formatter.dateFormatterMaster'}" />
+						
+						
+						 <!-- Extension point to add additional opportunity Item Attributes-->
+						<core:ExtensionPoint name="opportunityItemAttributeExtension"></core:ExtensionPoint>
+						</attributes>
+						
+						<firstStatus>
+						<!-- extension to add new Status -->
+						<core:ExtensionPoint name="opportunityItemStatusExtension"></core:ExtensionPoint>
+						</firstStatus>
+						<secondStatus>
+							<ObjectStatus id="objstatus" text="{UserStatusText}">
+							</ObjectStatus>
+						</secondStatus>
+						
+					</ObjectListItem>
+				
+					<infoToolbar id="listInfoToolbar">
+						<Toolbar id="toolbarInfo" visible="false">
+							<Label id="labelInfo" text="" />
+							<ToolbarSpacer />
+							<core:Icon id="crossIconMasterList" src="sap-icon://sys-cancel" press="_handleToolBar" />
+						</Toolbar>
+					</infoToolbar>
+				
+				
+			</List>
+
+		</content>
+	</Page>
+
+</core:View>

@@ -1,0 +1,69 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- Sales Target Settings -->
+<Dialog xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	id="dlSalesPeriodSet" showHeader="true">
+	<customHeader>
+		<Bar>
+			<contentLeft>
+				<Button id="SPnavBack" icon="sap-icon://nav-back" press="navBack"></Button>
+			</contentLeft>
+			<contentMiddle>
+				<Label id="titleSP" text="{i18n>AS_SALESTARGET_TITLE}"
+					textAlign="Center"></Label>
+			</contentMiddle>
+		</Bar>
+	</customHeader>
+	<content>
+		<layout:VerticalLayout id="spVBox" class="settingPad">
+			<layout:content>
+				<Label id="lbSP" text="{i18n>LBL_ST_SALESPERIOD}" labelFor="sSP"
+					design="Bold"></Label>
+				<Select id="sSP" class="inputControl" items="{PeriodicityTexts>/}"
+					selectedKey="{SettingsForSave>/SalesTargetPeriodicity}">
+					<items>
+						<core:Item key="{PeriodicityTexts>ID}" text="{PeriodicityTexts>Description}"></core:Item>
+					</items>
+				</Select>
+				<Label id="lbST" text="{i18n>LBL_ST_SALESTARGET}" labelFor="iST"
+					design="Bold"></Label>
+				<Input id="iST" class="inputControl" change="checkValue"
+					value="{path:'SettingsForSave>/SalesTarget',formatter:'cus.crm.salespipeline.sim.util.formatter.displayNumbers'}"></Input>
+				<Label id="lbCur" text="{i18n>LBL_ST_CURRENCY}" labelFor="sCur"
+					design="Bold"></Label>
+				<Select id="sCur" class="inputControl" items="{CurrencyList>/}"
+					selectedKey="{SettingsForSave>/CurrencyCode}">
+					<items>
+						<core:Item key="{CurrencyList>CurrencyKey}" text="{CurrencyList>CurrencyKey}"></core:Item>
+					</items>
+				</Select>
+				<Label id="lbTiS" class="inputControl" text="{i18n>LBL_ST_TIMESPAN}"
+					design="Bold"></Label>
+				<Label id="lbFrom" text="{i18n>LBL_ST_TIMEFROM}"></Label>
+				<Select id="sFrom" class="inputControl" change="TimespanChange"
+					items="{YearRanges>/}" selectedKey="{SettingsForSave>/TimeFrom}">
+					<items>
+						<core:Item key="{YearRanges>TargetStartDate}" text="{YearRanges>TargetYear}"></core:Item>
+					</items>
+				</Select>
+				<Label id="lbTo" text="{i18n>LBL_ST_TIMETO}"></Label>
+				<Select id="sTo" class="inputControl" change="TimespanChange"
+					items="{YearRanges>/}" selectedKey="{SettingsForSave>/TimeTo}">
+					<items>
+						<core:Item key="{YearRanges>TargetEndDate}" text="{YearRanges>TargetYear}"></core:Item>
+					</items>
+				</Select>
+			</layout:content>
+		</layout:VerticalLayout>
+	</content>
+	<beginButton>
+		<Button id="spButSave" text="{i18n>BTN_AS_SAVEAPPSETT}" press="saveAppSetChange"></Button>
+	</beginButton>
+	<endButton>
+		<Button id="spButCancel" text="{i18n>BTN_AS_CANCELAPPSETT}"
+			press="saveAppSetChange"></Button>
+	</endButton>
+</Dialog>

@@ -1,0 +1,22 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<SelectDialog
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+      
+        title="{i18n>CURRENCY_TITLE}"
+        noDataText="{i18n>NO_DATA_TEXT}"
+        multiSelect=""
+        items="{path : 'json>/Currencies',  parameters: {expand: 'MainAddress'}}"
+        search="searchCurrency"
+        confirm="setCurrency"
+        liveChange="liveSearchCurrency">
+    <StandardListItem title="{json>CurrencyText}" description="{json>CurrencyKey}">
+        <customData>
+            <core:CustomData key="CurrencyKey" value="{json>CurrencyKey}"/>
+        </customData>
+    </StandardListItem>
+</SelectDialog>

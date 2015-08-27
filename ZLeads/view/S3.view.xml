@@ -1,0 +1,287 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View id="detailView" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="cus.crm.lead.view.S3" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:ca="sap.ca.ui" xmlns:layout="sap.ui.layout" xmlns:ui="sap.ui.layout.form">
+
+
+
+	<Page id="detailPage" title="{i18n>DETAIL_TITLE}" navButtonPress="getBackFunction"
+		showNavButton="{path :'json>/ProspectNumber',formatter: 'cus.crm.lead.util.formatter.showNavButton'}">
+		<content>
+		    <!-- extension to add custom lead header -->
+			<core:ExtensionPoint name="leadHeaderTopExtension">
+				<ObjectHeader id="S3_Header" title="{json>/Description}"
+					icon="{json>/ImgSrc}">
+					<attributes>
+					<!--  extension to add more attributes to the lead header -->
+						<core:ExtensionPoint name="leadHeaderAttributeTopExtension"></core:ExtensionPoint>
+						<ObjectAttribute id="leadProspectName" text="{json>/ProspectName}"
+							active="true" press="onEmployeeLaunch">
+
+							<customData>
+								<core:CustomData key="PartnerNumber" value="{json>/ProspectNumber}" />
+								<core:CustomData key="PartnerFunctionCode"
+									value="00000021" />
+								<core:CustomData key="Image" value="{json>/ImgSrc}" />
+							</customData>
+						</ObjectAttribute>
+						<ObjectAttribute id="leadMainContact" text="{json>/MainContactName}"
+							active="true" press="onEmployeeLaunchheader">
+
+							<customData>
+								<core:CustomData key="PartnerNumber" value="{json>/MainContactId}" />
+								<core:CustomData key="PartnerFunctionCode"
+									value="00000015" />
+								<core:CustomData key="Image" value="{json>/ImgSrc}" />
+							</customData>
+
+
+						</ObjectAttribute>
+                        <!-- extension to add more attributes below the standard provided attributes of the lead header -->
+						<core:ExtensionPoint name="leadHeaderAttributeBottomExtension"></core:ExtensionPoint>
+					</attributes>
+
+				</ObjectHeader>
+			</core:ExtensionPoint>
+			<IconTabBar id="icntab" select="selectedTab">
+				<items>
+				<!--  extension to add content to in the icon tab bar -->
+					<core:ExtensionPoint name="leadTabBarItemFirstExtension"></core:ExtensionPoint>
+					<IconTabFilter id="info" text="{i18n>INFO}" icon="sap-icon://hint"
+						key="Info">
+						<content>
+						<!--  extension to add more fields to the info tab -->
+							<core:ExtensionPoint name="leadInfoTabContentTopExtension"></core:ExtensionPoint>
+							<ui:SimpleForm id="leadId_form">
+								<ui:content>
+									<Label id="leadType_label" text="{i18n>LEAD_TYPE}"></Label>
+									<Text id="leadType_text" text="{json>/ProcessTypeDescription}"></Text>
+								</ui:content>
+								<ui:content>
+									<Label id="leadId_label" text="{i18n>LEAD_ID}"></Label>
+									<Text id="leadId_text" text="{json>/Id}"></Text>
+								</ui:content>
+							</ui:SimpleForm>
+
+							<ui:SimpleForm id="lead_Date">
+								<ui:content>
+									<Label id="lead_start_date_label" text="{i18n>START_DATE}"></Label>
+									<Text id="lead_start_date_text"
+										text="{path: 'json>/StartDate', formatter: 'cus.crm.lead.util.formatter.formatDate'}"></Text>
+									<Label id="lead_end_date_label" text="{i18n>END_DATE}"></Label>
+									<Text id="lead_end_date_text"
+										text="{path: 'json>/EndDate', formatter: 'cus.crm.lead.util.formatter.formatDate'}"></Text>
+
+								</ui:content>
+							</ui:SimpleForm>
+
+							<ui:SimpleForm id="lead_Origin">
+								<ui:content>
+									<Label id="lead_origin_label" text="{i18n>ORIGIN}"></Label>
+									<Text id="lead_origin_text" text="{json>/OriginText}"></Text>
+									<Label id="lead_campaign_label" text="{i18n>CAMPAIGN}"></Label>
+									<Text id="lead_campaign_text"
+										text="{parts:[{path : 'json>/CampaignId'},{path : 'json>/CampaignDescription'}],formatter :'cus.crm.lead.util.formatter.formatCampaign'}"></Text>
+								</ui:content>
+
+							</ui:SimpleForm>
+
+
+
+							<ui:SimpleForm id="lead_Priority">
+								<ui:content>
+									<Label id="lead_priority_label" text="{i18n>PRIORITY}"></Label>
+									<Text id="lead_priority_text" text="{json>/PriorityText}"></Text>
+									<Label id="lead_qualification_label" text="{i18n>QUALIFICATION}"></Label>
+									<Text id="lead_qualification_text" text="{json>/QualificationText}"></Text>
+									<Label id="lead_status_label" text="{i18n>STATUS}"></Label>
+									<Text id="lead_status_text" text="{json>/UserStatusText}"></Text>
+
+								</ui:content>
+							</ui:SimpleForm>
+
+
+							<ui:SimpleForm id="leadChangeLog">
+								<ui:content>
+									<Label id="lead_change_log_label" text="{i18n>CHANGE_LOGS}"></Label>
+									<Link id="changelog" text="{i18n>VIEW}" press="onLogChange"
+										width="30%"></Link>
+								</ui:content>
+
+
+							</ui:SimpleForm>
+
+
+						</content>
+					</IconTabFilter>
+
+
+					<IconTabFilter id="icnTabProduct" text="{i18n>PRODUCT}"
+						icon="sap-icon://cart" key="Product">
+						<content>
+						     <!-- extension to add more content along with the products table -->
+							<core:ExtensionPoint name="leadProductTabContentExtension"></core:ExtensionPoint>
+							<Table id="Product_Tab" items="{json>/Products}" width="95%"
+								noDataText="{i18n>EMPTY_BASKET}">
+								<columns>
+								<!--  extension to add more columns to the products table -->
+									<core:ExtensionPoint name="leadProductTabColoumExtension"></core:ExtensionPoint>
+									<Column id="basketColumn1_S3" vAlign="Middle">
+										<header>
+											<Label id="productLabel_S3" text="{i18n>PRODUCT}"></Label>
+										</header>
+									</Column>
+									<Column id="basketColumn2_S3" vAlign="Middle" hAlign="Right">
+										<header>
+											<Label id="quantityLabel_S3" text="{i18n>QUANTITY}"></Label>
+										</header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem id="rowTemplate">
+										<cells>
+											<ObjectIdentifier id="lead_Product_Name"
+												title="{path : 'json>ProductGuid', formatter : 'cus.crm.lead.util.formatter.formatProductNameJson'}"
+												text="{path: 'json>ProductGuid',formatter : 'cus.crm.lead.util.formatter.formatProdClassificationJson'}">
+											</ObjectIdentifier>
+											<Text id="lead_product_quantity"
+												text="{parts:[{path:'json>Quantity'}, {path:'json>Unit'}], formatter:'cus.crm.lead.util.formatter.formatQuantity'}"
+												textAlign="Left"></Text>
+										</cells>
+									</ColumnListItem>
+
+								</items>
+
+							</Table>
+						</content>
+					</IconTabFilter>
+
+					<!-- Changes in Notes Tab with the FeedInput control -->
+					<IconTabFilter id="tab_notes" text="{i18n>NOTES}"
+						icon="sap-icon://notes" key="Notes">
+						<FeedInput id="Notes" textMaxLength="1000" text="{json>Content}"
+							post="_handleAddNote" showIcon="true" icon="{json>icon}"
+							maxLines="3">
+						</FeedInput>
+						<List id="listItem" growing="true"
+							growingThreshold="4" growingScrollToLoad="false" items="{json>/LeadNotes}">
+							<FeedListItem sender="{path : 'json>Creator'}"
+								senderActive="false"
+								timestamp="{path : 'json>CreatedAt', formatter : 'cus.crm.lead.util.formatter.formatDate'}"
+								text="{path : 'json>Content'}" />
+						</List>
+
+					</IconTabFilter>
+
+
+
+					<IconTabFilter id="icnTabAttachment" text="{i18n>ATTACHMENT}"
+						icon="sap-icon://attachment" key="Attachment">
+						<content>
+							<ca:FileUpload id="fileupload" items="/LeadsAttachments"
+								url="url" size="size" fileName="name" acceptRequestHeader="application/json"
+								uploadedDate="uploadedDate" contributor="contributor" fileId="fileId"
+								renameEnabled="true" renameFile="onRenameFile" saveClicked="onSaveClicked"
+								useMultipart="false" uploadUrl="/sap/opu/odata/sap/CRM_LEAD/LeadAttachments"
+								xsrfToken="" fileExtension="fileExtension" useEditControls="true"
+								uploadEnabled="true" uploadFile="onUploadFile" deleteFile="onDeleteFile"></ca:FileUpload>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="salesTeam" text="{i18n>SALES_TEAM}"
+						key="Team" icon="sap-icon://group" iconColor="Neutral">
+						<content>
+						<!-- extension to add more content to the participants tab  -->
+							<core:ExtensionPoint name="leadSalesTabCellsExtension"></core:ExtensionPoint>
+							<Table id="salesteam" noDataText="{i18n>NOPARTIES}" text="{i18n>TEAM}"
+								items="{json>/LeadSalesTeamSet}">
+
+								<columns>
+									<Column id="salesTeamColumn1" width="15%" />
+									<Column id="salesTeamColumn2" width="75%" />
+									<Column id="salesTeamColumn3" width="10%" />
+								</columns>
+								<items>
+									<ColumnListItem id="salesTeamTemplate_S3">
+										<cells>
+										<!-- extension to add more cells to the participant list item -->
+											<core:ExtensionPoint name="leadSalesTabCellsExtension">
+											</core:ExtensionPoint>
+											<ObjectHeader id="salesTeamHeader" icon="{json>ImgSrc}" />
+											<layout:VerticalLayout id="salesTeamVLayout"
+												class="ImagePadding">
+												<layout:content>
+													<Link id="EmpLink"
+														text="{path : 'json>PartnerName', formatter : 'cus.crm.lead.util.formatter.formatBusinessCardCaller'}">
+														<customData>
+															<core:CustomData key="PartnerNumber"
+																value="{json>PartnerNumber}" />
+															<core:CustomData key="PartnerFunctionCode"
+																value="{json>PartnerFunctionCode}" />
+															<core:CustomData key="Image" value="{json>ImgSrc}" />
+														</customData>
+
+													</Link>
+
+													<layout:HorizontalLayout id="salesTeamHLayout">
+														<Label id="salespartnerFunction_Label" text="{i18n>PARTNERFUNCTION}"
+															design="Bold"></Label>
+														<Text id="salespartnerFunction_text"
+															text="{path: 'json>PartnerFunctionText', formatter:'cus.crm.lead.util.formatter.PARTNERFUNCTION_Label'}"></Text>
+													</layout:HorizontalLayout>
+													<ObjectStatus id="callIcon" icon="sap-icon://outgoing-call"
+														text="{json>MobileNumber}"></ObjectStatus>
+												</layout:content>
+
+											</layout:VerticalLayout>
+											<Button id="participantDeleteButton" type="Transparent"
+												icon="sap-icon://decline" press="onDeleteParticipant"
+												visible="{path : 'json>PartnerFunctionCode', formatter : 'cus.crm.lead.util.formatter.formatParticipantDelete'}"></Button>
+										</cells>
+									</ColumnListItem>
+
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!-- extension to add more content to the icon tab bar -->
+					<core:ExtensionPoint name="leadTabBarItemLastExtension">
+					</core:ExtensionPoint>
+				</items>
+
+			</IconTabBar>
+		</content>
+		<footer id="footer">
+			<Bar id="detailFooter" enableFlexBox="true">
+
+				<contentRight>
+					<Button id="edit" text="{i18n>S3_EDIT}" press="onEdit"
+						visible="true" enable="false" type="Emphasized"></Button>
+					<Button id="accept" text="{i18n>S3_POSITIVE}" press="onAccept"
+						visible="true" enable="false" type="Accept"></Button>
+					<Button id="reject" text="{i18n>S3_NEGATIVE}" press="onReject"
+						visible="true" enable="false" type="Reject"></Button>
+
+				</contentRight>
+
+			</Bar>
+
+		</footer>
+		<!-- <footer> <Bar> </Bar> </footer> -->
+	</Page>
+
+
+	<!-- <Dialog title="{i18n>CHANGE_LOGS}" id="logchange" placement="Top"> 
+		<content> <List id="ChangeLog" noDataText="{i18n>NO_LOG}" items="{json>/LeadChangeDocs}"> 
+		<items> <ca:ExpansibleFeedListItem id="dproduct1" showIcon="false" sender="{json>PartnerName}" 
+		text="{parts:[{path:'json>UpdateFieldText'},{path: 'i18n>FROM'},{path:'json>OldValue'}, 
+		{path:'i18n>TO'},{path: 'json>NewValue'}], formatter: 'cus.crm.lead.util.formatter.formatChangeLog'}" 
+		timestamp="{path: 'json>UpdateDate', formatter:'cus.crm.lead.util.formatter.formatDate'}"> 
+		</ca:ExpansibleFeedListItem> </items> </List> </content> <beginButton> <Button 
+		text="{i18n>OK}" press="onCancelLogChange"></Button> </beginButton> </Dialog> -->
+
+</core:View>	
+	

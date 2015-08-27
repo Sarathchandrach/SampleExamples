@@ -1,0 +1,166 @@
+{
+	"AbsenceTypeCollection": [{
+		"__metadata": {
+			"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0100')",
+			"type": "LEAVEREQUEST.AbsenceType"
+		},
+		"EmployeeID": "12000002",
+		"StartDate": "\/Date(1363651200000)\/",
+		"AbsenceTypeCode": "0100",
+		"AbsenceTypeName": "Vacation",
+		"ApproverReadOnlyInd": false,
+		"ApproverVisibleInd": true,
+		"AllowedDurationPartialDayInd": false,
+		"AllowedDurationSingleDayInd": true,
+		"AllowedDurationMultipleDayInd": true,
+		"NoteVisibleInd": true,
+		"ActionCreateInd": true,
+		"FieldSelectionID": "",
+		"Icon1Size": 0,
+		"Icon1Style": "",
+		"Icon1Name": "",
+		"Icon1Binary": "",
+		"Icon2Size": 0,
+		"Icon2Style": "",
+		"Icon2Name": "",
+		"Icon2Binary": "",
+		"Icon3Size": 0,
+		"Icon3Style": "",
+		"Icon3Name": "",
+		"Icon3Binary": "",
+		"SequenceID": 1,
+		"absenceTypeAdditionalField": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0100')/absenceTypeAdditionalField"
+			}
+		},
+		"absenceTypeTimeAccount": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0100')/absenceTypeTimeAccount"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0110')",
+			"type": "LEAVEREQUEST.AbsenceType"
+		},
+		"EmployeeID": "12000002",
+		"StartDate": "\/Date(1363651200000)\/",
+		"AbsenceTypeCode": "0110",
+		"AbsenceTypeName": "Leave 1/2 Day",
+		"ApproverReadOnlyInd": true,
+		"ApproverVisibleInd": false,
+		"AllowedDurationPartialDayInd": true,
+		"AllowedDurationSingleDayInd": true,
+		"AllowedDurationMultipleDayInd": false,
+		"NoteVisibleInd": true,
+		"ActionCreateInd": true,
+		"FieldSelectionID": "",
+		"Icon1Size": 0,
+		"Icon1Style": "",
+		"Icon1Name": "",
+		"Icon1Binary": "",
+		"Icon2Size": 0,
+		"Icon2Style": "",
+		"Icon2Name": "",
+		"Icon2Binary": "",
+		"Icon3Size": 0,
+		"Icon3Style": "",
+		"Icon3Name": "",
+		"Icon3Binary": "",
+		"SequenceID": 2,
+		"absenceTypeAdditionalField": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0110')/absenceTypeAdditionalField"
+			}
+		},
+		"absenceTypeTimeAccount": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0110')/absenceTypeTimeAccount"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0148')",
+			"type": "LEAVEREQUEST.AbsenceType"
+		},
+		"EmployeeID": "12000002",
+		"StartDate": "\/Date(1363651200000)\/",
+		"AbsenceTypeCode": "0148",
+		"AbsenceTypeName": "Sick Leave",
+		"ApproverReadOnlyInd": false,
+		"ApproverVisibleInd": true,
+		"AllowedDurationPartialDayInd": true,
+		"AllowedDurationSingleDayInd": true,
+		"AllowedDurationMultipleDayInd": true,
+		"NoteVisibleInd": true,
+		"ActionCreateInd": true,
+		"FieldSelectionID": "",
+		"Icon1Size": 0,
+		"Icon1Style": "",
+		"Icon1Name": "",
+		"Icon1Binary": "",
+		"Icon2Size": 0,
+		"Icon2Style": "",
+		"Icon2Name": "",
+		"Icon2Binary": "",
+		"Icon3Size": 0,
+		"Icon3Style": "",
+		"Icon3Name": "",
+		"Icon3Binary": "",
+		"SequenceID": 3,
+		"absenceTypeAdditionalField": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0148')/absenceTypeAdditionalField"
+			}
+		},
+		"absenceTypeTimeAccount": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0148')/absenceTypeTimeAccount"
+			}
+		}
+	},
+	{
+		"__metadata": {
+			"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0190')",
+			"type": "LEAVEREQUEST.AbsenceType"
+		},
+		"EmployeeID": "12000002",
+		"StartDate": "\/Date(1363651200000)\/",
+		"AbsenceTypeCode": "0190",
+		"AbsenceTypeName": "Educational Leave",
+		"ApproverReadOnlyInd": false,
+		"ApproverVisibleInd": true,
+		"AllowedDurationPartialDayInd": true,
+		"AllowedDurationSingleDayInd": true,
+		"AllowedDurationMultipleDayInd": true,
+		"NoteVisibleInd": true,
+		"ActionCreateInd": true,
+		"FieldSelectionID": "",
+		"Icon1Size": 0,
+		"Icon1Style": "",
+		"Icon1Name": "",
+		"Icon1Binary": "",
+		"Icon2Size": 0,
+		"Icon2Style": "",
+		"Icon2Name": "",
+		"Icon2Binary": "",
+		"Icon3Size": 0,
+		"Icon3Style": "",
+		"Icon3Name": "",
+		"Icon3Binary": "",
+		"SequenceID": 4,
+		"absenceTypeAdditionalField": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0190')/absenceTypeAdditionalField"
+			}
+		},
+		"absenceTypeTimeAccount": {
+			"__deferred": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/AbsenceTypeCollection(EmployeeID='12000002',StartDate=datetime'2013-03-19T00%3A00%3A00',AbsenceTypeCode='0190')/absenceTypeTimeAccount"
+			}
+		}
+	}]
+}

@@ -1,0 +1,168 @@
+{
+   "TimeAccountCollection": [
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='16')",
+        "title": {
+          "-type": "text",
+          "#text": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='16')"
+        },
+        "updated": "2013-05-06T11:19:21Z",
+        "category": {
+          "-term": "LEAVEREQUEST.TimeAccount",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='16')",
+          "-rel": "self",
+          "-title": "TimeAccount"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:EmployeeID": "14000002",
+            "d:FilterStartDate": { "-m:null": "true" },
+            "d:FilterEndDate": { "-m:null": "true" },
+            "d:ProcessingStartDate": "2013-02-06T00:00:00",
+            "d:ProcessingEndDate": "2013-12-31T00:00:00",
+            "d:TimeAccountTypeCode": "16",
+            "d:TimeAccountTypeName": "Sick Leave",
+            "d:DeductionStartDate": "2013-02-06T00:00:00",
+            "d:DeductionEndDate": "2013-12-31T00:00:00",
+            "d:TimeUnitCode": "010",
+            "d:TimeUnitName": "Hours",
+            "d:BalanceEntitlementQuantity": "90.00000",
+            "d:BalanceUsedQuantity": "0.00000",
+            "d:BalanceApprovedQuantity": "0.00000",
+            "d:BalanceRequestedQuantity": "0.00000",
+            "d:BalancePlannedQuantity": "0.00000",
+            "d:BalanceAvailableQuantity": "60.00000",
+            "d:SequenceID": "0",
+            "d:RemainingVacationDays": "60.00"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='09')",
+        "title": {
+          "-type": "text",
+          "#text": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='09')"
+        },
+        "updated": "2013-05-06T11:19:21Z",
+        "category": {
+          "-term": "LEAVEREQUEST.TimeAccount",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='09')",
+          "-rel": "self",
+          "-title": "TimeAccount"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:EmployeeID": "14000002",
+            "d:FilterStartDate": { "-m:null": "true" },
+            "d:FilterEndDate": { "-m:null": "true" },
+            "d:ProcessingStartDate": "2013-02-06T00:00:00",
+            "d:ProcessingEndDate": "2013-12-31T00:00:00",
+            "d:TimeAccountTypeCode": "09",
+            "d:TimeAccountTypeName": "Vacation",
+            "d:DeductionStartDate": "2013-02-06T00:00:00",
+            "d:DeductionEndDate": "2014-03-31T00:00:00",
+            "d:TimeUnitCode": "010",
+            "d:TimeUnitName": "Days",
+            "d:BalanceEntitlementQuantity": "56.00000",
+            "d:BalanceUsedQuantity": "24.00000",
+            "d:BalanceApprovedQuantity": "4.00000",
+            "d:BalanceRequestedQuantity": "21.00000",
+            "d:BalancePlannedQuantity": "25.00000",
+            "d:BalanceAvailableQuantity": "17.00000",
+            "d:SequenceID": "1",
+            "d:RemainingVacationDays": "7.00"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='10')",
+        "title": {
+          "-type": "text",
+          "#text": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='10')"
+        },
+        "updated": "2013-05-06T11:19:21Z",
+        "category": {
+          "-term": "LEAVEREQUEST.TimeAccount",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='10')",
+          "-rel": "self",
+          "-title": "TimeAccount"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:EmployeeID": "14000002",
+            "d:FilterStartDate": { "-m:null": "true" },
+            "d:FilterEndDate": { "-m:null": "true" },
+            "d:ProcessingStartDate": "2013-02-06T00:00:00",
+            "d:ProcessingEndDate": "2013-12-31T00:00:00",
+            "d:TimeAccountTypeCode": "10",
+            "d:TimeAccountTypeName": "Leave (Hours)",
+            "d:DeductionStartDate": "2013-02-06T00:00:00",
+            "d:DeductionEndDate": "2014-03-31T00:00:00",
+            "d:TimeUnitCode": "001",
+            "d:TimeUnitName": "Hours",
+            "d:BalanceEntitlementQuantity": "90.0000",
+            "d:BalanceUsedQuantity": "0.25000",
+            "d:BalanceApprovedQuantity": "0.00000",
+            "d:BalanceRequestedQuantity": "6.83000",
+            "d:BalancePlannedQuantity": "6.83000",
+            "d:BalanceAvailableQuantity": "60.0000",
+            "d:SequenceID": "2",
+            "d:RemainingVacationDays": "0.52"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='03')",
+        "title": {
+          "-type": "text",
+          "#text": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='03')"
+        },
+        "updated": "2013-05-06T11:19:21Z",
+        "category": {
+          "-term": "LEAVEREQUEST.TimeAccount",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='03')",
+          "-rel": "self",
+          "-title": "TimeAccount"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:EmployeeID": "14000002",
+            "d:FilterStartDate": { "-m:null": "true" },
+            "d:FilterEndDate": { "-m:null": "true" },
+            "d:ProcessingStartDate": "2013-02-06T00:00:00",
+            "d:ProcessingEndDate": "2013-12-31T00:00:00",
+            "d:TimeAccountTypeCode": "03",
+            "d:TimeAccountTypeName": "Educational Leave",
+            "d:DeductionStartDate": "2013-02-06T00:00:00",
+            "d:DeductionEndDate": "2014-03-31T00:00:00",
+            "d:TimeUnitCode": "010",
+            "d:TimeUnitName": "Days",
+            "d:BalanceEntitlementQuantity": "20.0000",
+            "d:BalanceUsedQuantity": "1.00000",
+            "d:BalanceApprovedQuantity": "0.00000",
+            "d:BalanceRequestedQuantity": "6.83000",
+            "d:BalancePlannedQuantity": "6.83000",
+            "d:BalanceAvailableQuantity": "19.0000",
+            "d:SequenceID": "2",
+            "d:RemainingVacationDays": "19.00"
+          }
+        }
+      }
+   ]
+}

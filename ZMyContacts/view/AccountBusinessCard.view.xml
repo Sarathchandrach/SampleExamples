@@ -1,0 +1,32 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+     xmlns:core="sap.ui.core"
+	 xmlns:mvc="sap.ui.core.mvc"
+	 xmlns:form="sap.ui.layout.form"
+	 xmlns="sap.m"
+	 xmlns:layout="sap.ui.layout"
+	 controllerName="cus.crm.mycontacts.view.AccountBusinessCard"
+     xmlns:html="http://www.w3.org/1999/xhtml"
+     resourceBundleName="sap.ca.ui.i18n.i18n" resourceBundleAlias="ca_i18n">
+     		
+	<form:SimpleForm id="bcCompanyContainer" class="bcUpperContainer" minWidth="1024" maxContainerCols="2">
+		<form:content>
+			<core:Title id="bcAccountContact" text="{ca_i18n>Quickoverview.company.contacttitle}" />
+			<Label text="{ca_i18n>Quickoverview.company.phone}"></Label>
+			<Link text="{/phone}" press="onTapPhone"/>
+			<Label text="{ca_i18n>Quickoverview.company.address}" />
+			<layout:HorizontalLayout>
+        		<Text id="addressInput"
+        			  text="{/address}"/>
+        		<layout:HorizontalLayout id="mapIcon" visible="false">
+        			<core:Icon src="sap-icon://map" press="onMapIconPressed" size="1.2rem" class="cusMyContactsPaddingLeft"  visible="{path : '/address', formatter:'cus.crm.mycontacts.formatter.ReleaseFormatter.isNotInitial'}"/>
+        		</layout:HorizontalLayout>
+			</layout:HorizontalLayout>
+		</form:content>
+	</form:SimpleForm>
+
+</core:View>

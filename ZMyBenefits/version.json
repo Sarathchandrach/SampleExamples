@@ -1,0 +1,8 @@
+{ "application" : "hcm.emp.mybenefits",
+  "version" : "1.4.3",
+  "buildNumber" : "26",
+  "buildId" : "2014-09-12_10-09-11",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

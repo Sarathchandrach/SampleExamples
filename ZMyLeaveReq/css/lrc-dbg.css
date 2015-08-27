@@ -1,0 +1,215 @@
+/* ============================================= */
+/* CSS create leave request (s4) - start         */
+/* ============================================= */
+/* .s4MainForm {
+	padding: 0 0.5em;
+}
+ */
+/* .s4MainFlx {
+	margin: 0 0.5em;
+} */
+
+/* .s4MainForm .sapUiRFLContainerContent.sapUiRFLPaddingClass{
+	padding-top: 0.5em;
+} */
+#main--S4--LRS4_FRM_CNT_TIME--RFLayout-cont0_1 {
+	vertical-align: bottom;
+}
+
+.sap-phone #main--S4--LRS4_FRM_CNT_TIME--RFLayout-cont0_1 {
+	vertical-align: top;
+}
+
+.s4SelectLayout {
+	margin: 0.6rem 1rem -0.2rem;
+}
+
+.s4leaveTypeSelectorFlx { 
+padding-top: 1em;
+}
+
+.s4BalancesFlxLeft {
+	padding-top: 2px;
+	direction:ltr;
+}
+
+.s4BalancesFlxRight { /* 	padding-top: 2px;
+	margin-right: 1rem; */
+	direction:rtl;
+	
+}
+
+.sap-phone .s4BalancesFlxRight {
+	margin-right: 0;
+}
+
+.s4Calendar {
+	margin-bottom: 0.25rem;
+}
+
+.sap-phone .s4BALANCEOBJECT {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.s4BALANCEOBJECT {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.s4BALANCEOBJECT .sapMObjectNumberUnit {
+	font-size: 0.5em;
+}
+
+/* Begin: App Designer related: make all Object Numbers having the same font setting */
+.sap-phone .s4_HBOX_FLX_BALANCES .sapMObjectNumber {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.s4_HBOX_FLX_BALANCES .sapMObjectNumber {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.s4_HBOX_FLX_BALANCES  .sapMObjectNumberUnit {
+	font-size: 0.5em;
+}
+/* End: App Designer related: make all Object Numbers having the same font setting  */
+.s4LEGEND { /* margin-right: 1rem; */
+	
+}
+
+.sapUiRFLPaddingClass {
+	padding-left: 0.5rem;
+}
+
+.sap-phone .s4LEGEND {
+	margin-right: 0;
+}
+
+.s4Notes { /* padding-top: 9px; */
+	
+}
+
+/* .s4TimeInputFlxEnd { */
+/* 	padding-left: 1rem; */
+/* } */
+
+.s4LRType {
+	position: relative;
+}
+
+.s4LRType .sapUiIcon {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.s4TimeInputFlx {
+-moz-box-flex:1.0; /*Firefox*/
+-webkit-box-flex:1.0; /* Safari and Chrome*/
+-ms-flex:1.0; /*Internet Explorer 10*/
+box-flex:1.0;
+}
+
+s4SelPop {
+	width: 20.5em
+}
+
+/* Workaround for IE 9 - start */
+html[data-sap-ui-browser*='ie'] .s4BALANCEOBJECT {
+	font-size: 1.5rem;
+}
+
+html[data-sap-ui-browser*='ie'] .s4BalancesFlxLeft {
+	float: left;
+	line-height: 21px
+}
+
+html[data-sap-ui-browser*='ie'] .s4BalancesFlxRight {
+	float: right;
+	line-height: 21px;
+	direction:rtl;
+}
+
+html[data-sap-ui-browser*='ie9'] .s4TimeInputFlxStart {
+	float: left;
+/* 	max-width: 45% */
+}
+
+html[data-sap-ui-browser*='ie9'] .s4TimeInputFlxEnd {
+	float: right;
+/* 	max-width: 45% */
+}
+
+html[data-sap-ui-browser*='ie9'] .s4leaveTypeSelectorFlx {
+	text-align: center;
+}
+
+html[data-sap-ui-browser*='ie9'] .s4leaveTypeSelectorFlx>.sapMFlexItem {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+html[data-sap-ui-browser*='ie9'] .s4SelPop {
+	width: 20.5em max-width:  23rem;
+}
+
+/* html[data-sap-ui-browser*='ie'] .sapUIMeLegendColor { */
+/* 	margin-top: -0.5rem; */
+/* } */
+
+/* Workaround for IE 9 - end   */
+html[data-sap-ui-browser*='ie10'] .s4Notes textarea {
+	overflow: auto;
+}
+
+/* Workaround for IE 10 - start */
+html[data-sap-ui-browser*='ie10'] .s4BALANCEOBJECT {
+	font-size: 1.5rem;
+}
+
+html[data-sap-ui-browser*='ie10'] .s4BalancesFlxLeft {
+	float: left;
+	line-height: 21px
+}
+
+html[data-sap-ui-browser*='ie10'] .s4BalancesFlxRight {
+	float: right;
+	line-height: 21px
+}
+
+html[data-sap-ui-browser*='ie10'] .s4TimeInputFlxStart {
+	float: left;
+/* 	max-width: 45% */
+}
+
+html[data-sap-ui-browser*='ie10'] .s4TimeInputFlxEnd {
+	float: right;
+/* 	max-width: 45% */
+}
+/* Workaround for IE 10 - end */
+
+/* ============================================= */
+/* CSS create leave request (s4) - end           */
+/* ============================================= */
+
+/* ============================================= */
+/* CSS create leave request (s6B) - start         */
+/* ============================================= */
+.s6BNoteContainerLeft {
+	padding-left: 1em;
+	padding-right:1em;
+}
+
+.sap-phone .s6BNoteContainerLeft {
+	padding-left: 0;
+}
+
+.s6BNoteright {
+	padding-right: 1em;
+}
+/* ============================================= */
+/* CSS create leave request (s6B) - end         */
+/* ============================================= */

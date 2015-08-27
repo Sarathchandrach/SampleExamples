@@ -1,0 +1,656 @@
+{
+  "LeaveRequestCollection": [
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='AEE87A51C3EE5551E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='AEE87A51C3EE5551E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='AEE87A51C3EE5551E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "1.00",
+              "d:KALTG": "1.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "1.00",
+              "d:ABRST": "7.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "AEE87A51C3EE5551E10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-06-03T00:00:00",
+            "d:StartTime": "PT00H00M00S",
+            "d:EndDate": "2013-06-07T00:00:00",
+            "d:EndTime": "PT00H00M00S",
+            "d:WorkingHoursDuration": "7.20",
+            "d:WorkingDaysDuration": "5.00",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:Notes": "
+					14-May-2013 10:35:45 (EDT) George Jones
+					As discussed.
+				",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-29T00:00:00",
+            "d:LastChangeTime": "PT08H51M46S",
+            "d:SequenceID": "2",
+            "d:LeaveRequestType": "1",
+            "d:FirstSubmissionDate": "2013-04-29T00:00:00",
+            "d:FirstSubmissionTime": "PT08H51M46S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='E2747C51D0BF8BBFE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='E2747C51D0BF8BBFE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='E2747C51D0BF8BBFE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "0.09",
+              "d:KALTG": "0.00",
+              "d:ABRTG": "0.09",
+              "d:ABRST": "0.75"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "E2747C51D0BF8BBFE10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0110",
+            "d:AbsenceTypeName": "Leave 1/2 day",
+            "d:StartDate": "2013-05-03T00:00:00",
+            "d:StartTime": "PT08H54M00S",
+            "d:EndDate": "2013-05-03T00:00:00",
+            "d:EndTime": "PT09H54M00S",
+            "d:WorkingHoursDuration": "0.75",
+            "d:WorkingDaysDuration": "0.09",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:Notes": "
+					29-Apr-2013 08:54:56 (CET) George Jones
+					As discussed.
+				",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-29T00:00:00",
+            "d:LastChangeTime": "PT08H54M56S",
+            "d:SequenceID": "1",
+            "d:LeaveRequestType": "1",
+            "d:FirstSubmissionDate": "2013-04-29T00:00:00",
+            "d:FirstSubmissionTime": "PT08H54M56S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='9A1E7A515B46EEB8E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='9A1E7A515B46EEB8E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='9A1E7A515B46EEB8E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "1.00",
+              "d:KALTG": "1.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "1.00",
+              "d:ABRST": "7.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "9A1E7A515B46EEB8E10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-10-16T00:00:00",
+            "d:StartTime": "PT00H00M00S",
+            "d:EndDate": "2013-10-16T00:00:00",
+            "d:EndTime": "PT00H00M00S",
+            "d:WorkingHoursDuration": "7.20",
+            "d:WorkingDaysDuration": "1.00",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-26T00:00:00",
+            "d:LastChangeTime": "PT16H23M49S",
+            "d:SequenceID": "3",
+            "d:LeaveRequestType": "1",
+            "d:FirstSubmissionDate": "2013-04-26T00:00:00",
+            "d:FirstSubmissionTime": "PT16H23M49S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='445A76516397F303E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='445A76516397F303E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='445A76516397F303E10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "0.13",
+              "d:KALTG": "0.00",
+              "d:ABRTG": "0.13",
+              "d:ABRST": "1.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "445A76516397F303E10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0148",
+            "d:AbsenceTypeName": "Sick Leave",
+            "d:StartDate": "2013-04-29T00:00:00",
+            "d:StartTime": "PT16H02M00S",
+            "d:EndDate": "2013-04-29T00:00:00",
+            "d:EndTime": "PT17H02M00S",
+            "d:WorkingHoursDuration": "1.00",
+            "d:WorkingDaysDuration": "0.13",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:Notes": "
+					26-Apr-2013 15:03:58 (CET) George Jones
+					I came down with a cold
+				",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-26T00:00:00",
+            "d:LastChangeTime": "PT15H03M58S",
+            "d:SequenceID": "4",
+            "d:LeaveRequestType": "1",
+            "d:FirstSubmissionDate": "2013-04-26T00:00:00",
+            "d:FirstSubmissionTime": "PT15H03M58S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='318770511411511BE10000000A42D033',ChangeStateID='0000000005',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='318770511411511BE10000000A42D033',ChangeStateID='0000000005',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='318770511411511BE10000000A42D033',ChangeStateID='0000000005',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "1.00",
+              "d:KALTG": "1.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "1.00",
+              "d:ABRST": "7.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "318770511411511BE10000000A42D033",
+            "d:ChangeStateID": "0000000005",
+            "d:LeaveKey": "140000020100   2013053020130529   2001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "APPROVED",
+            "d:StatusName": "Approved",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-05-28T00:00:00",
+            "d:StartTime": "PT00H00M00S",
+            "d:EndDate": "2013-05-28T00:00:00",
+            "d:EndTime": "PT00H00M00S",
+            "d:WorkingHoursDuration": "7.20",
+            "d:WorkingDaysDuration": "1.00",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "false",
+            "d:LastChangeDate": "2013-04-26T00:00:00",
+            "d:LastChangeTime": "PT13H53M10S",
+            "d:SequenceID": "5",
+            "d:LeaveRequestType": "2",
+            "d:FirstSubmissionDate": "2013-04-20T00:00:00",
+            "d:FirstSubmissionTime": "PT11H55M38S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='3B0E7551DFD4F994E10000000A42D033',ChangeStateID='0000000001',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='3B0E7551DFD4F994E10000000A42D033',ChangeStateID='0000000001',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='3B0E7551DFD4F994E10000000A42D033',ChangeStateID='0000000001',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "0.00",
+              "d:KALTG": "0.00",
+              "d:ABRTG": "0.00",
+              "d:ABRST": "0.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "3B0E7551DFD4F994E10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:LeaveKey": "140000020100   2013072420130723   2001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-07-23T00:00:00",
+            "d:StartTime": "PT00H00M00S",
+            "d:EndDate": "2013-07-24T00:00:00",
+            "d:EndTime": "PT00H00M00S",
+            "d:WorkingHoursDuration": "0.00",
+            "d:WorkingDaysDuration": "0.00",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-23T00:00:00",
+            "d:LastChangeTime": "PT15H01M40S",
+            "d:SequenceID": "6",
+            "d:LeaveRequestType": "3",
+            "d:FirstSubmissionDate": "2013-04-23T00:00:00",
+            "d:FirstSubmissionTime": "PT15H01M40S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013053020130529%20%20%202001')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "2.00",
+              "d:KALTG": "2.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "2.00",
+              "d:ABRST": "14.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:ChangeStateID": "0000000000",
+            "d:LeaveKey": "140000020100   2013053020130529   2001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "POSTED",
+            "d:StatusName": "Booked",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-05-29T00:00:00",
+            "d:StartTime": "PTHMS",
+            "d:EndDate": "2013-05-30T00:00:00",
+            "d:EndTime": "PTHMS",
+            "d:WorkingHoursDuration": "14.40",
+            "d:WorkingDaysDuration": "2.00",
+            "d:ApproverEmployeeID": "00000000",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-03T00:00:00",
+            "d:LastChangeTime": "PT00H00M00S",
+            "d:SequenceID": "7",
+            "d:LeaveRequestType": "0",
+            "d:FirstSubmissionDate": { "-m:null": "true" },
+            "d:FirstSubmissionTime": "PT00H00M00S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='',ChangeStateID='0000000000',LeaveKey='140000020100%20%20%202013072420130723%20%20%202001')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "2.00",
+              "d:KALTG": "2.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "2.00",
+              "d:ABRST": "14.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:ChangeStateID": "0000000000",
+            "d:LeaveKey": "140000020100   2013072420130723   2001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "POSTED",
+            "d:StatusName": "Booked",
+            "d:AbsenceTypeCode": "0100",
+            "d:AbsenceTypeName": "Vacation",
+            "d:StartDate": "2013-07-23T00:00:00",
+            "d:StartTime": "PTHMS",
+            "d:EndDate": "2013-07-24T00:00:00",
+            "d:EndTime": "PTHMS",
+            "d:WorkingHoursDuration": "14.40",
+            "d:WorkingDaysDuration": "2.00",
+            "d:ApproverEmployeeID": "00000000",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-04-03T00:00:00",
+            "d:LastChangeTime": "PT00H00M00S",
+            "d:SequenceID": "8",
+            "d:LeaveRequestType": "0",
+            "d:FirstSubmissionDate": { "-m:null": "true" },
+            "d:FirstSubmissionTime": "PT00H00M00S"
+          }
+        }
+      },
+      {
+        "id": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/LeaveRequestCollection(EmployeeID='14000002',RequestID='3568495103CF030FE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+        "title": {
+          "-type": "text",
+          "#text": "LeaveRequestCollection(EmployeeID='14000002',RequestID='3568495103CF030FE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')"
+        },
+        "updated": "2013-04-29T16:49:10Z",
+        "category": {
+          "-term": "LEAVEREQUEST.LeaveRequest",
+          "-scheme": "http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"
+        },
+        "link": {
+          "-href": "LeaveRequestCollection(EmployeeID='14000002',RequestID='3568495103CF030FE10000000A42D033',ChangeStateID='0000000001',LeaveKey='')",
+          "-rel": "edit",
+          "-title": "LeaveRequest"
+        },
+        "content": {
+          "-type": "application/xml",
+          "m:properties": {
+            "d:additionalFields": {
+              "-m:type": "LEAVEREQUEST.LeaveRequestAddFields",
+              "d:PBEG1": "PT00H00M00S",
+              "d:PEND1": "PT00H00M00S",
+              "d:PBEZ1": "0.00",
+              "d:PUNB1": "0.00",
+              "d:PBEG2": "PT00H00M00S",
+              "d:PEND2": "PT00H00M00S",
+              "d:PBEZ2": "0.00",
+              "d:PUNB2": "0.00",
+              "d:ANRTG": "0.00",
+              "d:LFZED": { "-m:null": "true" },
+              "d:KRGED": { "-m:null": "true" },
+              "d:KBBEG": { "-m:null": "true" },
+              "d:RMDDA": { "-m:null": "true" },
+              "d:KENN1": "0",
+              "d:KENN2": "0",
+              "d:OBJ_ID": "00000000",
+              "d:ABWTG": "1.00",
+              "d:KALTG": "1.00",
+              "d:ALLDF": "X",
+              "d:ABRTG": "1.00",
+              "d:ABRST": "8.00"
+            },
+            "d:EmployeeID": "14000002",
+            "d:RequestID": "3568495103CF030FE10000000A42D033",
+            "d:ChangeStateID": "0000000001",
+            "d:ActionCode": "0",
+            "d:ProcessCheckOnlyInd": "false",
+            "d:StatusCode": "SENT",
+            "d:StatusName": "Sent",
+            "d:AbsenceTypeCode": "0148",
+            "d:AbsenceTypeName": "Sick Leave",
+            "d:StartDate": "2013-05-07T00:00:00",
+            "d:StartTime": "PT00H00M00S",
+            "d:EndDate": "2013-05-07T00:00:00",
+            "d:EndTime": "PT00H00M00S",
+            "d:WorkingHoursDuration": "8.00",
+            "d:WorkingDaysDuration": "1.00",
+            "d:ApproverEmployeeID": "14000002",
+            "d:ApproverEmployeeName": "George Jones",
+            "d:Notes": "
+					21-Mar-2013 09:26:03 (CET) George Jones
+					I caught a cold 
+				",
+            "d:ActionDeleteInd": "true",
+            "d:ActionModifyInd": "true",
+            "d:LastChangeDate": "2013-03-21T00:00:00",
+            "d:LastChangeTime": "PT09H26M03S",
+            "d:SequenceID": "9",
+            "d:LeaveRequestType": "1",
+            "d:FirstSubmissionDate": "2013-03-21T00:00:00",
+            "d:FirstSubmissionTime": "PT09H26M03S"
+          }
+        }
+      }
+    ]
+}

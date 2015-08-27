@@ -1,0 +1,71 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog title="{i18n>CREATE_APPOINTMENT_TITLE}"
+	xmlns="sap.m"
+	xmlns:ui="sap.ca.ui"
+	xmlns:layout="sap.ui.layout"
+	rightButton="cancelCreateAppointmentDialog"
+	class="sapUiPopupWithPadding customDialog"
+	contentWidth="400px"
+	stretch="{model>/isFullScreen}"
+	>
+	<content>
+		<layout:VerticalLayout width="100%">
+			<layout:content>
+				<Label text="{i18n>CREATE_APPOINTMENT_DESCRIPTION_LABEL}:" required="true" class="sapMLabelBold"/>
+				<Input width="100%" placeholder="{i18n>CREATE_APPOINTMENT_DESCRIPTION_PLACEHOLDER}" type="Text" value="{model>/description}" id="appointmentDescriptionId"/>
+				<Label text="{i18n>CREATE_APPOINTMENT_CONTENT_LABEL}:" class="sapMLabelBold" />
+				<TextArea width="100%" height="20em" cols="50" row="5" editable="true" value="{model>/text}" class="resizeNone"/>
+				<Label text="{i18n>CREATE_APPOINTMENT_START_DATE_LABEL}:" class="sapMLabelBold" />
+				<layout:HorizontalLayout width="100%">
+					<layout:content>
+						<ui:DatePicker class="customDatePicker" value="{ path:'model>/startDateValue', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium'} }" 
+							change="onStartDateChanged" />
+						<DateTimeInput class="customTimeInput" id="CreateAppointmentDialogStartTime" type="Time" visible="{model>/showTime}" 
+							value="{ path:'model>/startTimeValue', type:'sap.ui.model.type.Time', formatOptions: { style: 'short'} }" 
+							change="onStartTimeChanged" />
+					</layout:content>
+				</layout:HorizontalLayout>
+				<Label text="{i18n>CREATE_APPOINTMENT_END_DATE_LABEL}:" class="sapMLabelBold" />
+				<layout:HorizontalLayout width="100%">
+					<layout:content>
+						<ui:DatePicker class="customDatePicker" value="{ path:'model>/endDateValue', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium'} }"
+							change="onEndDateChanged" />
+						<DateTimeInput class="customTimeInput" id="CreateAppointmentDialogEndTime" type="Time" visible="{model>/showTime}"
+							value="{ path:'model>/endTimeValue', type:'sap.ui.model.type.Time', formatOptions: { style: 'short'} }" 
+							change="onEndTimeChanged" />
+					</layout:content>
+				</layout:HorizontalLayout>			
+				<Label text="{i18n>CREATE_APPOINTMENT_ALL_DAY_LABEL}:" class="sapMLabelBold"/>
+				<Switch enabled="true" state="{model>/allDayFlag}" change="handleDisplayTime" />
+				<Label text="{i18n>CREATE_APPOINTMENT_PRIVATE_LABEL}:" class="sapMLabelBold"/>
+				<Switch enabled="true" state="{model>/privateFlag}" />
+				<Label text="{i18n>CREATE_APPOINTMENT_ACCOUNT_LABEL}:" class="sapMLabelBold" />
+				<layout:HorizontalLayout id="accountHorizontalLayoutAppointment" class="customSelectField" width="100%">
+					<layout:content>
+						<Input value="{model>/accountName}" showValueHelp="true" valueHelpRequest="displayAccounts" editable="false"
+						 	class="sapMInputBaseInner"/>
+						<Button icon="sap-icon://sys-cancel-2" press="deleteAccount" visible="{model>/accountEntered}" type="Transparent"/>	   
+					</layout:content> 
+	        	</layout:HorizontalLayout>
+				<Label text="{i18n>CREATE_APPOINTMENT_CONTACT_LABEL}:" class="sapMLabelBold" />
+				<layout:HorizontalLayout  id="contactHorizontalLayoutAppointment" class="customSelectField" width="100%">
+					<layout:content>
+						<Input value="{model>/contactName}" showValueHelp="true" valueHelpRequest="displayContacts" editable="false" 
+							class="sapMInputBaseInner" width="{model>/contactFieldWidth}"/>		
+						<Button icon="sap-icon://sys-cancel-2" press="deleteContact" visible="{model>/contactEntered}" type="Transparent"/>	
+					</layout:content>    
+	        	</layout:HorizontalLayout>
+        	</layout:content>
+		</layout:VerticalLayout>
+	</content>
+	<beginButton>
+		<Button text="{i18n>CREATE_APPOINTMENT_OK_LABEL}" press="okCreateAppointmentDialog" />
+	</beginButton>
+	<endButton>
+		<Button text="{i18n>CREATE_APPOINTMENT_CANCEL_LABEL}" press="cancelCreateAppointmentDialog" />
+	</endButton>
+</Dialog>

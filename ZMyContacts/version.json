@@ -1,0 +1,8 @@
+{ "application" : "cus.crm.mycontacts",
+  "version" : "1.5.6",
+  "buildNumber" : "53",
+  "buildId" : "2014-12-05_10-54-45",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

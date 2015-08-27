@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="CRM_APPOINTMENT_SRV" xml:lang="en"
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			
+			<EntityType Name="Appointment" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Guid" />
+				</Key>
+				<Property Name="Note" Type="Edm.String" sap:label="Text Lines" />
+				<Property Name="PrivatFlag" Type="Edm.Boolean" sap:label="Private" />
+				<Property Name="Priority" Type="Edm.String" MaxLength="1"
+					sap:label="Priority" />
+				<Property Name="PriorityTxt" Type="Edm.String" MaxLength="60"
+					sap:label="Priority" />
+				<Property Name="AllDay" Type="Edm.Boolean" sap:label="All day event" />
+				<Property Name="Status" Type="Edm.String" MaxLength="5"
+					sap:label="Status" />
+				<Property Name="StatusTxt" Type="Edm.String" MaxLength="40"
+					sap:label="User Status" />
+				<Property Name="Account" Type="Edm.String" MaxLength="10"
+					sap:label="ActivityPartner" />
+				<Property Name="AccountTxt" Type="Edm.String" MaxLength="80"
+					sap:label="Activity Partner" />
+				<Property Name="Contact" Type="Edm.String" MaxLength="10"
+					sap:label="Contact Pers." />
+				<Property Name="ContactTxt" Type="Edm.String" MaxLength="80"
+					sap:label="Contact Person" />
+				<Property Name="ChangedAt" Type="Edm.DateTime" Precision="0"
+					sap:label="Time Stamp" />
+				<Property Name="ResponsArea" Type="Edm.String" MaxLength="2"
+					sap:label="X" />
+				<Property Name="Guid" Type="Edm.Guid" Nullable="false"
+					sap:label="Object GUID" />
+				<Property Name="Description" Type="Edm.String" MaxLength="40"
+					m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="Description" />
+				<Property Name="Location" Type="Edm.String" MaxLength="100"
+					sap:label="Location" />
+				<Property Name="FromDate" Type="Edm.DateTime" Precision="0"
+					sap:label="Time Stamp" />
+				<Property Name="ToDate" Type="Edm.DateTime" Precision="0"
+					sap:label="Time Stamp" />
+				<Property Name="MyOwn" Type="Edm.Boolean" />
+			
+			</EntityType>
+			<EntityType Name="Attendee" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Guid" />
+					<PropertyRef Name="PartnerGuid" />
+				</Key>
+				<Property Name="PartnerFct" Type="Edm.String" MaxLength="8"
+					sap:label="Partner Function" />
+				<Property Name="Guid" Type="Edm.Guid" Nullable="false"
+					sap:label="Object GUID" />
+				<Property Name="PartnerGuid" Type="Edm.Guid" Nullable="false"
+					sap:label="Partner GUID" />
+				<Property Name="PartnerNo" Type="Edm.String" MaxLength="32"
+					sap:label="Partner Number" />
+				<Property Name="IntAttendee" Type="Edm.Boolean" Nullable="false"
+					sap:label="Flag" />
+				<Property Name="PartnerPft" Type="Edm.String" MaxLength="4"
+					sap:label="Function category" />
+				<Property Name="DescrPft" Type="Edm.String" MaxLength="30"
+					sap:label="Text" />
+				<Property Name="NameLast" Type="Edm.String" MaxLength="40"
+					sap:label="Last name" />
+				<Property Name="NameFirst" Type="Edm.String" MaxLength="40"
+					sap:label="First name" />
+				<Property Name="FullNameAdr" Type="Edm.String" MaxLength="50"
+					sap:label="Description" />
+				<Property Name="AccountNo" Type="Edm.String" MaxLength="32"
+					sap:label="Partner Number" />
+				<Property Name="Function" Type="Edm.String" MaxLength="40"
+					sap:label="Function" />
+				<Property Name="FullName" Type="Edm.String" MaxLength="50"
+					m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="Description" />
+			</EntityType>
+			<EntityType Name="Account" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="accountID" />
+				</Key>
+				<Property Name="accountID" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="BusinessPartner" />
+				<Property Name="name1" Type="Edm.String" MaxLength="40"
+					sap:label="Name 1" />
+				<Property Name="isMyAccount" Type="Edm.Boolean" sap:label="TRUE" />
+				
+			</EntityType>
+			<EntityType Name="Contact" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="contactID" />
+					<PropertyRef Name="accountID" />
+				</Key>
+				<Property Name="contactID" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="BusinessPartner" />
+				<Property Name="accountID" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="BusinessPartner" />
+				<Property Name="firstName" Type="Edm.String" MaxLength="40"
+					sap:label="First name" />
+				<Property Name="lastName" Type="Edm.String" MaxLength="40"
+					sap:label="Last name" />
+				<Property Name="fullName" Type="Edm.String" MaxLength="50"
+					sap:label="Description" />
+				<Property Name="birthDate" Type="Edm.DateTime" Precision="0"
+					sap:label="Date of Birth" />
+				<Property Name="company" Type="Edm.String" MaxLength="50"
+					sap:label="Description" />
+				<Property Name="function" Type="Edm.String" MaxLength="40"
+					sap:label="Function" />
+				<Property Name="department" Type="Edm.String" MaxLength="40"
+					sap:label="Company dept." />
+				<Property Name="titleID" Type="Edm.String" MaxLength="4"
+					sap:label="Title" />
+				<Property Name="title" Type="Edm.String" MaxLength="30"
+					sap:label="Title" />
+				<Property Name="academicTitleID" Type="Edm.String"
+					MaxLength="4" sap:label="Academic Title" />
+				<Property Name="academicTitle" Type="Edm.String" MaxLength="20"
+					sap:label="Academic Title" />
+				<Property Name="isMyContact" Type="Edm.Boolean" sap:label="TRUE" />
+				<Property Name="isMainContact" Type="Edm.Boolean"
+					sap:label="TRUE" />
+				
+			</EntityType>
+		
+			<EntityType Name="Employee" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="employeeID" />
+				</Key>
+				<Property Name="employeeID" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="BusinessPartner" />
+				<Property Name="firstName" Type="Edm.String" MaxLength="40"
+					sap:label="First name" />
+				<Property Name="lastName" Type="Edm.String" MaxLength="40"
+					sap:label="Last name" />
+				<Property Name="titleID" Type="Edm.String" MaxLength="4"
+					sap:label="Title" />
+				<Property Name="title" Type="Edm.String" MaxLength="30"
+					sap:label="Title" />
+				<Property Name="academicTitleID" Type="Edm.String"
+					MaxLength="4" sap:label="Academic Title" />
+				<Property Name="academicTitle" Type="Edm.String" MaxLength="20"
+					sap:label="Academic Title" />
+				<Property Name="fullName" Type="Edm.String" MaxLength="50"
+					sap:label="Description" />
+			
+			</EntityType>
+	
+			<ComplexType Name="CrmtDdPrio">
+				<Property Name="Priority" Type="Edm.String" Nullable="false"
+					MaxLength="1" sap:label="Priority" />
+				<Property Name="TxtLong" Type="Edm.String" Nullable="false"
+					MaxLength="40" sap:label="Description" />
+			</ComplexType>
+			<ComplexType Name="AppointStatusDD">
+				<Property Name="Default" Type="Edm.Boolean" Nullable="false"
+					sap:label="Initial status" />
+				<Property Name="StatusID" Type="Edm.String" Nullable="false"
+					MaxLength="5" sap:label="Status" />
+				<Property Name="StatusTxt" Type="Edm.String" Nullable="false"
+					MaxLength="30" sap:label="Status" />
+			</ComplexType>
+		
+			
+			<Association Name="Appointment_To_M_Account"
+				sap:content-version="1">
+				<End Type="CRM_APPOINTMENT_SRV.Appointment" Multiplicity="1"
+					Role="FromRole_Appointment_To_M_Account" />
+				<End Type="CRM_APPOINTMENT_SRV.Account" Multiplicity="*"
+					Role="ToRole_Appointment_To_M_Account" />
+			</Association>
+			<Association Name="Appointment_To_M_Contact"
+				sap:content-version="1">
+				<End Type="CRM_APPOINTMENT_SRV.Appointment" Multiplicity="1"
+					Role="FromRole_Appointment_To_M_Contact" />
+				<End Type="CRM_APPOINTMENT_SRV.Contact" Multiplicity="*"
+					Role="ToRole_Appointment_To_M_Contact" />
+			</Association>
+		
+			<Association Name="AppointmentAttendees"
+				sap:content-version="1">
+				<End Type="CRM_APPOINTMENT_SRV.Appointment" Multiplicity="1"
+					Role="FromRole_AppointmentAttendees" />
+				<End Type="CRM_APPOINTMENT_SRV.Attendee" Multiplicity="*"
+					Role="ToRole_AppointmentAttendees" />
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AppointmentAttendees">
+						<PropertyRef Name="Guid" />
+					</Principal>
+					<Dependent Role="ToRole_AppointmentAttendees">
+						<PropertyRef Name="Guid" />
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			
+			
+			
+			<EntityContainer Name="CRM_APPOINTMENT_SRV_Entities"
+				m:IsDefaultEntityContainer="true">
+				<EntitySet Name="AccountCollection" EntityType="CRM_APPOINTMENT_SRV.Account"
+					sap:content-version="1" />
+				<EntitySet Name="ContactCollection" EntityType="CRM_APPOINTMENT_SRV.Contact"
+					sap:content-version="1" />
+				<EntitySet Name="EmployeeCollection" EntityType="CRM_APPOINTMENT_SRV.Employee"
+					sap:content-version="1" />
+				<EntitySet Name="AppointmentSet" EntityType="CRM_APPOINTMENT_SRV.Appointment"
+					sap:searchable="true" sap:content-version="1" />
+				<EntitySet Name="AttendeeSet" EntityType="CRM_APPOINTMENT_SRV.Attendee"
+					sap:searchable="true" sap:content-version="1" />
+				<AssociationSet Name="Appointment_To_M_Account_AssocSet"
+					Association="CRM_APPOINTMENT_SRV.Appointment_To_M_Account"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1">
+					<End EntitySet="AppointmentSet" Role="FromRole_Appointment_To_M_Account" />
+					<End EntitySet="AccountCollection" Role="ToRole_Appointment_To_M_Account" />
+				</AssociationSet>
+				<AssociationSet Name="Appointment_To_M_Contact_AssocSet"
+					Association="CRM_APPOINTMENT_SRV.Appointment_To_M_Contact"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1">
+					<End EntitySet="AppointmentSet" Role="FromRole_Appointment_To_M_Contact" />
+					<End EntitySet="ContactCollection" Role="ToRole_Appointment_To_M_Contact" />
+				</AssociationSet>
+				<AssociationSet Name="AppointmentAttendeesSet"
+					Association="CRM_APPOINTMENT_SRV.AppointmentAttendees"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1">
+					<End EntitySet="AppointmentSet" Role="FromRole_AppointmentAttendees" />
+					<End EntitySet="AttendeeSet" Role="ToRole_AppointmentAttendees" />
+				</AssociationSet>
+				<AssociationSet Name="Appointment_To_M_Employee_AssocSet"
+					Association="CRM_APPOINTMENT_SRV.Appointment_To_M_Employee"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1">
+					<End EntitySet="AppointmentSet" Role="FromRole_Appointment_To_M_Employee" />
+					<End EntitySet="EmployeeCollection" Role="ToRole_Appointment_To_M_Employee" />
+				</AssociationSet>
+				<FunctionImport Name="readAppointPrioCust"
+					ReturnType="Collection(CRM_APPOINTMENT_SRV.CrmtDdPrio)"
+					m:HttpMethod="GET" />
+				<FunctionImport Name="readAppointStatusCust"
+					ReturnType="Collection(CRM_APPOINTMENT_SRV.AppointStatusDD)"
+					m:HttpMethod="GET">
+					<Parameter Name="Guid" Type="Edm.String" Mode="In" />
+				</FunctionImport>
+			</EntityContainer>
+			<atom:link rel="self"
+				href="http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+			<atom:link rel="latest-version"
+				href="http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

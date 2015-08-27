@@ -1,0 +1,80 @@
+[ {
+     
+      "accountID":"420956",
+      "name1":"Multiple Contacts Ltd.",
+      "isMyAccount":false,
+       "MainContact": { 
+         
+          "contactID": "420958",
+          "accountID": "420956",
+			"firstName": "Cathy",
+			"lastName": "Smith",
+			"fullName": "Cathy Smith",
+			"birthDate": null,
+			"company": "Multiple Contacts Ltd.",
+			"function": "Sales Manager",
+			"department": "Sales",
+			"titleID": "",
+			"title": "",
+			"academicTitleID": "",
+			"academicTitle": "",
+			"isMyContact": false,
+			"isMainContact": false,
+			"WorkAddress": {
+			    "addressNumber": "40100",
+			    "accountID": "420956",
+			    "personID": "420958",
+			    "mobilePhone": "",
+			    "phone": "",
+			    "email": "cathy@multiple.com",
+			    "address": "1 Avenue des Fleurs\r\nF-75013 PARIS",
+			    "city": "Paris",
+			    "country": "France",
+			    "department": "",
+			    "function": ""
+			    }
+
+       },
+      "MainAddress":{
+       
+         "addressNumber":"40100",
+         "accountID":"420956",
+         "personID":"",
+         "mobilePhone":"",
+         "phone":"",
+         "email":"",
+         "address":"1 Avenue des Fleurs\r\nF-75013 PARIS",
+         "city":"Paris",
+         "country":"France",
+         "department":"",
+         "function":""
+      }
+    
+     
+   },
+   {
+   
+   "accountID":"421111",
+   "name1":"Sunflowers Ltd",
+   "isMyAccount":false,
+   "MainContact":null,
+ 
+ 
+   "MainAddress":{
+    
+      "addressNumber":"41059",
+      "accountID":"421111",
+      "personID":"",
+      "mobilePhone":"",
+      "phone":"",
+      "email":"",
+      "address":"12 Hyde Cres\r\nLONDON\r\nNW9 7HA\r\nUNITED KINGDOM",
+      "city":"London",
+      "country":"United Kingdom",
+      "department":"",
+      "function":""
+   }
+ 
+ 
+}
+]

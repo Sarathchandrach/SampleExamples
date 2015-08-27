@@ -1,0 +1,60 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View controllerName="cus.crm.mycalendar.view.Attachments"
+		   xmlns="sap.m"
+		   xmlns:me="sap.me"
+		   xmlns:form="sap.ui.layout.form"
+       	   xmlns:dlg="sap.m.dialog"
+       	   xmlns:layout="sap.ui.layout"
+		   xmlns:core="sap.ui.core" 
+		   xmlns:mvc="sap.ui.core.mvc" 	    
+		   xmlns:caui="sap.ca.ui" 
+           xmlns:html="http://www.w3.org/1999/xhtml">
+           
+           <form:Form id="attTitle">
+				<form:layout>
+					<core:Fragment fragmentName="cus.crm.mycalendar.view.EditLayout" type="XML" />
+				</form:layout>
+				<form:formContainers>
+					<form:FormContainer id="attConti">
+	  					<form:formElements>
+							<form:FormElement>
+
+  					 	         <caui:FileUpload 
+  					 	            id="attachments"  
+  	        			 			items="/AppointmentToAttachment"
+		              				fileName="name"
+		              				size="size"
+		              				url="url"
+		              				uploadUrl=""
+		              				uploadedDate="uploadedDate"
+			               			contributor="contributor"
+			               			fileExtension="fileExtension"
+			               			fileId="fileId"
+			               			uploadEnabled="true"
+			               			acceptRequestHeader="application/json"
+			               			beforeUploadFile="onBeforeUploadFile"
+			               			uploadFile="onUploadFile"
+			               			useMultipart="false"
+			               			renameEnabled="true"
+			               			renameFile="onRenameFile"
+			               			useEditControls="true"
+			               			deleteFile="onDeleteFile"
+			               			xsrfToken="xsrfToken"
+			               			showNoData="false"
+			               		    saveClicked="onSaveClicked"
+			               		    editMode="true"
+			               		    showAttachmentsLabel="false"
+			              		   	  > 
+		 					  	</caui:FileUpload >
+
+ 	         				</form:FormElement>
+						</form:formElements>  
+					</form:FormContainer>
+				</form:formContainers>
+			</form:Form>
+           
+</core:View>

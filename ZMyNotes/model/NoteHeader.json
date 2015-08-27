@@ -1,0 +1,16 @@
+[
+	{
+	"NoteGuid" : "00163EA720001ED3808381E2B2E7D108",
+	"ChangedAt" : "\/Date(1375961300000)\/",
+	"TeaserType" : "T",
+	"TeaserText" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+	"isFavorite" : "true"
+	},
+	{
+	"NoteGuid" : "00163EA720001ED3808381E2B2E7D109",
+	"ChangedAt" : "\/Date(1375961300000)\/",
+	"TeaserType" : "T",
+	"TeaserText" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr 123 123 123 123 123 123 123 123 123 123 123",
+	"isFavorite" : "false"
+	}
+]

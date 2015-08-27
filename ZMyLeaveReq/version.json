@@ -1,0 +1,8 @@
+{ "application" : "hcm.emp.myleaverequests",
+  "version" : "1.4.5",
+  "buildNumber" : "67",
+  "buildId" : "2014-09-12_08-39-24",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

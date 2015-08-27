@@ -1,0 +1,44 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+ <Table  xmlns="sap.m" xmlns:ui="sap.ui.layout" noDataText="{i18n>EMPTY_BASKET}" items="{/Products}" headerText="{i18n>PRODUCT_BASKET}" id="productBasketEdit" >
+            <columns>
+               <Column vAlignn="Middle">
+               
+                  <header> 
+                           <Label text="{i18n>PRODUCT_OR_CATEGORY}"></Label>
+                  </header>
+               </Column>
+                <Column hAlign="Right">
+               
+                  <header> 
+                           <Label text="{i18n>QUANTITY}"></Label>
+                  </header>
+               </Column>
+               </columns>
+                 <items>
+                 <ColumnListItem>
+                   <cells>
+                       <ui:VerticalLayout hAlign="Left">
+									<ui:content>
+										<Label deign="Bold" text="{ProductName}"  ></Label>
+										<Label text="{path: 'ProductGuid',formatter : 'util.formatter.formatProdClassification'}" ></Label>
+										</ui:content>
+									</ui:VerticalLayout>
+                        <ui:VerticalLayout>
+                         <ui:content>
+                             <ui:HorizontalLayout width="70%">
+										<ui:content>
+										<Input  width="50%"  value="{Quantity}"  editable="{path : 'ProductGuid', formatter : 'util.formatter.formatQuantityField'}" ></Input>
+										<Text  text="{Unit}"  ></Text>
+										</ui:content>
+										</ui:HorizontalLayout>
+							<Button type="Transparent" icon="sap-icon://delete" press="deleteProduct" visible="{path : 'ProductGuid', formatter: 'util.formatter.formatDeleteButton'}"></Button>			
+                         </ui:content>
+                        </ui:VerticalLayout>                        
+                   </cells> 
+                   </ColumnListItem>
+                 </items>
+         </Table>

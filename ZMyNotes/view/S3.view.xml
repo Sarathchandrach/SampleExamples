@@ -1,0 +1,42 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" 
+	xmlns:layout="sap.ui.layout" 
+    controllerName="cus.crm.notes.view.S3" xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page id="page" title="{TeaserText}">
+        <content>
+			<!-- <ObjectHeader title="{TeaserText}" number="{NoteGuid}" numberUnit="{NoteGuid}"></ObjectHeader> -->
+	        <layout:VerticalLayout width="100%">  
+	           	<Label id="changeDateLabel" text="{ path:'ChangedAt', formatter:'cus.crm.notes.util.Formatter.sectionDate' }"  width="100%" textAlign="Right" class="sapMInputBase customNoteSectionDate"/>
+	           	<core:ExtensionPoint name="noteDetailExtension" />
+			</layout:VerticalLayout>    
+			<!--  Extension point to add additional note section  -->
+			<core:ExtensionPoint name="noteSectionListExtension">        
+	            <List id="sectionList" mode="MultiSelect" items="{path: 'json>/navNoteSection'}" showNoData="false" showSeparators="Inner">
+	                <items>
+	                <!-- Extension point to add additional note section items -->
+	                	<core:ExtensionPoint name="noteSectionItemExtension">
+		                    <CustomListItem xmlns="sap.m" id="sectionListItem">
+		                        <content>
+<!--                         			<layout:VerticalLayout width="100%"> -->
+			                            <SectionTextArea xmlns="cus.crm.notes.control" id="item" width="100%" height="100%"
+			                                value="{json>ContentText}" liveChange="handleSectionLiveChange"
+			                                change="handleSectionChange" merge="mergeHandler">
+			                            </SectionTextArea>
+<!-- 	                            		<Image width="50%" visible="{json>navAttachment/Exist}" src="{json>navAttachment/__metadata/media_src}"/> -->
+<!-- 	                         		</layout:VerticalLayout> -->
+<!-- Extension point to add additional note section content -->
+										<core:ExtensionPoint name="noteSectionContentExtension" />
+		                        </content>
+		                    </CustomListItem>
+	                    </core:ExtensionPoint>
+	                </items>
+	            </List>
+<!--             <html:input style="display:noneC" capture="camera" type="file" accept="image/*" id="addPicture-capture" /> -->
+			</core:ExtensionPoint>
+        </content>
+    </Page>
+</core:View>

@@ -1,0 +1,62 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+	<Table xmlns="sap.m" xmlns:ui="sap.ui.layout" xmlns:core="sap.ui.core"  id="productBasketEdit" headerDesign="Standard"   items="{/Products}"  noDataText="{i18n>EMPTY_BASKET}"> 
+				 <headerToolbar>
+					<Toolbar>
+						<Label text="{i18n>PRODUCT_BASKET}">
+						</Label>
+						<ToolbarSpacer>
+						</ToolbarSpacer>
+						<Button icon="sap-icon://add" text="{i18n>ADD_MORE_PRODUCTS}" press="showProductDialog">
+						</Button>
+					</Toolbar>
+				</headerToolbar>
+							<columns>
+								<Column vAlign="Middle" width="50%">
+									<header>
+										<Label text="{i18n>PRODUCT_OR_CATEGORY}" design="Bold"></Label>
+									</header>
+								</Column>
+								<Column vAlign="Middle" width="30%" design="Bold">
+									<header>
+										<Label text="{i18n>QUANTITY}" design="Bold"></Label>
+									</header>
+								</Column>
+								
+								<Column vAlign="Middle"  width="20%">
+									<header>
+										<Label></Label>
+									</header>
+								</Column>
+								
+								
+							</columns>
+							
+							<items >
+								<ColumnListItem>
+									<cells>
+									<ui:VerticalLayout hAlign="Left">
+									<ui:content>
+										<Label design="Bold" text="{path : 'ProductGuid', formatter : 'util.formatter.formatProductName'}"  ></Label>
+										<Label text="{path: 'ProductGuid',formatter : 'util.formatter.formatProdClassification'}" ></Label>
+										</ui:content>
+									</ui:VerticalLayout>
+										<ui:HorizontalLayout width="70%">
+										<ui:content>
+										<Input   width="50%"  value="{Quantity}"  editable="{path : 'ProductGuid', formatter : 'util.formatter.formatQuantityField'}" liveChange="quantityChanged" ></Input>
+										<Text text="{Unit}" class="UnitPadding" ></Text>
+										</ui:content>
+										</ui:HorizontalLayout >
+										<ui:VerticalLayout hAlign="Right"	>
+										<Button  icon="sap-icon://sys-cancel-2" type="Transparent" press="deleteProduct" visible="{path : 'ProductGuid',formatter : 'util.formatter.formatDeleteButton'}"></Button>
+									   </ui:VerticalLayout>
+									</cells>
+								
+								</ColumnListItem>
+							
+							</items>
+						
+						</Table>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:viz="sap.viz.ui5" xmlns:crm="sap.crm"
+	xmlns:charts="sap.ca.ui.charts" xmlns:crmchart="sap.crm.ca"
+	controllerName="cus.crm.ppm.mgr.view.S1">
+	<Page id="page">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button id="navBack" icon="sap-icon://nav-back" press="_navBack"></Button>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="{i18n>FULLSCREEN_TITLE}"></Label>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://filter" id="filterButton" press="toggleButtons"></Button>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+
+			<!-- Replace with required full screen control -->
+
+			<layout:HorizontalLayout id="FilterPanel"
+				visible="false" class="selectionLayout facetLayout">
+				<layout:content>
+					<layout:VerticalLayout width="100%">
+						<layout:content>
+							<FacetFilter id="facetFilter" reset="resetFunc">
+							</FacetFilter>
+						</layout:content>
+					</layout:VerticalLayout>
+				</layout:content>
+			</layout:HorizontalLayout>
+
+
+			<layout:HorizontalLayout>
+				<layout:content>
+
+					<layout:VerticalLayout class="showMiddle">
+						<layout:content>
+							<ObjectHeader id="objectHeader" title="{i18n>LBL_OVERALL_TARGET}">
+							</ObjectHeader>
+						</layout:content>
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="showMiddleProgressIndicator">
+						<layout:content>
+							<Text id="objectStatus" width="100%" textAlign="Right"
+								design="Bold"></Text>
+							<ProgressIndicator width="100%" height="1.7rem"
+								id="pg" showValue="true"></ProgressIndicator>
+						</layout:content>
+					</layout:VerticalLayout>
+				</layout:content>
+			</layout:HorizontalLayout>
+
+
+			<layout:HorizontalLayout class="selectionLayout"
+				allowWrapping="true">
+				<layout:content>
+					<layout:HorizontalLayout class="alignLeft">
+						<Select id="sSP1" items="{PeriodicityTexts>/}" selectedKey="{SalesPipelineSetting>/STP2}"
+							change="onPeriodicityChange">
+							<items>
+								<core:Item key="{PeriodicityTexts>ID}" text="{PeriodicityTexts>Description}"></core:Item>
+							</items>
+						</Select>
+						<Select id="sSP2" class="dropdown" change="chartChange"
+							selectedKey="SalesPipeline">
+							<items>
+								<!-- Add different view options to the drop down list to filter the 
+									Opportunity pipeline -->
+								<core:ExtensionPoint name="extDropDown"></core:ExtensionPoint>
+								<core:ListItem text="{i18n>BTN_SELECT_SALESPIPELINE}"
+									key="SalesPipeline"></core:ListItem>
+								<core:ListItem text="{i18n>BTN_SELECT_TOP10OPPORTUNITIES}"
+									key="Top10Opportunities"></core:ListItem>
+								<!-- <core:ListItem text="{i18n>BTN_SELECT_BARCHART}" key="BarChart"></core:ListItem> -->
+							</items>
+						</Select>
+					</layout:HorizontalLayout>
+					<layout:HorizontalLayout id="opportunitySlider"
+						class="alignRight">
+						<layout:content>
+							<Button id="butDisplayBySize" text="{i18n>BTN_OPEN_OPPORTUNITY_SLIDER}"
+								width="9.25rem" press="renderTopNSlider" icon="sap-icon://slim-arrow-down"
+								type="Emphasized" iconFirst="false">
+							</Button>
+						</layout:content>
+					</layout:HorizontalLayout>
+				</layout:content>
+			</layout:HorizontalLayout>
+
+
+			<crm:BubbleChart id="chart_sim" items="{Opportunities>/}"
+				xStart="{SettingsForDisplay>/TimeFrom}" xEnd="{SettingsForDisplay>/TimeTo}"
+				xFStart="{SettingsForDisplay>/StartOfPeriod}" xFEnd="{SettingsForDisplay>/EndOfPeriod}"
+				xLabelTexts="{xLabelTexts>/}" xLabelValues="{xLabelValues>/}"
+				yStart="0" yEnd="100" yFStart="0" yFEnd="100" yLabelTexts="{yLabelTexts>/}"
+				yLabelValues="{yLabelValues>/}" readonly="true" click="bubbleclick">
+				<crm:items>
+					<crm:Bubble key="{Opportunities>Guid}" x="{Opportunities>ClosingDate}"
+						y="{Opportunities>ChanceOfSuccess}" z="{Opportunities>ExpectedSalesVolume}"
+						description="{Opportunities>Description}">
+					</crm:Bubble>
+				</crm:items>
+			</crm:BubbleChart>
+
+			<crm:MDualSlider units="{TimeIntervals>/}" id="name"
+				width="100%" step="1" value="{sliderValues>/value}" value2="{sliderValues>/value2}"
+				change="dualsliderchange">
+				<crm:units>
+					<crm:MDualSliderLabel key="{TimeIntervals>TimeFrom}"
+						value="{TimeIntervals>Label}"></crm:MDualSliderLabel>
+				</crm:units>
+			</crm:MDualSlider>
+			<Panel id="barChartPanel" visible="false">
+				<charts:Chart ChartSelectionMode="Single" chartType="Column"
+					id="fvbChart" showLegend="true" showTitle="false" selectDataPoint="onSelectDataPoint"
+					dataLabelFormatter="{parts:['SalesPipelineSetting>/STP2'], formatter: 'cus.crm.ppm.mgr.util.formatter.setDLFormatter' }"
+					yAxisLabelFormatter="{parts:['SalesPipelineSetting>/STP2'], formatter: 'cus.crm.ppm.mgr.util.formatter.setYAFormatter' }" />
+			</Panel>
+		</content>
+		<footer>
+			<Bar id="masterFooter" translucent="true"></Bar>
+		</footer>
+	</Page>
+</core:View>

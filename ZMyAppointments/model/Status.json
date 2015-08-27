@@ -1,0 +1,43 @@
+{ "results": [
+         {
+            "__metadata":{
+               "type":"CRM_APPOINTMENT_SRV.AppointStatusDD"
+            },
+            "Default":true,
+            "StatusID":"E0001",
+            "StatusTxt":"Open"
+         },
+         {
+            "__metadata":{
+               "type":"CRM_APPOINTMENT_SRV.AppointStatusDD"
+            },
+            "Default":false,
+            "StatusID":"E0002",
+            "StatusTxt":"In Process"
+         },
+         {
+            "__metadata":{
+               "type":"CRM_APPOINTMENT_SRV.AppointStatusDD"
+            },
+            "Default":false,
+            "StatusID":"E0003",
+            "StatusTxt":"Completed"
+         },
+         {
+            "__metadata":{
+               "type":"CRM_APPOINTMENT_SRV.AppointStatusDD"
+            },
+            "Default":false,
+            "StatusID":"E0007",
+            "StatusTxt":"Rejected"
+         },
+         {
+            "__metadata":{
+               "type":"CRM_APPOINTMENT_SRV.AppointStatusDD"
+            },
+            "Default":false,
+            "StatusID":"E0008",
+            "StatusTxt":"Released"
+         }
+      ]
+}

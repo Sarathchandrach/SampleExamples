@@ -1,0 +1,8 @@
+{ "application" : "cus.crm.lead",
+  "version" : "1.5.4",
+  "buildNumber" : "66",
+  "buildId" : "2014-12-05_12-02-37",
+  "branch" : "${env.GIT_BRANCH}",
+  "revision" : "${env.GIT_COMMIT}",
+  "GitURL" : "${env.GIT_URL}"
+}

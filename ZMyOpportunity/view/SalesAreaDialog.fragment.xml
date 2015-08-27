@@ -1,0 +1,67 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog title="{i18n>SALES_AREA}" xmlns="sap.m" xmlns:core="sap.ui.core" contentHeight="720px">
+	<subHeader>
+		<Bar>
+			<contentLeft>
+				<SearchField  search="searchSalesArea"
+					placeholder="{i18n>SEARCH}"></SearchField>
+			</contentLeft>
+		</Bar>
+	</subHeader>
+	<content>
+		<Table id="salesareaF4" 
+			noDataText="{i18n>LOADING_TEXT}" fixedLayout="false" items="{json>/SalesAreaCollection}"
+			class="table_resize" mode="SingleSelectMaster" selectionChange="setSalesArea">
+			
+			<columns>
+				<Column id="salesareaColumn1" vAlign="Middle" width="33%">
+					<header>
+						<Label id="salesareaLabel1" text="{i18n>SALES_ORGANIZATION}" design="Bold"></Label>
+					</header>
+				</Column>
+				<Column id="salesareaColumn2" vAlign="Middle" width="33%" hAlign="Right">
+					<header>
+						<Label id="salesareaLabel2" text="{i18n>DISTRIBUTION_CHANNEL}" design="Bold"></Label>
+					</header>
+				</Column>
+				<Column id="salesareaColumn3" vAlign="Middle" width="33%" minScreenWidth="Tablet"
+					demandPopin="true" hAlign="Right">
+					<header>
+						<Label id="salesareaLabel3" text="{i18n>DIVISION}" design="Bold"></Label>
+					</header>
+				</Column>
+			</columns>
+			
+			<items>
+				<ColumnListItem id="salesareaTemplate_S4">
+					<cells>
+						<Label id="salesorganization"
+							text="{path : 'json>SalesOrganizationText'}"></Label>
+						<Label id="distributionchannel"
+							text="{path : 'json>DistrubutionChannelText'}"></Label>
+						<Label id="division"
+							text="{path : 'json>DivisionText'}"></Label>
+					</cells>
+				</ColumnListItem>
+			</items>
+
+			<infoToolbar>
+				<Toolbar id="salesareaF4Toolbar" active="false">
+					<content>
+						<Label id="filterByLabel" text=""></Label>
+					</content>
+				</Toolbar>
+			</infoToolbar>
+			
+		</Table>
+	</content>
+
+<beginButton>
+	<Button text="{i18n>CANCEL}" press="closeSalesAreaF4" />
+</beginButton>
+
+</Dialog>

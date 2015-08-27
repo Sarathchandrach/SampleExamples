@@ -1,0 +1,19 @@
+{
+   			"priolist" : [ {
+   				"IsDefault" : "false",
+				"TxtLong" : "VeryHigh",
+				"Priority" : "1"
+			}, {
+				"IsDefault" : "true",
+				"TxtLong" : "High",
+				"Priority" : "2"
+			}, {
+				"IsDefault" : "false",
+				"TxtLong" : "Medium",
+				"Priority" : "3"
+			}, {
+				"IsDefault" : "false",
+				"TxtLong" : "Low",
+				"Priority" : "4"
+			} ]
+ }

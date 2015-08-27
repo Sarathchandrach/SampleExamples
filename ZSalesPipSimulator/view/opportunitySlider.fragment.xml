@@ -1,0 +1,24 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Popover xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	id="popup" placement="Bottom" showHeader="False" bounce="true"
+	contentWidth="25rem">
+	<content width="100%">
+		<Panel>
+			<content>
+				<Label id="sliderLabel" text="{i18n>LBL_ALLTO_SELECTED}"
+					textAlign="Center" design="Bold"></Label>
+				<Slider id="opportunitySlider" liveChange="showTopNOpp"></Slider>
+			</content>
+			<content>
+				<CheckBox text="{i18n>LBL_CBX_EXCLUDE_LOST}" id="exLostCheck"
+					select="showTopNOpp"></CheckBox>
+				<CheckBox text="{i18n>LBL_CBX_EXCLUDE_WON}" id="exWonCheck"
+					select="showTopNOpp"></CheckBox>
+			</content>
+		</Panel>
+	</content>
+</Popover>

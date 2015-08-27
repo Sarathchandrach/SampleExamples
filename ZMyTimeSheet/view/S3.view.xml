@@ -1,0 +1,73 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View controllerName="hcm.emp.mytimesheet.view.S3" xmlns="sap.m"
+	xmlns:me="sap.me" xmlns:core="sap.ui.core">
+	<Page id="WEEKLY_PAGE" title="{i18n>WEEKENTRY_TITLE}"
+		enableScrolling="true" >
+	<!-- 	 showNavButton="true" navButtonTap="onNavButton"> -->
+		<content>
+			<me:Calendar id="WEEKLY_CALENDAR" swipeToNavigate="true"
+				design="Approval" singleRow="true" hideNavControls="false"
+				 currentDate="{ path: '/start', formatter:'.parseDateYYYYMMdd' }"
+				tapOnDate="onSelect" enableMultiselection='true' changeCurrentDate="onCalendarWeekChange">
+			</me:Calendar>
+
+			<!-- <ScrollContainer vertical="true" width="100%" id="ENTRY_LIST"> -->
+
+				<Table id="ENTRY_LIST_CONTENTS" mode="MultiSelect" 
+					select="onItemSelect">
+					<columns>
+						
+						<Column hAlign="Left">
+							<header>
+								<Label design="Bold" text="{i18n>COST_ASSIGNMENT}">
+								</Label>
+							</header>
+						</Column>
+
+						<Column   hAlign="Center" demandPopin="true" minScreenWidth="340px" visible="{/clockEntry}"
+							popinDisplay="Inline">
+							<header>
+								<Label design="Bold" text="{i18n>START_TIME}">
+								</Label>
+							</header>
+						</Column>
+						
+						<Column hAlign="Center" demandPopin="true" minScreenWidth="340px" visible="{/clockEntry}"
+							popinDisplay="Inline">
+							<header>
+								<Label design="Bold" text="{i18n>END_TIME}">
+								</Label>
+							</header>
+						</Column>
+
+						<Column hAlign="Center" demandPopin="true" minScreenWidth="340px"
+							popinDisplay="Inline">
+							<header>
+								<Label design="Bold" text="{i18n>DURATION}">
+								</Label>
+							</header>
+						</Column>
+
+
+						<Column hAlign="Right" minScreenWidth="Tablet" demandPopin="true"
+							popinDisplay="Inline">
+							<header>
+								<Label text="{i18n>STATUS}" design="Bold">
+								</Label>
+							</header>
+						</Column>
+					<!-- extension point for additional column -->	
+        		 <core:ExtensionPoint name="extS3Column"></core:ExtensionPoint>
+					</columns>
+				</Table>
+
+			<!-- </ScrollContainer> -->
+
+		</content>
+
+	</Page>
+</core:View>

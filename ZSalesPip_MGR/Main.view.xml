@@ -1,0 +1,10 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	controllerName="cus.crm.ppm.mgr.Main" displayBlock="true" height="100%">
+	<App id="fioriContent" class="cusCrmSalesPipelineSim" showHeader="false">
+	</App>
+</core:View>

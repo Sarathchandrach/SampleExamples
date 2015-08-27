@@ -1,0 +1,84 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core"
+           xmlns="sap.m"
+           xmlns:ui="sap.ca.ui"
+           xmlns:mvc="sap.ui.core.mvc"
+           controllerName="cus.crm.mycontacts.view.S3"
+           xmlns:html="http://www.w3.org/1999/xhtml">
+    <html:style>
+      .cusMyContactsPaddingLeft {
+         padding-left: 1rem;
+      }
+    </html:style>
+	<Page title="{i18n>DETAIL_TITLE}" showNavButton="{device>/isPhone}" navButtonPress="_navBack">
+		<content>
+		
+           <ObjectHeader title="{fullName}"
+                         icon="{path:'Photo',
+                                formatter:'cus.crm.mycontacts.formatter.ReleaseFormatter.pictureUrlFormatter'}" >
+                <attributes>
+                	<!-- Extends the object header by attributes -->
+                	<core:ExtensionPoint name="extContact">
+                    	<ObjectAttribute
+                            	id="company"
+                            	text="{company}"                            
+                            	active="true"
+                            	press="onShowBusinessCard"
+                        />
+                    	<ObjectAttribute id="function" text="{function}" />
+						<ObjectAttribute id="department" text="{department}"/>
+						<!-- Extends the attributes of the object header -->
+						<core:ExtensionPoint name="extContactInfo" />
+					</core:ExtensionPoint>
+                </attributes>
+           </ObjectHeader>
+       	
+        	 <IconTabBar expanded="true" select="onSelectTab" id="iconTabBar"  selectedKey="details" expandable="false">
+				<items>
+					<!-- Extends the icon tab bar by a tab for contact details -->
+					<core:ExtensionPoint name="extContactDetailsTab">
+						<IconTabFilter id="details" key="details" icon="sap-icon://hint">
+							<mvc:XMLView id="x1" viewName="cus.crm.mycontacts.view.ContactDetails" />
+                    	</IconTabFilter>
+                    </core:ExtensionPoint>
+					<IconTabFilter id="attachments" key="attachments" icon="sap-icon://attachment">
+                            <ui:FileUpload
+                            	id="fileupload"
+                                items="/Attachments"
+                                contributor="contributor"								
+								mimeType="mimeType"
+								fileId="fileId" 
+								fileName="name"		
+								size="size" 								 
+								uploadedDate="uploadedDate"
+								url="url"							    
+								useMultipart="false"
+								uploadFile="onUploadFile"
+								renameFile="onRenameFile"
+								deleteFile="onDeleteFile"
+								acceptRequestHeader="application/json"
+								uploadEnabled="true"
+								useEditControls="true"
+								uploadUrl="" 
+								showNoData="true"
+								renameEnabled="true"
+								fileUploadFailed="onFileUploadFailed"/>
+								
+					</IconTabFilter>
+					<IconTabFilter id="notes" key="notes" icon="sap-icon://notes">
+                        <ui:Notes id="myNotes" inset="false" growing="true" growingThreshold="4"
+                        		  showNoteInput="true" textMaxLength="1000" addNote="_handleAddNote">
+                        </ui:Notes>
+                    </IconTabFilter>
+                    <!-- Extends the items of the icon tab bar -->
+                    <core:ExtensionPoint name="extContactInfoTab" />
+				</items>
+			</IconTabBar>
+			
+		</content>
+	</Page>
+</core:View>

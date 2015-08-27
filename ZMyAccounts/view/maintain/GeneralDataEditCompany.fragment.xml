@@ -1,0 +1,30 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:form="sap.ui.layout.form">
+	
+	<form:FormElement visible="{parts:['category', 'constants>/accountCategoryPerson'], formatter: 'cus.crm.myaccounts.util.formatter.isUnequal'}">
+		<form:label>
+			<Label text="{i18n>COMPANY_NAME1}" id="name1Label" width="100%" required="true" />
+		</form:label>
+		<form:fields>
+			<Input value="{name1}" maxLength="40" id="name1Input" liveChange="onInputFieldChanged"/>
+		</form:fields>
+	</form:FormElement>
+	<form:FormElement visible="{parts:['category', 'constants>/accountCategoryPerson'], formatter: 'cus.crm.myaccounts.util.formatter.isUnequal'}">
+		<form:label>
+			<Label text="{i18n>COMPANY_NAME2}" id="name2Label" width="100%"/>
+  		</form:label>
+		<form:fields>
+			<Input value="{name2}" maxLength="40" id="name2Input" liveChange="onInputFieldChanged"/>
+   		</form:fields>
+	</form:FormElement>
+	
+   	<core:ExtensionPoint name="extEditFormCompany"/>
+   
+</core:FragmentDefinition>

@@ -1,0 +1,185 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View controllerName="cus.crm.mycalendar.view.AppointmentDetail"
+	xmlns="sap.m" xmlns:me="sap.me" xmlns:form="sap.ui.layout.form"
+	xmlns:element="sap.ui.layout.form.FormElement" xmlns:dlg="sap.m.dialog"
+	xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:caui="sap.ca.ui">
+
+	<Page title="{i18n>view.Appointment.appointmentDetail}"
+		showNavButton="true" navButtonPress="onBack" id="detail">
+		<content>
+			<!-- Extension point to add additional detail -->
+			<core:ExtensionPoint name="extensionDetail1">
+
+				<ObjectHeader title="{Description}" titleActive="false"
+					id="ohdetail"
+					numberUnit="{parts:[ {path:'FromDate'}, {path:'ToDate'}], formatter: 'cus.crm.mycalendar.util.Conversions.formatDuration'}">
+					<ObjectAttribute id="ProcessTypeDescription">
+					</ObjectAttribute>
+					<statuses>
+						<ObjectStatus id="statusText_Detail" text="{StatusTxt}"
+							state="{path:'Status', formatter:'cus.crm.mycalendar.util.Conversions.formatStatusText'}"></ObjectStatus>
+						<ObjectStatus id="prioText_Detail" text="{PriorityTxt}"></ObjectStatus>
+						<ObjectStatus id="pf_Detail"
+							text="{path:'PrivatFlag', formatter:'cus.crm.mycalendar.util.Conversions.formatPrivateDescription'}"></ObjectStatus>
+					</statuses>
+					<attributes>
+
+
+						<ObjectAttribute id="accountField"
+							text="{parts :[{path : 'AccountTxt'},{path : 'Account'}],formatter : 'cus.crm.mycalendar.util.Conversions.formatAccountText'}"
+							active="true" press="onAccount"></ObjectAttribute>
+						<ObjectAttribute id="location" text="{Location}"></ObjectAttribute>
+						<ObjectAttribute id="contactField"
+							text="{path:'ContactTxt', formatter:'cus.crm.mycalendar.util.Conversions.formatContactTxt'}"
+							active="true" press="onContact"></ObjectAttribute>
+						<ObjectAttribute id="responsibleField"
+							text="{path:'ResponsibleTxt', formatter:'cus.crm.mycalendar.util.Conversions.formatResponsibleTxt'}"
+							active="true" press="onResponsible"></ObjectAttribute>
+						<ObjectAttribute id="fromDateInHeader"
+							text="{parts:[{path: 'FromDate'}, {path: 'ToDate'}, {path: 'AllDay'}], formatter: '.formatFromDateInHeader'}"></ObjectAttribute>
+						<ObjectAttribute id="toDateInHeader"
+							text="{parts:[{path: 'FromDate'}, {path: 'ToDate'}, {path: 'AllDay'}], formatter: '.formatToDateInHeader'}"></ObjectAttribute>
+						<!-- <ObjectAttribute text="{parts:[{path: 'ToDate'}, {path: 'FromDate}], 
+							formatter: 'cus.crm.mycalendar.util.Conversions.formatToDateInHeader'}"></ObjectAttribute> -->
+
+					</attributes>
+
+				</ObjectHeader>
+
+			</core:ExtensionPoint>
+			<!-- Extension point to add additional detail -->
+			<core:ExtensionPoint name="extensionDetail2">
+
+				<form:Form id="formAtt" visible="true">
+					<form:formContainers>
+						<form:FormContainer id="attContainer">
+							<form:formElements>
+								<form:FormElement id="externalAtt">
+									<!-- fields of the formElement -->
+								</form:FormElement>
+								<form:FormElement id="internalAtt">
+									<!-- fields of the formElement -->
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+					<form:layout>
+						<form:ResponsiveGridLayout id="responsiveGrid_Detail"
+							labelSpanM="12" labelSpanL="12" />
+					</form:layout>
+				</form:Form>
+
+			</core:ExtensionPoint>
+
+			<form:Form title="{i18n>view.Appointment.notes}" visible="true">
+				<form:formContainers>
+					<form:FormContainer id="noteContainer">
+						<form:formElements>
+							<form:FormElement id="note">
+								<form:fields>
+									<!-- define the field for Notes in the controller and do reseting 
+										before showing a new note -->
+									<!-- <caui:ExpansibleFeedListItem showIcon="false" maxLines="5" 
+										text="{Note}" /> -->
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout />
+				</form:layout>
+			</form:Form>
+
+			<!-- <form:SimpleForm maxContainerCols="2"> <form:content> -->
+			<mvc:XMLView id="attachmentsView" viewName="cus.crm.mycalendar.view.Attachments" />
+			<!-- </form:content> </form:SimpleForm> -->
+			<!-- Extension point to add additional detail -->
+			<core:ExtensionPoint name="extensionDetail3" />
+		</content>
+		
+		<core:ExtensionPoint name="extBeforeDocHistory" />
+		<Panel id="transactionHistoryData" expandable="true" expanded="false">
+			<headerToolbar>
+				<Toolbar>
+					<Text text="{i18n>TRANS_HISTORY}" class="sapMH4FontSize" />
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<!-- Extension point to add additional Doc History Content -->
+				<core:ExtensionPoint name="AppDocHistContentExtension"></core:ExtensionPoint>
+				<Table id="DocHistory_Tab" inset="false"
+					items="{json>/AppointmentDocHistory}" growing="true"
+					growingThreshold="10" growingScrollToLoad="false">
+					<columns>
+						<!-- Additional column labels to be displayed when the user view the 
+							transaction history -->
+						<core:ExtensionPoint name="extDHLabelsStart" />
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+							<Text text="{i18n>TRANS_ID}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+							<Text text="{i18n>TRANS_TYPE}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+							<Text text="{i18n>TRANS_DESC}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+							<Text text="{i18n>CREATED_ON}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+							<Text text="{i18n>RELATIONSHIP}" />
+						</Column>
+						<core:ExtensionPoint name="extDHLabelsEnd" />
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<!-- Additional column cells to be displayed when the user view the 
+									transaction history -->
+								<core:ExtensionPoint name="extDHValuesstart" />
+								<Link id="TransactionIDText" text="{json>ObjectId}" press="navigateDocHistory"
+									enabled="{path:'json>ObjectType' , formatter: 'cus.crm.mycalendar.util.Conversions.FormatDocHistory'}" />
+								<Text id="TransactionDesText" text="{json>TransTypeDesc}" />
+								<Text id="DescriptionText" text="{json>Description}" />
+								<Text id="CreatedOnText"
+									text="{path: 'json>CreatedAt',  type:'sap.ca.ui.model.type.Date', formatOptions:{style:'medium'}}" />
+								<Text id="relationship" text="{json>Relationship}" />
+								<!-- Additional column cells to be displayed when the user view the 
+									transaction history -->
+								<core:ExtensionPoint name="extDHValuesEnd" />
+
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</content>
+		</Panel>
+
+
+		<footer>
+			<Bar id="bar_Detail" translucent="false">
+				<contentRight>
+					<!-- Extension point to add additional footer content on right -->
+					<core:ExtensionPoint name="extensionFooterContentRight" />
+					<Button id="update" press="onUpdate" text="{i18n>view.Appointment.edit}"
+						type="Emphasized" />
+					<Button id="delbut" text="{i18n>view.Appointment.delete}"
+						press="onDelete" />
+					<Button id="followup" text="{i18n>view.Appointment.followup}"
+						press="onFollowup" />
+					<Button id="messages" text="{i18n>view.Appointment.messages}"
+						enabled="false" press="openErrorFrag" />
+				</contentRight>
+
+			</Bar>
+		</footer>
+
+	</Page>
+
+</core:View>

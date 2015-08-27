@@ -1,0 +1,19 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns="sap.m" xmlns:layout="sap.ui.layout" title="{i18n>ERROR_MESSAGE_DIALOG_TITLE}" type="Message">
+       <content>
+       		<layout:VerticalLayout width="100%">
+	         <!--    <Text text="{i18n>ERROR_MESSAGE_DIALOG_MSG}" /> -->  
+	               <Text text="{ parts:[{path:'i18n>TECHNICAL_ERROR_MESSAGE'},{path : 'model>/message'}], formatter : 'jQuery.sap.formatMessage" />
+            </layout:VerticalLayout>
+       </content>
+       <beginButton>
+            <Button text="{i18n>ERROR_MESSAGE_DIALOG_BUTTON_RETRY}" press="handleDialogRetry" />
+       </beginButton>
+       <endButton>
+            <Button text="{i18n>ERROR_MESSAGE_DIALOG_BUTTON_DISCARD_CHANGES}" press="handleDialogDiscard" />
+       </endButton>
+</Dialog>

@@ -1,0 +1,35 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:ca="sap.ca.ui" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns="sap.m" controllerName="cus.crm.myaccounts.view.S4Attachments">
+
+
+	<Page id="page" title="{i18n>ATTACHMENTS}" showNavButton="true" navButtonPress="handleNavBack">
+		<content>
+			<ObjectHeader title="{i18n>ATTACHMENTS}">
+				<attributes>
+					<ObjectAttribute text="{parts:[{path: 'fullName'},{path: 'name1'}], formatter: 'cus.crm.myaccounts.util.formatter.AccountNameFormatter'}"></ObjectAttribute>
+				</attributes>
+			</ObjectHeader>
+			<html:div><html:hr ></html:hr></html:div>
+			 <ca:FileUpload
+			 	class="sapCaUiNotes"
+			    id="fileupload"
+			    items="/Attachments"
+			    uploadUrl="name"
+			    fileName="name"
+			    size="size"
+			    url="url"
+			    uploadedDate="uploadedDate"
+			    contributor="contributor"
+			    fileExtension="fileExtension"
+			    fileId="documentId"	
+			    editMode="false"
+			    showNoData="true" 
+			    uploadEnabled = "false"/>
+		</content>
+	</Page>
+</core:View>

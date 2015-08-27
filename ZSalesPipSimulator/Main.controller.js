@@ -1,0 +1,4 @@
+/*
+ * Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+ */
+sap.ui.controller("cus.crm.salespipeline.sim.Main",{onInit:function(){jQuery.sap.require("cus.crm.salespipeline.sim.util.formatter");jQuery.sap.require("sap.ca.scfld.md.Startup");sap.ca.scfld.md.Startup.init('cus.crm.salespipeline.sim',this)},onExit:function(){if(document.getElementById("Infopopup")){var i=document.getElementById("Infopopup");if(sap.ui.Device.browser.name==sap.ui.Device.browser.BROWSER.INTERNET_EXPLORER)i.parentNode.removeChild(i);else i.remove()}if(sap.ui.getCore().byId("Infopopup"))sap.ui.getCore().byId("Infopopup").destroy();if(document.getElementById("acButAppS")){var b=document.getElementById("acButAppS");if(sap.ui.Device.browser.name==sap.ui.Device.browser.BROWSER.INTERNET_EXPLORER)b.parentNode.removeChild(b);else b.remove()}if(sap.ui.getCore().byId("acButAppS"))sap.ui.getCore().byId("acButAppS").destroy()}});

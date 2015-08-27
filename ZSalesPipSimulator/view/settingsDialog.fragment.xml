@@ -1,0 +1,65 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- App Settings Dialog -->
+<Dialog xmlns="sap.m" id="dlAppSettings" title="{i18n>APPSETTINGS_TITLE}">
+	<content>
+		<List id="mplSettings" class="settingPad" showNoData="false"
+			select="selectDlgSetting" mode="SingleSelectMaster">
+			<items>
+				<StandardListItem id="sliSaTa" icon="sap-icon://sales-order-item"
+					title="{i18n>SALESTARGET_ITEM}" type="Navigation"></StandardListItem>
+				<!-- <StandardListItem id="sliOppo" icon="sap-icon://opportunity" title="{i18n>OPPORTUNITY_ITEM}" 
+					type="Navigation"></StandardListItem> -->
+			</items>
+		</List>
+	</content>
+	<beginButton>
+		<Button id="asButClose" text="{i18n>BTN_CLOSE_APPSETT}" press="closeAppSettDialog"></Button>
+	</beginButton>
+</Dialog>
+<!-- Opportunity Settings Dialog -->
+	<!-- <Dialog id="dlOpportunitySet" showHeader="true" beforeOpen="settCheck">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label id="titleOP" class="hTitleEN" text="{i18n>AS_OPPORTUNITY_TITLE}"
+						textAlign="Center"></Label>
+				</contentMiddle>
+				<contentLeft>
+					<Button id="OPnavBack" icon="sap-icon://nav-back" press="navBack"></Button>
+				</contentLeft>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox id="opVBox" class="settingPad">
+				<items>
+					<Label id="lbStep" text="{i18n>LBL_OP_STEPVALUE}" labelFor="iStepOpp"
+						design="Bold"></Label>
+					<Input id="iStepOpp" class="inputControl" change="checkValue"
+						value="{path:'SettingsForSave>/OpportunityStepValue',formatter:'cus.crm.salespipeline.sim.util.formatter.displayNumbers'}"></Input>
+					<HBox direction="Row" justifyContent="SpaceBetween"> <items> <Label 
+						id="lbSw" textAlign="Left" text="{i18n>LBL_OP_SETVALUES}" labelFor="swOp" 
+						design="Bold" class="switchLbl"></Label> <Switch id="swOpp" type="Default" 
+						state="{SettingsForSave>/SetValuesManually}"></Switch> </items> </HBox>
+					<Label id="lbMinOpp" text="{i18n>LBL_OP_MINVALUE}" labelFor="iMinOpp" 
+						textAlign="Left" design="Bold" visible="{SettingsForSave>/SetValuesManually}"></Label> 
+						<Input id="iMinOpp" class="inputControl" value="{path:'SettingsForSave>/OpportunityMinValue',formatter:'.displayNumbers'}" 
+						visible="{SettingsForSave>/SetValuesManually}"></Input> <Label id="lbMaxOpp" 
+						text="{i18n>LBL_OP_MAXVALUE}" labelFor="iMaxOpp" textAlign="Left" design="Bold" 
+						visible="{SettingsForSave>/SetValuesManually}"></Label> <Input id="iMaxOpp" 
+						class="inputControl" value="{path:'SettingsForSave>/OpportunityMaxValue',formatter:'.displayNumbers'}" 
+						visible="{SettingsForSave>/SetValuesManually}"></Input>
+				</items>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button id="opButSave" text="{i18n>BTN_AS_SAVEAPPSETT}" press="saveAppSetChange"></Button>
+		</beginButton>
+		<endButton>
+			<Button id="opButCancel" text="{i18n>BTN_AS_CANCELAPPSETT}"
+				press="cancelAppSetChange"></Button>
+		</endButton>
+	</Dialog> -->

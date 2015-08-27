@@ -1,0 +1,45 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:ca="sap.ca.ui"
+	xmlns:layout="sap.ui.layout" controllerName="cus.crm.myaccounts.view.S2"
+	displayBlock="true" height="100%">
+	<Page id="page">
+		<subHeader>
+			<Bar>
+				<contentMiddle>
+					<SearchField id="mySearchField" value="{config>/searchValue}"
+						search="refreshList" showRefreshButton="{device>/isNoTouch}" placeholder="{i18n>SEARCH_ACCOUNTS}">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<PullToRefresh id="myPullToRefresh" visible="{device>/isTouch}" refresh="refreshList"></PullToRefresh>
+			<!-- Replace with required full screen control -->
+
+			<ca:GrowingTileContainer id="tileContainer"	vertical="true" horizontal="false" growingScrollToLoad="true">
+
+				<core:ExtensionPoint name="extOverviewTile">
+					<ca:OverviewTile id="myOverviewTile" contact="{path:'MainContact/fullName'}"
+						icon="{parts:[{path:'Logo/__metadata/media_src'},{path: 'category'}], formatter:'cus.crm.myaccounts.util.formatter.logoUrlFormatter'}" 
+						address="{parts:[{path:'MainAddress/city'}, {path:'MainAddress/country'}],formatter:'cus.crm.myaccounts.util.formatter.locationFormatter'}"
+						title= "{parts:[{path: 'fullName'},{path: 'name1'}], formatter: 'cus.crm.myaccounts.util.formatter.AccountNameFormatter'}" 
+						rating="{Classification/ratingText}"
+						opportunities="{parts:[{path:'AccountFactsheet/opportunityVolume/amount'}, {path:'AccountFactsheet/opportunityVolume/currency'}],formatter:'cus.crm.myaccounts.util.formatter.formatShortAmounts'}"
+						revenue="{parts:[{path:'AccountFactsheet/revenueCurrentYear/amount'}, {path:'AccountFactsheet/revenueCurrentYear/currency'}],formatter:'cus.crm.myaccounts.util.formatter.formatShortAmounts'}"
+						lastContact="{parts:[{path:'AccountFactsheet/lastContact/toDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumDate' }"
+						nextContact="{parts:[{path:'AccountFactsheet/nextContact/fromDate'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumDate' }"
+						press="onTileTap" contactPress="openBusinessCard">
+						<ca:layoutData>
+							<layout:GridData span="L4 M6 S12"></layout:GridData>
+						</ca:layoutData>
+					</ca:OverviewTile>
+				</core:ExtensionPoint>
+				
+			</ca:GrowingTileContainer>
+		</content>
+	</Page>
+</core:View>

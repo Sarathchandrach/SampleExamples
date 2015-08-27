@@ -1,0 +1,82 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns="sap.m" contentWidth="480px" contentHeight="1000px"
+	showHeader="false">
+	<content>
+		<NavContainer xmlns="sap.m" id="navCon">
+			<pages>
+				<!-- first page for Partner Determination -->
+				<Page id="p1" xmlns="sap.m" title="{i18n>SELECT_PARTNER}"
+					showHeader="true">
+					<content>
+						<List id="selectParticipants" xmlns="sap.m"
+							 selectionChange="onPartnerFunctionChange"
+							mode="SingleSelectMaster">
+						</List>
+					</content>
+					<!-- own footer for the first page -->
+					<footer>
+						<Bar xmlns="sap.m">
+							<!-- to have the buttons streched -->
+							<contentRight>
+								<Button  text="{i18n>OK}" press="onOKParticipantDialog">
+								</Button>
+								<Button text="{i18n>CANCEL}" press="onCancelParticipantDialog">
+								</Button>
+							</contentRight>
+						</Bar>
+					</footer>
+				</Page>
+				<!-- second page for the respective search, that is contact or employee -->
+				<Page id="p2" xmlns="sap.m" showNavButton="true"
+					navButtonPress="onNavBack">
+					<subHeader>
+						<Bar>
+							<contentLeft>
+								<SearchField id="searchField"  search="onPartnerFunctionChange" placeholder="{i18n>SEARCH}"></SearchField>
+							</contentLeft>
+						</Bar>
+					</subHeader>
+					<!-- the content is intended to be set dynamically -->
+					<content>
+						<List id="selectParticipantsList" xmlns="sap.m" mode="MultiSelect"
+							selectionChange="onSelectParticipantMinMax" setSelectedItem="true">
+							<items>
+								<StandardListItem id="participantsList2" xmlns="sap.m">
+								</StandardListItem>
+							</items>
+							<infoToolbar>
+				<Toolbar id="employeeF4Toolbar" active="false" visible="true">
+					<content>
+						<Label id="filterByLabel" text=""></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button id="XButton" type="Transparent" icon="sap-icon://sys-cancel-2"
+							press="onPartnerFunctionChange"></Button>
+
+					</content>
+				</Toolbar>
+			</infoToolbar>
+						</List>
+					</content>
+					<footer>
+						<Bar xmlns="sap.m">
+							<contentRight>
+								<Button  id="buttonPage2" text="{i18n>OK}" press="onOKParticipantDialog">
+								</Button>
+								<Button  text="{i18n>CANCEL}" press="onCancelParticipantDialog">
+								</Button>
+							</contentRight>
+						</Bar>
+					</footer>
+
+				</Page>
+			</pages>
+
+		</NavContainer>
+	</content>
+</Dialog>
+
+

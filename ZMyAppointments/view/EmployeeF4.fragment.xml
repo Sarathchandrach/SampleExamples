@@ -1,0 +1,49 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog  xmlns="sap.m" title="{i18n>view.Appointment.employeeResponsible}"
+	contentWidth="480px" contentHeight="720px" class="DialogPadding">
+	<subHeader>
+		<Bar>
+			<contentLeft>
+				<SearchField placeholder="{i18n>view.Appointment.searchfieldplaceholder}"
+					search="searchEmp" liveChange="searchEmpLive"></SearchField>
+			</contentLeft>
+		</Bar>
+
+	</subHeader>
+	<content>
+		<List  noDataText="{i18n>view.Appointment.loaddatatext}" mode="SingleSelectMaster"
+			items="{json>/EmployeeCollection}" selectionChange="onEmpSelect"
+			growing="true" value="true">
+			<items>
+				<ObjectListItem
+					title="{path:'json>fullName'}">
+					<attributes>
+						<ObjectAttribute text="{json>employeeID}">
+						</ObjectAttribute>
+						
+					</attributes>
+				</ObjectListItem>
+			</items>
+			<infoToolbar>
+				<Toolbar  active="false">
+					<content>
+						<Label  text=""></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button  type="Transparent" icon="sap-icon://sys-cancel-2"
+							press="onEmpToolbarClose"></Button>
+
+					</content>
+				</Toolbar>
+			</infoToolbar>
+		</List>
+	</content>
+
+	<beginButton>
+		<Button text="{i18n>view.Appointment.cancel}" press="closeEmpF4" />
+	</beginButton>
+
+</Dialog>

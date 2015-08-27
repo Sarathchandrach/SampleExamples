@@ -1,0 +1,33 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:layout="sap.ui.layout"
+  xmlns:ui="sap.ca.ui"
+  xmlns:form="sap.ui.layout.form">
+
+	<form:FormElement visible="{parts:['category', 'constants>/accountCategoryPerson'], formatter: 'cus.crm.myaccounts.util.formatter.isEqual'}">
+		<form:label>
+			<Label text="{i18n>FIRST_NAME}" id="name2Label" width="100%" />
+   		</form:label>
+		<form:fields>
+			<Input value="{name2}" maxLength="40" id="name2Input" liveChange="onInputFieldChanged" />
+   		</form:fields>
+	</form:FormElement>  
+  	
+	<form:FormElement visible="{parts:['category', 'constants>/accountCategoryPerson'], formatter: 'cus.crm.myaccounts.util.formatter.isEqual'}">
+		<form:label>
+			<Label text="{i18n>LAST_NAME}" id="name1Label" width="100%" required="true" />
+   		</form:label>
+		<form:fields>
+			<Input value="{name1}" maxLength="40" id="name1Input" liveChange="onInputFieldChanged" />
+   		</form:fields>
+	</form:FormElement>   	                     	
+
+   	<core:ExtensionPoint name="extEditFormPerson"/>
+   	
+</core:FragmentDefinition>

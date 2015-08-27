@@ -1,0 +1,23 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:ca="sap.ca.ui" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns="sap.m" controllerName="cus.crm.myaccounts.view.S4Notes">
+
+
+	<Page id="page" title="{i18n>NOTES}" showNavButton="true" navButtonPress="handleNavBack">
+		<content>
+			<ObjectHeader title="{i18n>NOTES}">
+				<attributes>
+					<ObjectAttribute text="{parts:[{path: 'fullName'},{path: 'name1'}], formatter: 'cus.crm.myaccounts.util.formatter.AccountNameFormatter'}"></ObjectAttribute>
+				</attributes>
+			</ObjectHeader>
+			<html:div><html:hr ></html:hr></html:div>
+			<ca:Notes growing="true" growingThreshold="4" showNoteInput="false" items="{Notes}">
+				<ca:ExpansibleFeedListItem  senderActive="false" showIcon="false" text="{content}" sender="{creator}" timestamp="{parts:[{path:'createdAt'}],formatter:'cus.crm.myaccounts.util.formatter.formatMediumDateTime' }" maxLines="3"></ca:ExpansibleFeedListItem>
+			</ca:Notes>
+		</content>
+	</Page>
+</core:View>

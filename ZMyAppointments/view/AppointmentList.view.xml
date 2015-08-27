@@ -1,0 +1,88 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:me="sap.me" xmlns:util="cus.crm.mycalendar.util" controllerName="cus.crm.mycalendar.view.AppointmentList" xmlns:html="http://www.w3.org/1999/xhtml">
+	<!-- displayBlock="true" -->
+
+	<Page id="appointmentListPage" enableScrolling="false" title="{i18n>view.Appointment.apptitle}" navButtonPress="_navBack" 
+			showNavButton="true"> 
+		<content>
+ 
+			<Panel id="filterPanel">
+				<infoToolbar>
+					<Toolbar id="filterbar" visible="true" press="onClearFilter" active="true">
+						<Label id="filtertext" text="{i18n>view.Appointment.filteraccount}" />
+						<ToolbarSpacer />
+						<core:Icon src="sap-icon://sys-cancel" />
+					</Toolbar>
+				</infoToolbar>
+			</Panel>
+
+
+			<me:Calendar width="100%" id="cal" singleRow="true" firstDayOffset="1" tapOnDate="onDateClicked" changeRange="onDateRangeChanged" changeCurrentDate="onCurrentDateChanged" visible="true">
+			</me:Calendar>
+
+			<ScrollContainer id="scroll" width="100%" horizontal="false" vertical="true">
+				<content>
+					<List id="l" noDataText="{i18n>view.Appointment.appointment_nodata}">
+						<items>
+						<!-- Extension point to add additional list item -->
+						  	<core:ExtensionPoint name="extensionListItem">
+						  	
+								<util:ApptListItem id="AppListItem" 
+									title="{parts:[{path: 'Description'},{path: 'ProcessTypeDescription'}, {path : 'vm>/isSharedCalendar'}], formatter: 'cus.crm.mycalendar.util.Conversions.formatDescrType'}" 
+									press="onAppointmentClicked" 
+									subtitle="{parts:[ {path:'Location'}, {path:'AccountTxt'}, {path : 'Account'}, {path:'ContactTxt'},{path : 'vm>/isSharedCalendar'}], formatter: 'cus.crm.mycalendar.util.Conversions.formatAccountContact'}" 
+									location="{Location}" 
+									time="{parts:[{path: 'FromDate'},{path: 'AllDay'}], formatter: 'cus.crm.mycalendar.util.Conversions.formatTime'}" 
+									duration="{parts:[ {path:'FromDate'}, {path:'ToDate'}], formatter: 'cus.crm.mycalendar.util.Conversions.formatDuration'}"
+									type="Active"  
+									privat="{PrivatFlag}"> 
+									<util:content>
+										<ObjectStatus id="statusText" text="{StatusTxt}" state="{path:'Status', formatter:'cus.crm.mycalendar.util.Conversions.formatStatusText'}"></ObjectStatus>
+									</util:content>
+									<util:content>
+										<core:Icon id="attachmentIcon" src="sap-icon://attachment" size="1rem" visible="{path:'HasAttachment'}"> 
+										</core:Icon>
+									</util:content>
+								</util:ApptListItem>
+								
+								
+							</core:ExtensionPoint>
+						</items>
+					</List>
+
+				</content>
+			</ScrollContainer>
+
+		</content>
+
+		<footer>
+			<Bar translucent="false" id="master_footer">
+				<contentMiddle>
+					<!-- <SegmentedButton id="sbtnTimeSwitch" selectedButton='btnWeek'>
+						<buttons> -->
+							<!-- <Button id="btnWeek" text="{i18n>view.Appointment.week}" tap="_buttonDisplayWeek" width="40%"/>
+							<Button id="btnMonth" text="{i18n>view.Appointment.month}" tap="_buttonDisplayMonth" width="40%"/>
+							<Button id="btnShared" text="{i18n>view.Appointment.sharedCalendar}" tap="_buttonDisplaySharedCalendar" width="40%"/>
+					 -->	<!-- </buttons>
+					</SegmentedButton> -->
+					<Button id="Days_type"  text="{i18n>view.Appointment.Timeline}" tooltip="Timeline" press="onDay" />
+					<Button id="Calendar_type"  text="{i18n>view.Appointment.Calendars}" tooltip="Calendars" press="onCalendar" />
+					
+				</contentMiddle>
+				<contentRight>
+				<!-- Extension point to add additional footer content on right -->
+				  	<core:ExtensionPoint name="extensionFooterContentRight"/>
+				  <Button id="btnAdd"  tooltip="{i18n>view.Appointment.newapptm_tt}" />
+					
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+
+
+</core:View>

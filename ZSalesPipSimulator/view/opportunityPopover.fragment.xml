@@ -1,0 +1,143 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- Opportunity Popover Control -->
+<Popover xmlns="sap.m" xmlns:crm="sap.crm" xmlns:me="sap.me" xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core" id="po" contentHeight="31.25rem" contentWidth="18.75rem"
+	showHeader="true" modal="false" placement="Auto" afterClose="closeOpport">
+	<customHeader>
+		<Bar id="poBar">
+			<contentRight>
+				<Button id="upBtn" icon="sap-icon://up" press="moveUp"
+					visible="false"></Button>
+				<Button id="downBtn" icon="sap-icon://down" press="moveDown"
+					visible="false"></Button>
+			</contentRight>
+			<contentMiddle>
+				<Label id="oppDetails" text="{i18n>LBL_OPPORT_DETAILS}"></Label>
+			</contentMiddle>
+		</Bar>
+	</customHeader>
+
+	<content>
+		<Page id="poPage" showHeader="false">
+			<content>
+				<!-- Add fields to the start of the Opportunity popover -->
+				<core:ExtensionPoint name="extOpportunityPopover"></core:ExtensionPoint>
+				<!-- <ScrollContainer vertical="true" visible="true"> <content> -->
+				<layout:VerticalLayout id="popoverVBox">
+					<layout:content>
+
+						<!-- Opportunity ID -->
+						<Label id="OppId" design="Bold"></Label>
+						<!-- Opportunity Description - Link -->
+						<Link id="OppDescription" wrapping="true" press="toOppApp"></Link>
+						<!-- Prospect/Account -->
+						<Label text="{i18n>LBL_OD_ACCPROSPECT}" design="Bold"></Label>
+						<Link id="accName" wrapping="true" press="toAccountApp"></Link>
+
+						<!-- Main Contact of Account -->
+						<layout:VerticalLayout id="mainContact"
+							visible="false" class="inputControl1">
+							<layout:content>
+
+								<Label text="{i18n>LBL_OD_MAINCONTACT}" design="Bold"></Label>
+								<Link id="mainContactName" wrapping="true" press="toContactApp"></Link>
+								<Link id="mcEmail" visible="false" press="pressLinkToEmailOrCall"></Link>
+								<Link id="mcPhone" visible="false" press="pressLinkToEmailOrCall"></Link>
+							</layout:content>
+						</layout:VerticalLayout>
+						<!-- Employee Responsible of Opportunity -->
+
+						<layout:VerticalLayout id="empResp" visible="false"
+							class="inputControl1">
+							<layout:content>
+
+								<Label text="{i18n>LBL_OD_EMPLRESP}" design="Bold"></Label>
+								<Text id="empRespName"></Text>
+								<Link id="empRespEmail" visible="false" press="pressLinkToEmailOrCall"></Link>
+								<Link id="empRespPhone" visible="false" press="pressLinkToEmailOrCall"></Link>
+							</layout:content>
+						</layout:VerticalLayout>
+
+						<!-- Start Date & Closing Date -->
+						<Label text="{i18n>LBL_OD_STARTDATE}" design="Bold" class="inputControl1">
+						</Label>
+						<crm:DateInput id="d1" showValueHelp="true"
+							valueHelpRequest="showDD" change="checkStartDate"></crm:DateInput>
+						<me:Calendar id="calStart" visible="false" tapOnDate="changeStartDate"
+							design="Approval"></me:Calendar>
+						<Label text="{i18n>LBL_OD_ENDDATE}" design="Bold"></Label>
+						<crm:DateInput id="d2" showValueHelp="true"
+							valueHelpRequest="showDD" change="checkEndDate"></crm:DateInput>
+						<me:Calendar id="calEnd" visible="false" tapOnDate="changeEndDate"
+							design="Approval"></me:Calendar>
+
+						<!-- Expected Revenue & Weighted Revenue -->
+						<Label id="lbRevHeader" class="inputControl1"
+							text="{i18n>LBL_OD_EXPECTEDREVENUEHEADER}" design="Bold"></Label>
+
+						<Label id="lblExpRev" text="{i18n>LBL_OD_EXPECTEDREVENUE}"
+							labelFor="currText"></Label>
+						<Input id="expRevId" change="changeExpectedSV" width="15.625rem"
+							class="inputControl"></Input>
+
+						<Label id="lblWgtRev" text="{i18n>LBL_OD_WEIGHTEDREVENUE}"></Label>
+						<Input id="wgtRevId" width="15.625rem" enabled="false"
+							class="inputControl"></Input>
+
+						<!-- Forecast Relevance -->
+						<layout:HorizontalLayout>
+							<layout:content>
+								<Label text="{i18n>LBL_OD_FORECASTRELEVANCE}" class="switchLbl"
+									design="Bold"></Label>
+								<Switch id="forecastId"></Switch>
+							</layout:content>
+						</layout:HorizontalLayout>
+
+						<!-- Chance of Success -->
+						<Label text="{i18n>LBL_OD_CHANCEOFSUCCESS}" design="Bold"></Label>
+						<!-- <Slider id="slider1"></Slider> -->
+						<Input id="chanceOfSucc" width="15.625rem" change="changeCOS"
+							class="inputControl"></Input>
+
+						<!-- Sales Stage DDLB -->
+						<Label text="{i18n>LBL_OD_SALESSTAGE}" design="Bold"></Label>
+						<Select width="15.625rem" id="salesStage1" items="{SalesOpp>/}"
+							class="inputControl" change="changeSalesStage">
+							<items>
+								<core:Item text="{SalesOpp>SalesStageDescription}"
+									key="{SalesOpp>SalesStageCode}"></core:Item>
+							</items>
+						</Select>
+
+						<!-- Status DDLB -->
+						<Label text="{i18n>LBL_OD_STATUS}" design="Bold"></Label>
+						<Select width="15.625rem" id="status1" items="{StatusMgt>/}"
+							class="inputControl">
+							<items>
+								<core:Item text="{StatusMgt>UserStatusText}" key="{StatusMgt>UserStatusCode}"></core:Item>
+							</items>
+						</Select>
+					</layout:content>
+				</layout:VerticalLayout>
+				<!-- </content> </ScrollContainer> -->
+				<!-- Add fields to the end of the Opportunity popover -->
+				<core:ExtensionPoint name="extOpportunityPopoverEnd"></core:ExtensionPoint>
+
+			</content>
+		</Page>
+
+	</content>
+
+	<footer>
+		<Bar>
+			<contentMiddle>
+				<Button text="{i18n>BTN_RF_OK}" press="submitChangeOpp"></Button>
+				<Button text="{i18n>BTN_OD_CANCEL}" press="cancelChangeOpp"></Button>
+			</contentMiddle>
+		</Bar>
+	</footer>
+</Popover>

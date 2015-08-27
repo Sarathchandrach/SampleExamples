@@ -1,0 +1,77 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<!-- Dialog view for the Edit of attendees -->
+<!-- consists of a list with the available attendees to delete -->
+<!-- and a navigation to a search view to search for new ones and to add 
+	them to the list -->
+<Dialog xmlns="sap.m" contentWidth="480px" contentHeight="1000px"
+	showHeader="false">
+	<content>
+		<NavContainer xmlns="sap.m">
+			<pages>
+				<!-- first page for the attendee list -->
+				<Page id="p1" xmlns="sap.m">
+					<customHeader>
+						<Bar xmlns="sap.m">
+							<contentMiddle>
+								<Label id="tit" text="">
+								</Label>
+							</contentMiddle>
+							<contentRight>
+								<Button icon="sap-icon://add" press="onAddClicked">
+								</Button>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<List id="al" xmlns="sap.m" items="{em>/Attendee}" mode="Delete"
+							delete="onDeleteAttendee">
+							<items>
+								<StandardListItem id="ali" xmlns="sap.m"
+									title="{em>FullName}" description="{em>Function}">
+								</StandardListItem>
+							</items>
+						</List>
+					</content>
+					<!-- own footer for the first page -->
+					<footer>
+						<Bar xmlns="sap.m">
+							<!-- to have the buttons stretched Fix for msg: 1482014480--> 
+							<contentRight>
+								<Button text="{i18n>view.Appointment.ok}"
+									press="onOKDialog">
+								</Button>
+								<Button text="{i18n>view.Appointment.cancel}"
+									press="onCancelDialog">
+								</Button>
+							</contentRight>
+						</Bar>
+					</footer>
+				</Page>
+
+				<!-- second page for the respective search, that is contact or employee -->
+				<Page id="p2" xmlns="sap.m" showNavButton="true" title=""
+					navButtonPress="onNavBack">
+					<!-- the content is intended to be set dynamically -->
+					<content>
+					</content>
+					<footer>
+						<Bar xmlns="sap.m">
+							<contentMiddle>
+								<Button width="100%" text="{i18n>view.Appointment.cancel}"
+									press="onCancelSearch">
+								</Button>
+							</contentMiddle>
+						</Bar>
+					</footer>
+
+				</Page>
+			</pages>
+
+		</NavContainer>
+	</content>
+</Dialog>
+

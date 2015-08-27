@@ -1,0 +1,30 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"uri": "http://usciu3e.wdf.sap.corp:50026/sap/opu/odata/GBHCM/LEAVEREQUEST;v=2/TimeAccountCollection(EmployeeID='14000002',TimeAccountTypeCode='10')",
+				"type": "LEAVEREQUEST.TimeAccount"
+			},
+			"EmployeeID": "12000002",
+			"FilterStartDate": null,
+			"FilterEndDate": null,
+			"FilterAbsenceTypeCode": "",
+			"ProcessingStartDate": "\/Date(1356998400000)\/",
+			"ProcessingEndDate": "\/Date(1388448000000)\/",
+			"TimeAccountTypeCode": "10",
+			"TimeAccountTypeName": "Vacation (Hours)",
+			"DeductionStartDate": "\/Date(1356998400000)\/",
+			"DeductionEndDate": "\/Date(1396224000000)\/",
+			"TimeUnitCode": "001",
+			"TimeUnitName": "Hours",
+			"BalanceEntitlementQuantity": "100.00000",
+			"BalanceUsedQuantity": "7.50000",
+			"BalanceApprovedQuantity": "0.00000",
+			"BalanceRequestedQuantity": "30.00000",
+			"BalancePlannedQuantity": "30.00000",
+			"BalanceAvailableQuantity": "60.00000",
+			"SequenceID": 2,
+			"RemainingVacationDays": "7.81"
+		}]
+	}
+}

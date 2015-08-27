@@ -1,0 +1,100 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="cus.crm.mytasks.view.S3" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:form="sap.ui.layout.form" xmlns:caui="sap.ca.ui">
+	<Page id="taskDetailsPage">
+		<content>
+			<form:SimpleForm id="s3form" editable="true"
+				layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+				emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+
+				<form:content>
+					<!-- Add additional fields to the top of the Task form -->
+					<core:ExtensionPoint name="extTaskDetailsTop" />
+					<Label text="{i18n>DETAILS_LABEL_TYPE}" id="laTypeInput" />
+					<Text text="{ProcessTypeDescription}" id="TxtTypeInput" class="TaskTypePad" />
+					<HBox id="TxtTypeHBox" />
+
+					<Label text="{i18n>DETAILS_LABEL_TITLE}" id="laDescInput" />
+					<TextArea value="{Description}" id="descInput" rows="1" />
+					<HBox />
+
+					<Label text="{i18n>DETAILS_LABEL_DUE_DATE}" id="LaDueDateInput" />
+					<caui:DatePicker id="dueDateInput"
+						value="{path: 'DueDate', formatter: 'cus.crm.mytasks.util.Formatter.formatDate' }"
+						change="formatDateManually" />
+					<HBox />
+
+					<Label text="{i18n>DETAILS_LABEL_PRIORITY}" id="laPrioSelect" />
+					<Select name="Priority" items="{cus.crm.mytasks.customizing>/priolist}"
+						selectedKey="{Priority}" id="prioSelect">
+						<core:Item text="{cus.crm.mytasks.customizing>TxtLong}"
+							key="{cus.crm.mytasks.customizing>Priority}" />
+					</Select>
+					<HBox />
+
+					<Label text="{i18n>DETAILS_LABEL_STATUS}" id="laStatSelect" />
+					<Select name="Status" items="{cus.crm.mytasks.customizing>/statList}"
+						selectedKey="{UserStatusCode}" id="statSelect">
+						<core:Item text="{cus.crm.mytasks.customizing>StatusTxt}"
+							key="{cus.crm.mytasks.customizing>StatusID}" />
+					</Select>
+					<HBox id="hboxStatus" />
+
+					<Label text="{i18n>DETAILS_LABEL_PRIVATE}" id="laPrivateSwitch" />
+					<Switch enabled="{cus.crm.mytasks.customizing>/techInfo/PrivateAllowed}"
+						state="{Private}" id="privateSwitch" change="privatizeTask" />
+					<HBox />
+
+					<Label text="{i18n>DETAILS_LABEL_ACCOUNT}" id="laAccountInput" />
+					<Input type="Text" id="accountInput" showValueHelp="true"
+						valueHelpRequest="onF4Account" valueHelpOnly="false" liveChange="liveChangeAccount"
+						suggestionItemSelected="suggestedAccountSelected" value="{AccountName}" />
+					<HBox>
+						<items>
+							<core:Icon id="showAccount" press="onShowAccount" src="sap-icon://sys-help" />
+						</items>
+					</HBox>
+
+					<Label text="{i18n>DETAILS_LABEL_CONTACT}" id="laContactInput" />
+					<Input type="Text" id="contactInput" showValueHelp="true"
+						valueHelpRequest="onF4Contact" valueHelpOnly="false" liveChange="liveChangeContact"
+						suggestionItemSelected="suggestedContactSelected" value="{ContactName}" />
+					<HBox>
+						<items>
+							<core:Icon src="sap-icon://sys-help" id="showContact"
+								press="onShowContact" />
+						</items>
+					</HBox>
+
+					<Label text="{i18n>DETAILS_LABEL_NOTE}" id="laNoteTa" />
+					<TextArea value="{Note}" id="noteTa" rows="4" />
+					<HBox />
+					<!-- Add additional fields to the bottom of the Task form -->
+					<core:ExtensionPoint name="extTaskDetailsBottom" />
+				</form:content>
+			</form:SimpleForm>
+			<!-- Show additional info of task before the Attachments Panel -->
+			<core:ExtensionPoint name="extS3BeforeAttachments" />
+			<Panel id="attachmentEditData" expandable="true" expanded="true"
+				headerText="{i18n>S4_TASK_ATTACHMENTS}">
+				<content>
+					<caui:FileUpload id="attachmentEdit" items="/Attachments"
+						uploadUrl="" fileName="name" size="size" url="url" uploadedDate="uploadedDate"
+						contributor="contributor" mimeType="mimeType" uploadEnabled="true"
+						fileId="fileId" useMultipart="false" acceptRequestHeader="application/json"
+						renameEnabled="true" showNoData="true" useEditControls="true"
+						fileUploadFailed="onFileUploadFailed" uploadFile="onUploadFile"
+						renameFile="onRenameFile" deleteFile="onDeleteFile" saveClicked="onSaveClicked"
+						cancelClicked="onCancelClicked" />
+				</content>
+			</Panel>
+			<!-- Show additional info of task at the bottom of the page -->
+			<core:ExtensionPoint name="extTaskDetailEnd" />
+		</content>
+	</Page>
+</core:View>

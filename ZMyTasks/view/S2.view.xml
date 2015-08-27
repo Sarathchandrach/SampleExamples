@@ -1,0 +1,81 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" controllerName="cus.crm.mytasks.view.S2">
+	<Page id="page" class="CRMMyTasksList" enableScrolling="false">
+		<content>
+			<ScrollContainer id="scroll" vertical="true"
+				horizontal="false">
+				<content>
+					<List id="list" noDataText="{i18n>SEARCH_LIST_NODATA_GENERIC}"
+						growing="true" growingScrollToLoad="true" mode="MultiSelect"
+						select="markTaskCompleted" growingThreshold="20">
+						<infoToolbar>
+							<Toolbar id="filterToolBar" visible="false">
+								<content>
+									<Label id="filterLabel" text="" />
+									<ToolbarSpacer />
+									<core:Icon src="sap-icon://decline" press="removeFilter" />
+								</content>
+							</Toolbar>
+						</infoToolbar>
+						<!-- Assign additional properties to a task object -->
+						<core:ExtensionPoint name="extListItem">
+							<ObjectListItem id="task"
+								type="{path: 'Completed', formatter: 'cus.crm.mytasks.util.Formatter.listType'}"
+								selected="{Completed}" number=" " numberUnit="{UserStatustext}"
+								title="{parts:['Description', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showTitleInMainList'}"
+								press="handleListItemPress">
+								<firstStatus>
+									<ObjectStatus
+										state="{parts:['Priority', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showPriorityStatus'}"
+										icon="{parts:['Priority', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.getPriorityIcon'}" />
+								</firstStatus>
+								<secondStatus>
+									<ObjectStatus
+										state="{parts:['DueDate', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showDueDateStatus'}"
+										text="{parts:['DueDate', 'Completed'], formatter: 'cus.crm.mytasks.util.Formatter.showDueDateInDays'}" />
+								</secondStatus>
+								<attributes>
+									<ObjectAttribute text="{Note}" />
+									<ObjectAttribute
+										text="{parts:['AccountName', 'AccountId'], formatter: 'cus.crm.mytasks.util.Formatter.formatBusinessPartner'}" />
+									<ObjectAttribute
+										text="{parts:['ContactName', 'ContactId'], formatter: 'cus.crm.mytasks.util.Formatter.formatBusinessPartner'}" />
+								</attributes>
+							</ObjectListItem>
+						</core:ExtensionPoint>
+					</List>
+				</content>
+			</ScrollContainer>
+			<Input id="taskInput" change="quickCreateTask"
+				placeholder="{i18n>NEW_TASK_INPUT_PLACEHOLDER}" class="stayAtTheBottom" />
+			<!-- </items> </FlexBox> -->
+		</content>
+		<Bar id="dummyFooter">
+			<contentLeft>
+				<Select id="filterSelect" change="handleFilter" icon="sap-icon://filter"
+					type="IconOnly" autoAdjustWidth="true">
+					<!-- Add additional filters to the task list -->
+					<core:ExtensionPoint name="extFilterOptions">
+						<core:Item key="open" text="{i18n>LIST_FILTER_ALL_OPEN}" />
+						<core:Item key="dueToday" text="{i18n>LIST_FILTER_DUE_TODAY}" />
+						<core:Item key="dueThisWeek" text="{i18n>LIST_FILTER_DUE_THIS_WEEK}" />
+						<core:Item key="completed" text="{i18n>LIST_FILTER_COMPLETED}" />
+					</core:ExtensionPoint>
+				</Select>
+			</contentLeft>
+			<contentRight>
+				<!-- Add additional buttons to the right of the footer -->
+				<core:ExtensionPoint name="extS2Buttons">
+					<Button id="showEmptyTask" press="showEmptyTask" icon="sap-icon://add"
+						type="Emphasized">
+					</Button>
+				</core:ExtensionPoint>
+			</contentRight>
+		</Bar>
+	</Page>
+</core:View>

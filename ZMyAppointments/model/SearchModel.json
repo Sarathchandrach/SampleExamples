@@ -1,0 +1,72 @@
+{
+
+
+
+"AccountCollection" :[
+{
+"name1": "Fiori Ltd.",
+"accountID": "111",
+"MainAddress": {
+    "city": "Walldorf",
+    "country": "Germany"}
+},
+
+{
+"name1": "Vacances Soleil",
+"accountID": "222",
+"MainAddress": {
+    "city": "Biarritz",
+    "country": "France"}
+},
+{
+"name1": "Railway Company",
+"accountID": "333",
+"MainAddress": {
+    "city": "London",
+    "country": "UK"}
+}],
+
+
+"ContactCollection": [
+{
+
+"fullName": "Sunny Flowers",
+"company": "Fiori Ltd.",
+"function": "Gardener"
+
+},
+{
+
+"fullName": "John Fast",
+"company": "Railway Company",
+"function": "Train driver"
+
+},
+{
+
+"fullName": "Ben Dujardin",
+"company": "Vacances Soleil",
+"function": "Swimming instructor"
+
+}
+
+],
+
+"EmployeeCollection": [
+
+{
+"firstName": "Emma",
+"lastName": "Employee"
+},
+{
+"firstName": "Michael",
+"lastName": "Smith"
+},
+{
+"firstName": "Mary",
+"lastName": "Jones"
+}
+]
+
+
+}

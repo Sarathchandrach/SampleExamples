@@ -1,0 +1,182 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m"
+        xmlns:ui="sap.ca.ui"
+        xmlns:form="sap.ui.layout.form"
+        xmlns:layout="sap.ui.layout"
+        controllerName="cus.crm.mycontacts.view.S4">
+    <Page id="S4_PAGE" title="{i18n>NEW_CONTACT}">
+        <content>
+        <layout:Grid defaultSpan="L12 M12 S12" width="auto">
+            <layout:content>
+                <form:SimpleForm id="editForm"
+                				 editable="true"
+                                 maxContainerCols="2"
+                                 layout="ResponsiveGridLayout"
+                                 labelSpanL="4"
+                                 labelSpanM="4"
+                                 emptySpanL="1"
+                                 emptySpanM="1"
+                                 columnsL="1"
+                                 columnsM="1"
+                                 class="editableForm">
+                    <form:content>
+                        <Label>
+                        </Label>
+                        <!-- Extends the form by a picture of a contact -->
+                        <core:ExtensionPoint name="extContactPicture">
+                        	<ui:AddPicture id="contactPicture" buttonPageType="Form" maxPictureNumber="1" pictureAlign="Right"
+                                      	   uploadUrl="/sap/bc/ui2/encode_file"
+                                     	   pictures="{pictureModel>/Pictures}"
+                                   	       text="{i18n>ADD_PHOTO}"
+                                           compression="high"
+                                           pictureAdded="onPictureSelected">
+                            	<ui:pictures>
+                                	<ui:PictureItem id="pictureItem" source="{pictureModel>src}"/>
+                            	</ui:pictures>
+                            	<ui:layoutData>
+                                	<layout:GridData span="L5 M6 S10"/>
+                            	</ui:layoutData>
+                        	</ui:AddPicture>
+                        	<Button id="removeContactPictureButton" icon="sap-icon://sys-cancel-2" press="onRemoveContactPicture"
+                              	    type="Transparent" width="3rem" visible="false">
+                            	<layoutData>
+                                	<layout:GridData span="L2 M2 S2"/>
+                            	</layoutData>
+                        	</Button>
+                        </core:ExtensionPoint>
+
+						<Label text="{i18n>CONTACT_TITLE}" id="titleLabel" width="100%"  required="false"/>
+                       	<Select id="titleIDInput" value="{titleID}" items="{path:'Customizing>/TitleCustomizing', filters:[{path:'person', operator: 'EQ', value1: 'X' }] }" width="100%" selectedKey="{titleID}">
+                          		<core:Item key="{Customizing>title}" text="{Customizing>titleDescription}"></core:Item>
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Select>
+
+                       	<Label text="{i18n>CONTACT_ACADEMIC_TITLE}" id="academicTitleLabel" width="100%" required="false"/>
+                       	<Select id="academicTitleIDInput" value="{academicTitleID}" items="{Customizing>/AcademicTitleCustomizing}" width="100%" selectedKey="{academicTitleID}">
+                           	<core:Item key="{Customizing>title}" text="{Customizing>titleDescription}"></core:Item>
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Select>
+
+                       	<Label text="{i18n>CONTACT_FIRST_NAME}" id="firstNameLabel" width="100%"/>
+                       	<Input value="{firstName}"
+                       	       maxLength="40"
+                       	       id="firstNameInput"
+                       	       liveChange="onFirstNameInputFieldChanged">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+
+                        <Label text="{i18n>CONTACT_LAST_NAME}" id="lastNameLabel" width="100%"  required="true"/>
+                        <Input value="{lastName}"
+                               maxLength="40"
+                               id="lastNameInput"
+                         	   liveChange="onLastNameInputFieldChanged"
+                         	   suggestionItemSelected= "onLastNameSuggestItemSelected">
+                         	<layoutData>
+                         		<layout:GridData span="L5 M6 S10"/>
+                            </layoutData>
+                        </Input>
+
+                        <Input id="contactIDInput" value="{contactID}" type="Text" visible="false">
+                            <layoutData>
+                         		<layout:GridData span="L5 M6 S10"/>
+                            </layoutData>
+                        </Input>
+
+                       	<Label text="{i18n>CONTACT_FUNCTION}" id="functionLabel" width="100%" required="false"/>
+                       	<Input value="{function}" maxLength="40" id="functionInput">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+
+                       	<Label text="{i18n>CONTACT_DEPARTMENT}" id="departmentLabel" width="100%"  required="false"/>
+                       	<Input value="{department}" maxLength="40" id="departmentInput">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+                       	
+                        <Label text="{i18n>CONTACT_ACCOUNT}" id="accountLabel" width="100%" required="true"/>
+                        <Input value="{company}"
+                        	   maxLength="80"
+                        	   id="companyValueHelp"
+                        	   placeholder="{i18n>SELECT_ACCOUNT}"
+                        	   showValueHelp="true"
+                        	   valueHelpOnly="false"
+                        	   valueHelpRequest="displayAccount"
+                        	   liveChange="onCompanyInputFieldChanged"
+                        	   suggestionItemSelected="onCompanySuggestItemSelected">
+                            <layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                        </Input>
+
+                        <Input id="accountIDInput" value="{accountID}" type="Text" visible="false">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                        </Input>
+
+                       	<Label text="{i18n>CONTACT_ADDRESS}" id="addressLabel" width="100%" visible="true"/>
+                       	<Select id="addressSelect" width="100%" change="onAddressSelectInputFieldChanged" visible="true">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Select>
+
+                        <Input id="WorkAddress.addressNumberInput" type="Text" value="{WorkAddress/addressNumber}" visible="false">
+                            <layoutData>
+                            	<layout:GridData span="L5 M6 S10"/>
+                            </layoutData>
+                        </Input>
+
+                       	<Label text="{i18n>CONTACT_MOBILE_PHONE}" id="WorkAddress.mobilePhoneLabel" width="100%" required="false" visible="true"/>
+                       	<Input value="{WorkAddress/mobilePhone}" maxLength="30" id="WorkAddress.mobilePhoneInput" visible="true">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+
+                       	<Label text="{i18n>CONTACT_PHONE}" id="WorkAddress.phoneLabel" width="100%" visible="true"/>
+                       	<Input value="{WorkAddress/phone}" maxLength="30" id="WorkAddress.phoneInput" visible="true">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+
+                       	<Label text="{i18n>CONTACT_EMAIL}" id="WorkAddress.emailLabel" width="100%" visible="true"/>
+                       	<Input value="{WorkAddress/email}" maxLength="241" id="WorkAddress.emailInput" visible="true">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</Input>
+
+                       	<Label text="{i18n>CONTACT_BIRTHDAY}" id="birthDateLabel" width="100%" required="false"/>
+                       	<DatePicker value="{path:'birthDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium'}}" id="birthDateInput" width="100%" displayFormat="medium">
+                           	<layoutData>
+                               	<layout:GridData span="L5 M6 S10"/>
+                           	</layoutData>
+                       	</DatePicker>
+
+						<!-- Extends the form containing contact data -->
+                       	<core:ExtensionPoint name="extContactDataInfo" />
+
+                    </form:content>
+                </form:SimpleForm>
+            </layout:content>
+        </layout:Grid>
+        </content>
+    </Page>
+</core:View>

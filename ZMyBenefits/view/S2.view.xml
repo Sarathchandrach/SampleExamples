@@ -1,0 +1,48 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:caui="sap.ca.ui"
+	controllerName="hcm.emp.mybenefits.view.S2">
+	<Page
+		id="page"
+		title="{i18n>MB_MASTER_TITLE}">
+		<content>
+			<List
+				id="list"
+				mode="SingleSelectMaster"
+                                includeItemInSelection = "true"
+                                select="_handleSelect" >
+				<!-- <infoToolbar> <Toolbar visible="true" id="infoBarToolbar"> <content> 
+					<Label text="{i18n>MB_FOOTER_DATE_TEXT}" ></Label> <caui:DatePicker id="dueDateInput" 
+					valueFormat="dd-MM, yyyy" change="handleChange"></caui:DatePicker> </content> 
+					</Toolbar> </infoToolbar> -->
+				<infoToolbar>
+					<Toolbar
+						visible="true"
+						id="infoBarToolbar">
+						<content>
+							<Label text="{i18n>MB_FOOTER_DATE_TEXT}"></Label>
+							<DatePicker
+								id="S2DatePicker"
+								displayFormat = "dd-MM-yyyy"
+								valueFormat = "dd-MM-yyyy"
+								change="handleChange" />
+						</content>
+					</Toolbar>
+				</infoToolbar>
+			</List>
+		</content>
+		<footer>
+			<Bar
+				id="footer"
+				translucent="true"
+				class="benefitsMasterFooter">
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

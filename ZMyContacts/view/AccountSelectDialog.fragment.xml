@@ -1,0 +1,26 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  id="AccountSelectFragment">
+
+	<SelectDialog
+	        title="{i18n>CONTACT_ACCOUNT}"
+	        noDataText="{i18n>NO_DATA_TEXT}"
+	        liveChange="searchAccount"
+	        confirm="selectAccount"
+	        cancel="closeAccountSelectDialog">
+	    <StandardListItem 
+	    	title="{fullName}" 
+	    	description="{parts:[{path:'MainAddress/city'}, {path:'MainAddress/country'}, {path:'accountID'}],formatter:'cus.crm.mycontacts.formatter.ReleaseFormatter.locationFormatter'}">
+	        <customData>
+	            <core:CustomData key="accountID" value="{accountID}"/>
+	        </customData>
+	    </StandardListItem>
+	</SelectDialog>
+
+</core:FragmentDefinition>

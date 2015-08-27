@@ -1,0 +1,11 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"  height="100%" xmlns="sap.m" controllerName="cus.crm.mycalendar.view.Main" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="fioriContent" class="cusCrmMyCalendar" showHeader="false">
+	</App>    
+</core:View> 
+
+

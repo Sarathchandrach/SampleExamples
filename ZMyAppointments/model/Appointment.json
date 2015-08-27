@@ -1,0 +1,415 @@
+[
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Appointment",
+               "properties":{
+                  "AppointmentToAttachment":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/$links/AppointmentToAttachment"
+                  },
+                  "Attendee":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/$links/Attendee"
+                  },
+                  "AccountRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/$links/AccountRel"
+                  },
+                  "ContactRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/$links/ContactRel"
+                  },
+                  "EmployeeRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/$links/EmployeeRel"
+                  }
+               }
+            },
+            "Note":"demo the appointment app to Cathy from Multiple Ltd.\r\nget feedback, new requirements etc.\r\ninvite also John\r\nnext line to see more\r\nnext\r\nagain a line\r\nto show something                         ",
+            "PrivatFlag":false,
+            "Priority":"0",
+            "PriorityTxt":"",
+            "AllDay":false,
+            "Status":"E0001",
+            "StatusTxt":"Open",
+            "Account":"420956",
+            "AccountTxt":"Multiple Contacts Ltd.",
+            "Contact":"420958",
+            "ContactTxt":"Cathy Smith",
+            "ChangedAt":"\/Date(1382948185000)\/",
+            "ResponsArea":"",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "Description":"Show and Tell",
+            "Location":"Demoroom",
+            "FromDate":"\/Date(1388390400000)\/",
+            "ToDate":"\/Date(1388392200000)\/",
+            "MyOwn":true,
+            "AppointmentToAttachment":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/AppointmentToAttachment"
+               }
+            },
+            "Attendee":{
+               "results":[
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253A0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253A0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253A0E3E",
+            "PartnerNo":"420957",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Dujardin",
+            "NameFirst":"Léon",
+            "FullNameAdr":"Léon Dujardin",
+            "AccountNo":"420956",
+            "Function":"Jardinier",
+            "FullName":"Léon Dujardin"
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253C0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253C0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253C0E3E",
+            "PartnerNo":"420959",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Sommer",
+            "NameFirst":"Sonia",
+            "FullNameAdr":"Sonia Sommer",
+            "AccountNo":"420956",
+            "Function":"Developer",
+            "FullName":"Sonia Sommer"
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253E0E3E')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-2779253E0E3E')",
+               "type":"CRM_APPOINTMENT_SRV.Attendee"
+            },
+            "PartnerFct":"00001000",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-277925312E3E",
+            "PartnerGuid":"0090FA0D-8D72-1ED3-8FF5-2779253E0E3E",
+            "PartnerNo":"420961",
+            "IntAttendee":false,
+            "PartnerPft":"0007",
+            "DescrPft":"Contact Person 2",
+            "NameLast":"Winter",
+            "NameFirst":"Valery",
+            "FullNameAdr":"Valery Winter",
+            "AccountNo":"420956",
+            "Function":"Developer",
+            "FullName":"Valery Winter"
+         }
+      ]
+               
+            },
+            "AccountRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/AccountRel"
+               }
+            },
+            "ContactRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/ContactRel"
+               }
+            },
+            "EmployeeRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-277925312E3E')/EmployeeRel"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')",
+               "type":"CRM_APPOINTMENT_SRV.Appointment",
+               "properties":{
+                  "AppointmentToAttachment":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/$links/AppointmentToAttachment"
+                  },
+                  "Attendee":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/$links/Attendee"
+                  },
+                  "AccountRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/$links/AccountRel"
+                  },
+                  "ContactRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/$links/ContactRel"
+                  },
+                  "EmployeeRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/$links/EmployeeRel"
+                  }
+               }
+            },
+            "Note":"check performance on demo system                                                                                                    ",
+            "PrivatFlag":false,
+            "Priority":"0",
+            "PriorityTxt":"",
+            "AllDay":false,
+            "Status":"E0002",
+            "StatusTxt":"In Process",
+            "Account":"420956",
+            "AccountTxt":"Multiple Contacts Ltd.",
+            "Contact":"420960",
+            "ContactTxt":"Max Meyer",
+            "ChangedAt":"\/Date(1382948305000)\/",
+            "ResponsArea":"",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F",
+            "Description":"Analyze performance",
+            "Location":"John's desk",
+            "FromDate":"\/Date(1388395860000)\/",
+            "ToDate":"\/Date(1388399520000)\/",
+            "MyOwn":true,
+            "AppointmentToAttachment":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/AppointmentToAttachment"
+               }
+            },
+            "Attendee":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/Attendee"
+               }
+            },
+            "AccountRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/AccountRel"
+               }
+            },
+            "ContactRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/ContactRel"
+               }
+            },
+            "EmployeeRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-307AEC1CEE3F')/EmployeeRel"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')",
+               "type":"CRM_APPOINTMENT_SRV.Appointment",
+               "properties":{
+                  "AppointmentToAttachment":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/$links/AppointmentToAttachment"
+                  },
+                  "Attendee":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/$links/Attendee"
+                  },
+                  "AccountRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/$links/AccountRel"
+                  },
+                  "ContactRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/$links/ContactRel"
+                  },
+                  "EmployeeRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/$links/EmployeeRel"
+                  }
+               }
+            },
+            "Note":"",
+            "PrivatFlag":true,
+            "Priority":"0",
+            "PriorityTxt":"",
+            "AllDay":true,
+            "Status":"E0007",
+            "StatusTxt":"Rejected",
+            "Account":"",
+            "AccountTxt":"",
+            "Contact":"",
+            "ContactTxt":"",
+            "ChangedAt":"\/Date(1382948627000)\/",
+            "ResponsArea":"",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40",
+            "Description":"New Year",
+            "Location":"",
+            "FromDate":"\/Date(1388530800000)\/",
+            "ToDate":"\/Date(1388617199000)\/",
+            "MyOwn":true,
+            "AppointmentToAttachment":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/AppointmentToAttachment"
+               }
+            },
+            "Attendee":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/Attendee"
+               }
+            },
+            "AccountRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/AccountRel"
+               }
+            },
+            "ContactRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/ContactRel"
+               }
+            },
+            "EmployeeRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-32F02EF7AE40')/EmployeeRel"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')",
+               "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')",
+               "type":"CRM_APPOINTMENT_SRV.Appointment",
+               "properties":{
+                  "AppointmentToAttachment":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/$links/AppointmentToAttachment"
+                  },
+                  "Attendee":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/$links/Attendee"
+                  },
+                  "AccountRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/$links/AccountRel"
+                  },
+                  "ContactRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/$links/ContactRel"
+                  },
+                  "EmployeeRel":{
+                     "associationuri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/$links/EmployeeRel"
+                  }
+               }
+            },
+            "Note":"clarify the mockups for the new requirements                                                                                        ",
+            "PrivatFlag":false,
+            "Priority":"0",
+            "PriorityTxt":"",
+            "AllDay":false,
+            "Status":"E0001",
+            "StatusTxt":"Open",
+            "Account":"421111",
+            "AccountTxt":"Sunflowers Ltd",
+            "Contact":"421488",
+            "ContactTxt":"Dr. Nina New",
+            "ChangedAt":"\/Date(1382948610000)\/",
+            "ResponsArea":"",
+            "Guid":"0090FA0D-8D72-1ED3-8FF5-3BA940236E7C",
+            "Description":"clarify mockups",
+            "Location":"@ Nina's desk",
+            "FromDate":"\/Date(1388651400000)\/",
+            "ToDate":"\/Date(1388656800000)\/",
+            "MyOwn":true,
+            "AppointmentToAttachment":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/AppointmentToAttachment"
+               }
+            },
+            "Attendee":{
+            "results": [
+
+					    {
+					        "__metadata": {
+					            "id": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-47331521EE7D')",
+					            "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-47331521EE7D')",
+					            "type": "CRM_APPOINTMENT_SRV.Attendee"
+					        },
+					        "PartnerFct": "00000032",
+					        "Guid": "0090FA0D-8D72-1ED3-8FF5-3BA940236E7C",
+					        "PartnerGuid": "0090FA0D-8D72-1ED3-8FF5-47331521EE7D",
+					        "PartnerNo": "415595",
+					        "IntAttendee": true,
+					        "PartnerPft": "0005",
+					        "DescrPft": "Attendee",
+					        "NameLast": "Morris",
+					        "NameFirst": "Mary",
+					        "FullNameAdr": "Mary Morris / New York NY 10019",
+					        "AccountNo": "",
+					        "Function": "",
+					        "FullName": "Mary Morris"
+					    },
+					    {
+					        "__metadata": {
+					            "id": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-473315268E7D')",
+					            "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-473315268E7D')",
+					            "type": "CRM_APPOINTMENT_SRV.Attendee"
+					        },
+					        "PartnerFct": "00000032",
+					        "Guid": "0090FA0D-8D72-1ED3-8FF5-3BA940236E7C",
+					        "PartnerGuid": "0090FA0D-8D72-1ED3-8FF5-473315268E7D",
+					        "PartnerNo": "I800810",
+					        "IntAttendee": true,
+					        "PartnerPft": "0005",
+					        "DescrPft": "Attendee",
+					        "NameLast": "Burton",
+					        "NameFirst": "John",
+					        "FullNameAdr": "John Burton / BON SECOUR",
+					        "AccountNo": "415189",
+					        "Function": "",
+					        "FullName": "John Burton"
+					    },
+					    {
+					        "__metadata": {
+					            "id": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-47331529CE7D')",
+					            "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-47331529CE7D')",
+					            "type": "CRM_APPOINTMENT_SRV.Attendee"
+					        },
+					        "PartnerFct": "00001000",
+					        "Guid": "0090FA0D-8D72-1ED3-8FF5-3BA940236E7C",
+					        "PartnerGuid": "0090FA0D-8D72-1ED3-8FF5-47331529CE7D",
+					        "PartnerNo": "421114",
+					        "IntAttendee": false,
+					        "PartnerPft": "0007",
+					        "DescrPft": "Contact Person 2",
+					        "NameLast": "Dujardin",
+					        "NameFirst": "Rose",
+					        "FullNameAdr": "Rose Dujardin",
+					        "AccountNo": "421111",
+					        "Function": "Manager",
+					        "FullName": "Rose Dujardin"
+					    },
+					    {
+					        "__metadata": {
+					            "id": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-4733152B4E7D')",
+					            "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AttendeeSet(Guid=guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C',PartnerGuid=guid'0090FA0D-8D72-1ED3-8FF5-4733152B4E7D')",
+					            "type": "CRM_APPOINTMENT_SRV.Attendee"
+					        },
+					        "PartnerFct": "00001000",
+					        "Guid": "0090FA0D-8D72-1ED3-8FF5-3BA940236E7C",
+					        "PartnerGuid": "0090FA0D-8D72-1ED3-8FF5-4733152B4E7D",
+					        "PartnerNo": "421371",
+					        "IntAttendee": false,
+					        "PartnerPft": "0007",
+					        "DescrPft": "Contact Person 2",
+					        "NameLast": "Schörner",
+					        "NameFirst": "Thomas",
+					        "FullNameAdr": "Thomas Schörner",
+					        "AccountNo": "417820",
+					        "Function": "User Experience Designer",
+					        "FullName": "Thomas Schörner"
+					    }
+
+             ]
+            },
+            "AccountRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/AccountRel"
+               }
+            },
+            "ContactRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/ContactRel"
+               }
+            },
+            "EmployeeRel":{
+               "__deferred":{
+                  "uri":"http://localhost:8080/sap/opu/odata/sap/CRM_APPOINTMENT_SRV/AppointmentSet(guid'0090FA0D-8D72-1ED3-8FF5-3BA940236E7C')/EmployeeRel"
+               }
+            }
+         }
+      ]

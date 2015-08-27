@@ -1,0 +1,48 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog  xmlns="sap.m" title="{i18n>view.Appointment.sharedCalendars}"
+	contentWidth="480px" contentHeight="720px" class="DialogPadding">
+	<subHeader>
+		<Bar>
+			<contentLeft>
+				<SearchField placeholder="{i18n>view.Appointment.searchfieldplaceholder}"
+					search="onSharedSearch"></SearchField>
+			</contentLeft>
+		</Bar>
+
+	</subHeader>
+	<content>
+		<List  noDataText="{i18n>view.Appointment.empsea_nodata}" mode="SingleSelectMaster"
+			items="{showJson>/EmployeeCollection}" selectionChange="sharedAppointment"
+			growing="true" value="true">
+			<items>
+				<ObjectListItem
+					title="{path:'showJson>fullName'}">
+					<attributes>
+						<ObjectAttribute text="{showJson>employeeID}">
+						</ObjectAttribute>
+						
+					</attributes>
+				</ObjectListItem>
+			</items>
+			<infoToolbar>
+				<Toolbar  active="false" visible="true" >
+					<content>
+						<Label  text="{i18n>view.Appointment.myTeam}"></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+					
+
+					</content>
+				</Toolbar>
+			</infoToolbar>
+		</List>
+	</content>
+
+	<beginButton>
+		<Button text="{i18n>view.Appointment.cancel}" press="closeSharedCalendar" />
+	</beginButton>
+
+</Dialog>

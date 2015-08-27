@@ -1,0 +1,20 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<Dialog xmlns:core="sap.ui.core" xmlns="sap.m" id="dlAppSettings"
+	title="{i18n>APPSETTINGS_TITLE}">
+	<content>
+		<List id="mplSettings" showNoData="false" select="selectDlgSetting"
+			mode="SingleSelectMaster">
+			<items>
+				<StandardListItem id="sliSaTa" icon="sap-icon://sales-order-item"
+					title="{i18n>SALESTARGET_ITEM}" type="Navigation"></StandardListItem>
+			</items>
+		</List>
+	</content>
+	<beginButton>
+		<Button id="asButClose" text="{i18n>BTN_CLOSE_APPSETT}" press="closeAppSettDialog"></Button>
+	</beginButton>
+</Dialog> 

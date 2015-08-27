@@ -1,0 +1,60 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+     xmlns:core="sap.ui.core"
+	 xmlns:form="sap.ui.layout.form"
+	 xmlns="sap.m"
+	 xmlns:layout="sap.ui.layout"
+     controllerName="cus.crm.mycontacts.view.ContactDetails"
+     xmlns:html="http://www.w3.org/1999/xhtml">
+	<form:SimpleForm maxContainerCols="2" editable="false">
+        <form:content>
+			<Label id="mobilePhoneLabel"
+			       text="{i18n>CONTACT_MOBILE_PHONE}"
+				   visible="{path : 'WorkAddress/mobilePhone', formatter:'.formatLabelVisible'}"/>
+        	<Link id="mobilePhoneInput"
+        	      text="{WorkAddress/mobilePhone}"
+        	      press="makeCall"
+        	      visible="{path : 'WorkAddress/mobilePhone', formatter:'.formatLabelVisible'}"/>
+        	<Label id="phoneLabel"
+			       text="{i18n>CONTACT_PHONE}"
+        	       visible="{path : 'WorkAddress/phone', formatter:'.formatLabelVisible'}"/>
+        	<Link id="phoneInput"
+			      text="{WorkAddress/phone}"
+        	      press="makeCall"
+        	      visible="{path : 'WorkAddress/phone', formatter:'.formatLabelVisible'}"/>
+        	<Label id="emailLabel"
+			       text="{i18n>CONTACT_EMAIL}"
+        	       visible="{path : 'WorkAddress/email', formatter:'.formatLabelVisible'}"/>
+        	<Link id="emailInput"
+			      text="{WorkAddress/email}"
+        	      press="sendEmail"
+        	      visible="{path : 'WorkAddress/email', formatter:'.formatLabelVisible'}"/>
+        	<Label id="addressLabel"
+			       text="{i18n>CONTACT_ADDRESS}"
+        	       visible="{path : 'WorkAddress/address', formatter:'.formatLabelVisible'}" />
+        	<layout:HorizontalLayout>
+        		<Text id="addressInput"
+        			  text="{WorkAddress/address}"
+        			  visible="{path : 'WorkAddress/address', formatter:'.formatLabelVisible'}"/>
+        		<layout:HorizontalLayout id="mapIcon" visible="false">
+        			<core:Icon src="sap-icon://map" press="onMapIconPressed" size="1.2rem" class="cusMyContactsPaddingLeft" visible="{path : 'WorkAddress/address', formatter:'.formatLabelVisible'}" />
+        		</layout:HorizontalLayout>
+			</layout:HorizontalLayout>
+			<Label id="emptyLabel" text="" visible="{path: 'birthDate', formatter:'.formatLabelVisible'}" />
+        	<Text id="emptyInput" text="" visible="{path: 'birthDate', formatter:'.formatLabelVisible'}"/>        	      
+        	<Label id="birthDateLabel"
+				   text="{i18n>CONTACT_BIRTHDAY}"
+				   visible="{path: 'birthDate', formatter:'.formatLabelVisible'}"/>
+			<Text id="birthDateInput"
+			      text="{path: 'birthDate', type: 'sap.ca.ui.model.type.Date', formatOptions: {style:'medium'}}"
+				  visible="{path: 'birthDate', formatter:'.formatLabelVisible'}"/>
+			<!-- Extends the form containing contact details -->
+			<core:ExtensionPoint name="extContactDetailsInfo" />
+        </form:content>
+    </form:SimpleForm>
+
+</core:View>

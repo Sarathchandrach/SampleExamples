@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:crm="sap.crm"
+	xmlns:layout="sap.ui.layout" xmlns:me="sap.me"
+	controllerName="cus.crm.salespipeline.sim.view.S1">
+
+	<Page id="page" title="{i18n>FULLSCREEN_TITLE}" navButtonPress="resetAllOpp"
+		showNavButton="true">
+		<content>
+			<!-- Replace with required full screen control -->
+
+			<!-- <FlexBox justifyContent="Start" alignItems="Center" direction="Row"> 
+				<items> <Label id="lb" text="{i18n>LBL_TARGET_ACHIEVEMENT}" labelFor="pg" 
+				textAlign="Left" design="Bold"></Label> <ProgressIndicator id="pg" barColor="POSITIVE" 
+				textAlign="right" showValue="true"></ProgressIndicator> </items> </FlexBox> -->
+
+			<!-- <HBox justifyContent="Center"> <VBox width="50%" justifyContent="Center"> 
+				<ObjectHeader title="{i18n>LBL_TARGET_ACHIEVEMENT}" id="objectHeader" textAlign="Left"> 
+				</ObjectHeader> </VBox> <VBox width="50%"> <Label design="Bold" id="objectStatus" 
+				/> <ProgressIndicator id="pg" width="100%" showValue="true" /> </VBox> </HBox> -->
+
+
+			<!-- <HBox> <VBox width="80%" class="showMiddle"> <ObjectHeader id="objectHeader" 
+				title="{i18n>LBL_TARGET_ACHIEVEMENT}"> </ObjectHeader> </VBox> <VBox width="20%" 
+				class="showMiddleProgressIndicator"> <Text id="objectStatus" width="100%" 
+				textAlign="Right"></Text> <ProgressIndicator width="100%" height="1.7rem" 
+				id="pg" showValue="true"></ProgressIndicator> </VBox> </HBox> -->
+
+
+			<layout:HorizontalLayout>
+				<layout:content>
+
+					<layout:VerticalLayout class="showMiddle">
+						<ObjectHeader id="objectHeader" title="{i18n>LBL_TARGET_ACHIEVEMENT}">
+						</ObjectHeader>
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="showMiddleProgressIndicator">
+						<Text id="objectStatus" width="100%" textAlign="Right"></Text>
+						<ProgressIndicator width="100%" height="1.7rem"
+							id="pg" showValue="true"></ProgressIndicator>
+					</layout:VerticalLayout>
+
+				</layout:content>
+
+			</layout:HorizontalLayout>
+
+			<layout:HorizontalLayout class="selectionLayout"
+				allowWrapping="true">
+				<layout:content>
+					<layout:HorizontalLayout class="alignLeft">
+						<Select id="sSP1" items="{PeriodicityTexts>/}" selectedKey="{SalesPipelineSetting>/STP2}"
+							change="onPeriodicityChange">
+							<items>
+								<core:Item key="{PeriodicityTexts>ID}" text="{PeriodicityTexts>Description}"></core:Item>
+							</items>
+						</Select>
+					</layout:HorizontalLayout>
+					<layout:HorizontalLayout id="hlOppSlider"
+						class="alignRight">
+						<layout:content>
+							<Button text="{i18n>BTN_OPEN_OPPORTUNITY_SLIDER}" width="9.25rem" press="renderTopNSlider"
+								icon="sap-icon://slim-arrow-down" type="Emphasized" iconFirst="false">
+							</Button>
+						</layout:content>
+					</layout:HorizontalLayout>
+				</layout:content>
+			</layout:HorizontalLayout>
+
+			<crm:BubbleChart id="chart_sim" items="{Opportunities>/}"
+				xStart="{SettingsForDisplay>/TimeFrom}" xEnd="{SettingsForDisplay>/TimeTo}"
+				xFStart="{SettingsForDisplay>/StartOfPeriod}" xFEnd="{SettingsForDisplay>/EndOfPeriod}"
+				xLabelTexts="{xLabelTexts>/}" xLabelValues="{xLabelValues>/}"
+				yStart="0" yEnd="100" yFStart="0" yFEnd="100" yLabelTexts="{yLabelTexts>/}"
+				yLabelValues="{yLabelValues>/}" change="bubblechange" liveChange="bubblechange"
+				click="bubbleclick">
+				<crm:items>
+					<crm:Bubble key="{Opportunities>Guid}" x="{Opportunities>ClosingDate}"
+						y="{Opportunities>ChanceOfSuccess}" z="{Opportunities>ExpectedSalesVolume}"
+						description="{Opportunities>Description}">
+					</crm:Bubble>
+				</crm:items>
+			</crm:BubbleChart>
+
+			<crm:MDualSlider units="{TimeIntervals>/}" id="name"
+				width="100%" step="1" value="{sliderValues>/value}" value2="{sliderValues>/value2}"
+				change="dualsliderchange">
+				<crm:units>
+					<crm:MDualSliderLabel key="{TimeIntervals>TimeFrom}"
+						value="{TimeIntervals>Label}"></crm:MDualSliderLabel>
+				</crm:units>
+			</crm:MDualSlider>
+
+		</content>
+
+		<footer>
+			<Bar id="masterFooter">
+				<!-- <contentLeft> <Button id="butSettings" icon="sap-icon://action-settings" 
+					press="showSettings"></Button> <ActionSheet id="actSettings" showCancelButton="false" 
+					placement="Top"> <buttons> <Button id="acButAppS" text="{i18n>BTN_APPSETTINGS}" 
+					icon="sap-icon://settings" press="selectActSetting"></Button> </buttons> 
+					</ActionSheet> <ActionSheet id="actActions" showCancelButton="false" placement="Top"> 
+					<buttons> <Button id="acButRefresh" text="{i18n>BTN_REFRESH_APP}" icon="sap-icon://refresh" 
+					press="selectAction"></Button> <Button id="acButExport" text="{i18n>BTN_EXPORTEXCL}" 
+					icon="sap-icon://excel-attachment"></Button> <Button id="acButShar" text="{i18n>BTN_SHARETO}" 
+					icon="sap-icon://share-2"></Button> <Button id="acButChangelog" text="{i18n>BTN_SHOW_CHANGELOG}" 
+					icon="sap-icon://activities" press="selectAction"></Button> </buttons> </ActionSheet> 
+					</contentLeft> -->
+				<contentRight>
+					<Button id="butChangelog" press="showChangeLog"
+						visible="{path:'changeModel1>/changescount',formatter:'cus.crm.salespipeline.sim.util.formatter.toBoolean'}"></Button>
+					<!-- icon="sap-icon://activities" -->
+					<Button id="butSave" press="saveAllOpp" type="Accept"
+						visible="{path:'changeModel1>/changescount', formatter:'cus.crm.salespipeline.sim.util.formatter.toBoolean'}"></Button>
+					<Button id="butReset" press="resetAllOpp" type="Reject"
+						visible="{path:'changeModel1>/changescount', formatter:'cus.crm.salespipeline.sim.util.formatter.toBoolean'}"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

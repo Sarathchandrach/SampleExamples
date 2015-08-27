@@ -1,0 +1,45 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SearchField id="sfc" xmlns="sap.m" search="onContactSearch"
+	    placeholder="{i18n>view.Appointment.searchfieldplaceholder}"
+		liveChange="onContactLiveChange">
+	</SearchField>
+	
+<!-- Using growingThreshold = 40 for the following dialog list as a workaround for still showing scrollbar in the dialog window  -->
+<!-- if Chrome is zoomed <= 50%  -->
+<!-- the problem shall be fixed with SAPUI5 1.20 -->
+	
+	<List xmlns="sap.m" id="lsc" 
+		growing="true" growingThreshold="40" 
+		growingScrollToLoad="true"
+		updateStarted="onContactListUpdateStart"
+		updateFinished="onContactListUpdateFinished"
+		noDataText="{i18n>view.Appointment.consea_nodata}"
+		mode="SingleSelectMaster" selectionChange="onSelectContact">
+		
+		<infoToolbar>
+			<Toolbar id="tb" xmlns="sap.m" active="true" visible="false" press="onContactFilterHide">
+				<Label id="tbl" text="{i18n>view.Appointment.filteredby}"></Label>
+				<ToolbarSpacer></ToolbarSpacer>
+				<core:Icon xmlns:core="sap.ui.core" src="sap-icon://sys-cancel"></core:Icon>
+			</Toolbar>
+		</infoToolbar>
+		
+		<ObjectListItem xmlns="sap.m" id="lsci"
+			title="{parts:[{path:'sm>fullName'},{path:'sm>contactID'}], formatter: '.formatContactName'}">
+			<attributes>
+				<ObjectAttribute text="{sm>company}">
+				</ObjectAttribute>
+				<ObjectAttribute text="{sm>function}">
+				</ObjectAttribute>
+			</attributes>
+		</ObjectListItem>
+
+	</List>
+
+</core:FragmentDefinition>

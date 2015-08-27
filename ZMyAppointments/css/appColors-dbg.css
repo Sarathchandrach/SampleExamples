@@ -1,0 +1,19 @@
+/* Calendar Day Selected */
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay0.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay1.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay2.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay3.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay4.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay5.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth),
+.cusCrmMyCalendar .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarWeekDay6.sapMeCalendarSelected:not(.sapMeCalendarDayNotInCurrentMonth)
+{
+	background-color: @sapUiHighlight;	
+}
+
+
+/* Calendar Boarder */
+.calendarBoarder {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: @sapUiLightBG; 
+}

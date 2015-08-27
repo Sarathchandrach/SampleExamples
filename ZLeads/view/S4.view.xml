@@ -1,0 +1,263 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View id="editView" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ui="sap.ui.layout" 
+		controllerName="cus.crm.lead.view.S4" xmlns:ca="sap.ca.ui" xmlns:html="http://www.w3.org/1999/xhtml">
+		
+	<Page id="editPage" title="{i18n>EDIT}"   enableScrolling="true" class="sapUiFioriObjectPage" >
+        <content>   
+        <!--  extension to add more content to the edit page -->	
+       <core:ExtensionPoint name="leadEditContentTopExtension"></core:ExtensionPoint>	
+       	<ui:form.SimpleForm id="form1" minWidth="1024" 
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	  <ui:content > 	  
+       	  
+       	    
+       	    <Label id="descriptionLabel"  text="{i18n>NAME}"> </Label>  
+            <Input id="inputName" maxLength="40" placeholder="{i18n>MAX_CHARS}"></Input>	 
+       	    
+       	   
+       	  </ui:content>
+       	  </ui:form.SimpleForm>
+       	  
+       	     	<ui:form.SimpleForm id="form2" minWidth="1024"
+	maxContainerCols="2"  layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" >   
+	       <ui:content>
+       	     <Label id="accountLabel" text="{i18n>ACCOUNT}"> </Label>  
+       	   	 <Text id="inputAccount" value="{ProspectName}">
+       	   	 </Text>
+       	   </ui:content>
+       	   </ui:form.SimpleForm> 
+     
+       	    	<ui:form.SimpleForm id="form3" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+	<ui:content> 
+       	     <Label id="mainContactLabel" text="{i18n>MAIN_CONTACT}"> </Label>   
+       	     <Input  id="inputMainContact" value="" showValueHelp="true" valueHelpRequest="showContactF4"></Input>
+       	     </ui:content>
+       	     </ui:form.SimpleForm>
+       	     <ui:form.SimpleForm id="form4" visible="{path : 'versioning>/BackendSchemaVersion',formatter : 'cus.crm.lead.util.formatter.formatEmployeeRespField'}" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+	<ui:content> 
+       	     <Label id="empRespLabel"  text="{i18n>EMPLOYEE_RESPONSIBLE}" visible="{path : 'versioning>/BackendSchemaVersion',formatter : 'cus.crm.lead.util.formatter.formatEmployeeRespField'}"> </Label>   
+       	     <Input  id="inputEmpResponsible" value="" showValueHelp="true" valueHelpRequest="showEmployeeF4" visible="{path : 'versioning>/BackendSchemaVersion',formatter : 'cus.crm.lead.util.formatter.formatEmployeeRespField'}"></Input>
+       	     </ui:content>
+       	     </ui:form.SimpleForm>
+       	       
+       	  
+       	  
+     
+       	   	
+       	  
+       	  <ui:form.SimpleForm id="form5" minWidth="1024"
+	maxContainerCols="2"  layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm" >
+		<ui:content>
+			<Label id="leadTypelabel" text="{i18n>LEAD_TYPE}"></Label>
+			<Text id="leadTypetext" text="{json>/ProcessTypeDescription}"></Text>
+		</ui:content>
+       	 <ui:content >     	  
+       		  <Label  id="leadIdLabel" text="{i18n>LEAD_ID}" > </Label>  
+       	      <Text id="textLeadId" ></Text>		
+      	</ui:content> 		
+       	</ui:form.SimpleForm>
+       	
+      	
+      <ui:form.SimpleForm id="form6" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm" >
+       	  <ui:content > 	  			
+       	  				       
+       	       <Label id="startDateLabel" text="{i18n>START_DATE}" > </Label>  
+       	      <ca:DatePicker id="datePickerStartDate" liveChange="startDateChanged" >
+       	     
+       	      
+       	      </ca:DatePicker>
+       	      
+       	     
+       	   
+       	   </ui:content>
+
+       	</ui:form.SimpleForm>
+       	
+       	 <ui:form.SimpleForm id="form7" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm" >
+       	 
+       	   <Label  id="endDateLabel" text="{i18n>END_DATE}" > </Label>  
+       	       <ca:DatePicker id="datePickerEndDate" ></ca:DatePicker>
+       	   
+       	  <ui:content > 	  
+       	   </ui:content>
+
+       	</ui:form.SimpleForm>
+       	   
+       	<ui:form.SimpleForm id="form8" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	  <ui:content>    
+       	       <Label id="originsLabel"  text="{i18n>ORIGIN}" > </Label>
+       	        <Select id= "selectOrigin" items="{json>/Origins}" >
+       	        	<items>
+       	        		<core:Item key="{json>OriginCode}" text= "{json>OriginText}"> </core:Item >
+       	        		
+       	        	</items>
+       	        </Select>
+       	        
+       	
+       	</ui:content>
+
+       	                  </ui:form.SimpleForm>
+       		               <ui:form.SimpleForm id="form9" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	                         <ui:content>    
+       	                            <Label id="campaignLabel" text="{i18n>CAMPAIGN}" ></Label>
+       	                             <Input id="textCampaign" text="{CampaignDescription}" editable="false"></Input>
+                          	</ui:content>
+                         	</ui:form.SimpleForm>
+       	  
+       	  
+       	
+       	
+       	<ui:form.SimpleForm id="form10"  minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	  <ui:content > 
+       	       
+       	       <Label id="priorityLabel" text="{i18n>PRIORITY}" ></Label>  
+       	       <Select id= "selectPriority" items="{json>/Priorities}" >
+       	       		<items>
+       	        		<core:Item key="{json>PriorityCode}" text= "{json>PriorityText}"> </core:Item >
+       	        		
+       	        	</items>
+       	       
+       	       </Select>
+       	       
+       	       
+       	      
+
+       	       
+       	  </ui:content>
+
+       	</ui:form.SimpleForm>
+       	
+       	 <ui:form.SimpleForm id="form11" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	  <ui:content > 
+       	    
+       	     	
+       	       <Label id="qualificationLabel"  text="{i18n>QUALIFICATION}"></Label>  
+       	       <Select id= "selectQualification" items="{json>/QualificationsLevels}"  >
+       	       		<items>
+       	        		<core:Item key="{json>QualificationCode}" text= "{json>QualificationText}"> </core:Item >
+       	        		
+       	        	</items>
+       	       
+       	       
+       	       </Select>
+       	       
+       	 </ui:content>
+
+       	</ui:form.SimpleForm>
+       	
+       		<ui:form.SimpleForm id="form12" minWidth="1024"
+	maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+	labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+	columnsM="1" class="editableForm">
+       	  <ui:content> 
+       	       <Label id="statusLabel" class="StatusPadding" text="{i18n>STATUS}"></Label>  
+       	       <Select id="selectStatus" items="{json>/Statuses}" >
+       	       		<items>
+       	        		<core:Item key="{json>UserStatusCode}" text= "{json>UserStatusText}"> </core:Item >
+       	        	</items>
+       	       </Select>
+       	 </ui:content>
+       	</ui:form.SimpleForm>
+       	<!--  extension to add more content to the edit page -->
+       		<core:ExtensionPoint name="leadEditContentBottomExtension"></core:ExtensionPoint>
+            <ui:ResponsiveFlowLayout id="responsiveBasket">
+             <ui:content>
+        	<Table xmlns="sap.m" xmlns:ui="sap.ui.layout" xmlns:core="sap.ui.core"  id="productBasketEdit" headerDesign="Standard"  items="{json>/Products}"  noDataText="{i18n>EMPTY_BASKET}"> 
+				 <headerToolbar >
+					<Toolbar id="productToolbar" >
+						<Label id="productText_S3" text="{i18n>PRODUCT_BASKET}">
+						</Label>
+						<ToolbarSpacer id="productSpacer">
+						</ToolbarSpacer>
+						<Button icon="sap-icon://add" text="{path:'i18n>ADD_MORE_PRODUCTS',formatter :'cus.crm.lead.util.formatter.formatAddMoreProductsText'}" press="showProductDialog">
+						</Button>
+					</Toolbar>
+				</headerToolbar>
+							<columns>
+							<!--  extension to add more columns to the product basket -->
+							<core:ExtensionPoint name="leadProductTabColumnExtension"></core:ExtensionPoint>
+								<Column id="basketColumn1_S4" vAlign="Middle" width="50%">
+									<header>
+										<Label id="productLabel_S4" text="{i18n>PRODUCT_OR_CATEGORY}" design="Bold"></Label>
+									</header>
+								</Column>
+								<Column id="basketColumn2_S4" vAlign="Middle"   design="Bold">
+									<header>
+										<Label id="quantityLabel_S4" text="{i18n>QUANTITY}" design="Bold" hAlign="Right"></Label>
+									</header>
+								</Column>
+								
+								<Column id="basketColumn3_S4" vAlign="Middle" hAlign="Right" minScreenWidth="Tablet" demandPopin="true" >
+								</Column>
+						<!-- extension to add more columns to the product basket -->	
+							<core:ExtensionPoint name="leadProductTabColumnEndExtension"></core:ExtensionPoint>	
+							</columns>
+							
+							<items >
+								<ColumnListItem id="basketTemplate_S4">
+									<cells>
+									<!--  extension to add cells to the product basket list item -->
+									<core:ExtensionPoint name="leadProductTabCellsExtension"></core:ExtensionPoint>
+									<ObjectIdentifier id="productClassify"
+										 title="{path : 'json>ProductGuid', formatter : 'cus.crm.lead.util.formatter.formatProductName'}" 
+										 text="{path: 'json>ProductGuid',formatter : 'cus.crm.lead.util.formatter.formatProdClassification'}">
+										</ObjectIdentifier>
+										<HBox id="basketHBox" height="100%">
+										<items>
+										<Input id="quantityValue_S4"  value="{json>Quantity}" width="70px" editable="{path : 'json>ProductGuid', formatter : 'cus.crm.lead.util.formatter.formatQuantityField'}" liveChange="quantityChanged" ></Input>
+										<Label id="textUnit" text="{json>Unit}"  class="UnitPadding" ></Label>
+										</items>
+										</HBox>
+										
+									<Button id="productDeleteButton_S4"  icon="sap-icon://sys-cancel-2" type="Transparent" press="deleteProduct" visible="{path : 'json>ProductGuid',formatter : 'cus.crm.lead.util.formatter.formatDeleteButton'}"></Button>
+									<!--  extension to add more cells to the product basket list item -->
+									<core:ExtensionPoint name="leadProductTabCellsEndExtension"></core:ExtensionPoint>
+									</cells>
+								
+								</ColumnListItem>
+							
+							</items>
+						
+						</Table>
+						</ui:content>
+						</ui:ResponsiveFlowLayout>
+        </content>
+        			
+    </Page>
+            
+        			
+</core:View>
