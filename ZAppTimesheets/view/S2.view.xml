@@ -1,0 +1,27 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	controllerName="hcm.mgr.approve.timesheet.view.S2">
+	<Page id="page">
+		<content>
+			<List
+				id="list"
+				showNoData="false"
+				mode="{device>/listMode}"
+				select="_handleSelect"
+				SwipeDirection="Both">
+				<swipeContent>
+					<Button
+						text="{i18n>TSA_APPROVE}"
+						type="Accept"
+						tap="_submit"></Button>
+				</swipeContent>
+			</List>
+		</content>
+	</Page>
+</core:View>

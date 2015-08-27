@@ -1,0 +1,266 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"
+	controllerName="hcm.mgr.approve.leaverequests.view.S3">
+	<Page id="detailPage">
+		<ObjectHeader
+			id="DetailHeader"
+			number="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterAbsenceDuration'}"
+			numberUnit="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterAbsenceDurationUnit'}"
+			title="{RequesterName}"
+			titleActive="true"
+			titlePress="_handleNamePress">
+			<statuses>
+				<ObjectStatus
+					text="{parts:[{path:'ChangeDate'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterTimestampToDate'}"></ObjectStatus>
+				<ObjectStatus
+					state="Warning"
+					text="{parts:[{path:'LeaveRequestType'},{path:'RequesterName'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterHeaderCancelStatus'}"></ObjectStatus>
+			</statuses>
+			<attributes>
+				<ObjectAttribute
+					id="RequesterNumber"
+					text="{parts:[{path:'RequesterNumber'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterEmployeeID'}"></ObjectAttribute>
+				<ObjectAttribute
+					id="LeaveTypeDesc"
+					text="{LeaveTypeDesc}"></ObjectAttribute>
+				<ObjectAttribute
+					id="Timeframe"
+					text="{parts:[{path:'StartDate'},{path:'StartTime'},{path:'EndDate'},{path:'EndTime'},{path:'AllDayFlag'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterAbsenceDays3'}"></ObjectAttribute>
+			</attributes>
+			<!-- extension point for additional fields in header -->	
+        	<core:ExtensionPoint name="extS3Header"></core:ExtensionPoint>
+		</ObjectHeader>
+		<IconTabBar
+			id="LRAtc"
+			select="_handleTabSelect">
+			<items>
+				<IconTabFilter
+					icon="sap-icon://hint"
+					iconColor="Default"
+					key="contentInfo">
+					<content>
+						<form:Form id="myForm">
+							<form:layout>
+								<form:ResponsiveLayout id="informationLayout" />
+							</form:layout>
+							<form:formContainers>
+								<form:FormContainer id="formContainer">
+									<form:layoutData>
+										<layout:ResponsiveFlowLayoutData
+											linebreak="true"
+											margin="false">
+										</layout:ResponsiveFlowLayoutData>
+									</form:layoutData>
+									<form:formElements>
+										<form:FormElement
+											visible="{parts:[{path:'CurrentBalTimeUnitCode'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterCurrentBalanceVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false">
+												</layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="CurrentBalanceLabel"
+													text="{i18n>view.AddInfo.CurrentBalance}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="CurrentBalance"
+													text="{parts:[{path:'CurrentBalance'},{path:'CurrentBalTimeUnitCode'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterCurrentBalance'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement>
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false">
+												</layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="RequestedLabel"
+													text="{i18n>view.AddInfo.Requested}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="Requested"
+													text="{parts:[{path:'AbsenceDays'},{path:'AbsenceHours'},{path:'AllDayFlag'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterAbsenceDurationAndUnit'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement>
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false">
+												</layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="LeaveType"
+													text="{i18n>view.AddInfo.LeaveType}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="formLeaveTypeDesc"
+													text="{LeaveTypeDesc}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement
+											id="Overlaps"
+											visible="{parts:[{path:'Overlaps'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterOverlapsVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false">
+												</layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label
+													id="OverlapListLabel"
+													text="{parts:[{path:'Overlaps'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterOverlaps'}">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Text
+													id="OverlapList"
+													text="{OverlapList}"
+													press="_handleOverlapTap">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"
+															align-items="End">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Text>
+											</form:fields>
+										</form:FormElement>
+										<form:FormElement
+											visible="{parts:[{path:'Overlaps'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterOverlapsVisible'}">
+											<form:layoutData>
+												<layout:ResponsiveFlowLayoutData
+													linebreak="true"
+													margin="false">
+												</layout:ResponsiveFlowLayoutData>
+											</form:layoutData>
+											<form:label>
+												<Label id="OverlapLinkLabel">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="3"
+															min-width="192">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Label>
+											</form:label>
+											<form:fields>
+												<Link
+													id="OverlapLink"
+													text="{parts:[{path:'Overlaps'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterOverlapLink'}"
+													press="_handleOverlapTap">
+													<layoutData>
+														<layout:ResponsiveFlowLayoutData
+															weight="5"
+															align-items="End">
+														</layout:ResponsiveFlowLayoutData>
+													</layoutData>
+												</Link>
+											</form:fields>
+										</form:FormElement>
+									</form:formElements>
+								</form:FormContainer>
+							</form:formContainers>
+						</form:Form>
+					</content>
+				</IconTabFilter>
+				<IconTabFilter
+					icon="sap-icon://notes"
+					iconColor="Default"
+					count="{NotesCounter}"
+					key="contentNotes"
+					visible="{parts:[{path:'NotesCounter'}], formatter:'hcm.mgr.approve.leaverequests.util.Conversions.formatterNotesVisible'}">
+					<VBox
+						id="NotesArea"
+						alignItems="Start">
+						<List
+							id="NotesList"
+							items="{notes>/Notes/results}"
+							inset="false"
+							mode="SingleSelectMaster"
+							showSeparators="None"
+							headerDesign="Plain">
+							<FeedListItem
+								id="feed"
+								sender="{notes>Name}"
+								senderPress="_handleSenderPress"
+								text="{notes>NoticeText}"
+								timestamp="{parts:[{path:'notes>ModTimestamp'}], formatter:'hcm.mgr.approve.leaverequests.util.hcm.mgr.approve.leaverequests.util.Conversions.formatterTimestampToDate'}">
+							</FeedListItem>
+						</List>
+					</VBox>
+				</IconTabFilter>
+				<!-- extension point for additional IconTabFilter -->
+				<core:ExtensionPoint name="extS3Tab"/>
+			</items>
+		</IconTabBar>
+		<footer>
+			<Bar id="detailFooter">
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

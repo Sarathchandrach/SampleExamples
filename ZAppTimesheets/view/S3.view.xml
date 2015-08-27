@@ -1,0 +1,370 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    controllerName="hcm.mgr.approve.timesheet.view.S3">
+    <Page title="{i18n>TSA_APP}" showNavButton="{device>/showNavButton}">
+        <content>
+            <ObjectHeader
+                title="{DetailModel>/EmpName}"
+                number="{DetailModel>/Completion}" numberUnit="{i18n>TSA_COMPLETED}"
+                visible="{DetailModel>/PeopleVisible}">
+                <attributes>
+                    <ObjectAttribute
+                        id="ATTR1"
+                        text="{DetailModel>/Posname}" />
+                </attributes>
+                <firstStatus>
+                    <ObjectStatus text="{path:'DetailModel>Overtime', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseOverTime'}"></ObjectStatus>
+                </firstStatus>
+                <!-- extension point for additional fields -->
+                <core:ExtensionPoint name="extS3Header"></core:ExtensionPoint>
+            </ObjectHeader>
+            <Table
+                headerDesign="Standard"
+                id="operations"
+                inset="true"
+                items="{DetailModel>/Weeks}"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true"
+                mode="None"
+                visible="false"
+                showNoData="false">
+                <columns>
+                    <Column
+                        hAlign="Left"
+                        width="200px"
+                        demandPopin="true">
+                        <header>
+                            <Label
+                                design="Bold"
+                                text="{i18n>TSA_WEEKS}" />
+                        </header>
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        minScreenWidth="2000px"
+                        demandPopin="true">
+                        <!-- <header> <Label design="Bold" /> </header> -->
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        minScreenWidth="Tablet"
+                        width="100px"
+                        demandPopin="true">
+                        <header>
+                            <Label
+                                design="Bold"
+                                text="{i18n>TSA_RECORDED}" />
+                        </header>
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        width="80px"
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                        <header>
+                            <Label
+                                design="Bold"
+                                text="{i18n>TSA_COMPLETED}" />
+                        </header>
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        width="70px"
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Inactive">
+                        <cells>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_WEEKENTRY_WeekNrCell"
+                                direction="Column">
+                                <layout:content>
+                                    <Text
+                                        id="TSA_TXT_WEEK"
+                                        text="{parts: [{path:'i18n>TSA_WEEK'},{path:'DetailModel>Weeknr'}]}"
+                                        maxLines="0"></Text>
+                                    <Text
+                                        text="{parts: [{path:'DetailModel>Weekstart'},{path:'DetailModel>Weekend'}], formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseDateWeek'}"
+                                        maxLines="0"></Text>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_WEEKENTRY_DaysCell"
+                                class="tsaList_RemovePadding"
+                                visible="{path:'DetailModel>DayVisible'}">
+                                <layout:content>
+                                    <layout:VerticalLayout content="{WeekModel>/Days}">
+                                        <layout:content>
+                                            <Table
+                                                id="TSA_LIST_DAYENTRY"
+                                                headerDesign="Standard"
+                                               
+                                                mode="None"
+                                                showNoData="false"
+                                                inset="true"
+                                                headerText="{path: 'WeekModel>Workdate', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseDateDay'}">
+                                                <columns>
+                                                    <Column
+                                                        id="TSA_LIST_DAYENTRY_SwitchCol"
+                                                        width="100px"
+                                                        hAlign="Left"
+                                                        
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_LIST_DAYENTRY_DescCol"
+                                                        hAlign="Left"
+                                                        width="200px"
+                                                        minScreenWidth="Tablet"
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_LIST_DAYENTRY_TimeCol"
+                                                        width="100px"
+                                                        hAlign="Left"
+                                                        minScreenWidth="Tablet"
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_LIST_DAYENTRY_NotesCol"
+                                                        width="50px"
+                                                        hAlign="Left"
+                                                        
+                                                        demandPopin="true"></Column>
+                                                </columns>
+                                                <items>
+                                                    <ColumnListItem id="TSA_LIST_DAY_COL_LIST">
+                                                        <cells>
+                                                            <Switch
+                                                                id="TSA_LIST_DAYENTRY_SwitchCell"
+                                                                state="{path:'WeekModel>Status', formatter:'hcm.mgr.approve.timesheet.utility.Parser.statusToBoolean'}"
+                                                                type="AcceptReject"
+                                                                change="updateStatus"></Switch>
+                                                            <layout:VerticalLayout
+                                                                id="TSA_LIST_DAYENTRY_DescCell"
+                                                                direction="Column">
+                                                                <layout:content>
+                                                                    <Text
+                                                                        text="{parts:[{path:'WeekModel>Cotype'},{path:'WeekModel>Codesc'}], formatter:'hcm.mgr.approve.timesheet.utility.Parser.projectCode'}"
+                                                                        maxLines="0"></Text>
+                                                                    <Text
+                                                                        text="{path:'WeekModel>TimeText'}"
+                                                                        maxLines="0"></Text>
+                                                                </layout:content>
+                                                            </layout:VerticalLayout>
+                                                            <Text
+                                                                id="TSA_LIST_DAYENTRY_TimeCell"
+                                                                text="{path:'WeekModel>Actualhours', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseTimeDisplay'}"
+                                                                maxLines="0"></Text>
+                                                            <Button
+                                                                id="TSA_LIST_DAYENTRY_NotesCell"
+                                                                icon="sap-icon://notes"
+                                                                press="displayNotesEmployee"></Button>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                </items>
+                                            </Table>
+                                        </layout:content>
+                                    </layout:VerticalLayout>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_WEEKENTRY_RecCell"
+                                direction="Column">
+                                <layout:content>
+                                    <Text
+                                        id="TSA_TXT_RECORDED"
+                                        text="{path:'DetailModel>Actualhours', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseTimeDisplay'}"
+                                        maxLines="0"></Text>
+                                    <Label
+                                        class="tsaOvertime"
+                                        text="{path:'DetailModel>Overtime', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseOverTime'}"></Label>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <Text
+                                id="TSA_TXT_PERCENTAGE"
+                                text="{path:'DetailModel>Percentage'}"
+                                maxLines="0"></Text>
+                            <Link
+                                id="TSA_LIST_WEEKENTRY_VisibleTextCell"
+                                press="showWeekData"
+                                text="{path:'DetailModel>DayVisibleText'}"></Link>
+                        
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <!-- extension point for additional fields -->
+                 <core:ExtensionPoint name="extS3Table"></core:ExtensionPoint>
+            </Table>
+            <!--Cost Assignment -->
+            <ObjectHeader
+                title="{parts:[{path:'DetailModel>/Cotype'},{path:'DetailModel>/Codesc'}],formatter:'hcm.mgr.approve.timesheet.utility.Parser.projectTitle'}"
+                number="{DetailModel>/No_People}"
+                numberUnit="{i18n>TSA_PEOPLE}"
+                visible="{DetailModel>/CostVisible}">
+                <firstStatus>
+                    <ObjectStatus text="{path:'DetailModel>Overtime', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseOverTime'}"></ObjectStatus>
+                </firstStatus>
+                <!-- extension point for additional fields -->
+                <core:ExtensionPoint name="extS3CostHeader"></core:ExtensionPoint>
+            </ObjectHeader>
+            <Table
+                headerDesign="Standard"
+                id="cost"
+                inset="true"
+                items="{DetailModel>/Peoples}"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true"
+                mode="None"
+                visible="false"
+                showNoData="false">
+                <columns>
+                    <Column
+                        hAlign="Left"
+                        width="100px"
+                        demandPopin="true">
+                        <header>
+                            <Label
+                                design="Bold"
+                                text="{i18n>TSA_PEOPLE}" />
+                        </header>
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        minScreenWidth="2000px"
+                        demandPopin="true">
+                        <!-- <header> <Label design="Bold" /> </header> -->
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        minScreenWidth="Tablet"
+                        width="50px"
+                        demandPopin="true">
+                        <header>
+                            <Label
+                                design="Bold"
+                                text="{i18n>TSA_RECORDED}" />
+                        </header>
+                    </Column>
+                    <Column
+                        hAlign="Left"
+                        width="80px"
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Inactive">
+                        <cells>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_PEOPLEENTRY_TitleCell"
+                                direction="Column">
+                                <layout:content>
+                                    <Text text="{path:'DetailModel>EmpName'}"></Text>
+                                    <Text text="{path:'DetailModel>Posname'}"></Text>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_PEOPLEENTRY_DaysCell"
+                                class="tsaList_RemovePadding"
+                                visible="{path:'DetailModel>DayVisible'}">
+                                <layout:content>
+                                    <layout:VerticalLayout content="{PeopleModel>/Days}">
+                                        <layout:content>
+                                            <Table
+                                                id="TSA_CA_LIST_DAYENTRY"
+                                                headerDesign="Standard"
+                                               
+                                                mode="None"
+                                                showNoData="false"
+                                                inset="true"
+                                                headerText="{path: 'PeopleModel>Workdate', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseDateDay'}">
+                                                <columns>
+                                                    <Column
+                                                        id="TSA_CA_LIST_DAYENTRY_SwitchCol"
+                                                        width="100px"
+                                                        hAlign="Left"
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_CA_LIST_DAYENTRY_DescCol"
+                                                        hAlign="Left"
+                                                        width="200px"
+                                                        minScreenWidth="Tablet"
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_CA_LIST_DAYENTRY_TimeCol"
+                                                        width="100px"
+                                                        hAlign="Left"
+                                                        minScreenWidth="Tablet"
+                                                        demandPopin="true"></Column>
+                                                    <Column
+                                                        id="TSA_CA_LIST_DAYENTRY_NotesCol"
+                                                        width="50px"
+                                                        hAlign="Left"
+                                                        demandPopin="true"></Column>
+                                                </columns>
+                                                <items>
+                                                    <ColumnListItem id="TSA_CA_LIST_DAY_COL_LIST">
+                                                        <cells>
+                                                            <Switch
+                                                                id="TSA_CA_LIST_DAYENTRY_SwitchCell"
+                                                                state="{path:'PeopleModel>Status', formatter:'hcm.mgr.approve.timesheet.utility.Parser.statusToBoolean'}"
+                                                                type="AcceptReject"
+                                                                change="updateStatus_CA"></Switch>
+                                                            <Text
+                                                                text="{path:'PeopleModel>TimeText'}"
+                                                                maxLines="0"></Text>
+                                                            <Text
+                                                                id="TSA_CA_LIST_DAYENTRY_TimeCell"
+                                                                text="{path:'PeopleModel>Actualhours', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseTimeDisplay'}"
+                                                                maxLines="0"></Text>
+                                                            <Button
+                                                                id="TSA_CA_LIST_DAYENTRY_NotesCell"
+                                                                icon="sap-icon://notes"
+                                                                press="displayNotesCost"></Button>
+                                                         
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                </items>
+                                            </Table>
+                                        </layout:content>
+                                    </layout:VerticalLayout>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <layout:VerticalLayout
+                                id="TSA_LIST_PEOPLEENTRY_RecCell"
+                                direction="Column">
+                                <layout:content>
+                                    <Text
+                                        text="{path:'DetailModel>Actualhours', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseTimeDisplay'}"
+                                        maxLines="0"></Text>
+                                    <Label
+                                        class="tsaOvertime"
+                                        text="{path:'DetailModel>Overtime', formatter:'hcm.mgr.approve.timesheet.utility.Parser.parseOverTime'}"></Label>
+                                </layout:content>
+                            </layout:VerticalLayout>
+                            <Link
+                                id="TSA_CA_LIST_WEEKENTRY_VisibleTextCell"
+                                press="showPeopleData"
+                                text="{path:'DetailModel>DayVisibleText'}"></Link>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <!-- extension point for additional fields -->
+                <core:ExtensionPoint name="extS3TableCA"></core:ExtensionPoint>
+            </Table>
+        </content>
+        <footer>
+            <Bar>
+            </Bar>
+        </footer>
+    </Page>
+</core:View>
